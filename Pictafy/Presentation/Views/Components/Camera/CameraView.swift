@@ -20,6 +20,7 @@ struct CameraView: UIViewControllerRepresentable {
     public init(events: CameraUserEvents,
                 preferredStartingCameraType: AVCaptureDevice.DeviceType = .builtInWideAngleCamera,
                 preferredStartingCameraPosition: AVCaptureDevice.Position = .back) {
+        
         self.events = events
            
         self.preferredStartingCameraType = preferredStartingCameraType

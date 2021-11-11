@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    @ObservedObject var cameraUserEvents = CameraUserEvents()
+    
     var body: some View {
-       Text("Hello World")
+        CameraView(events: cameraUserEvents);
     }
 }
 
