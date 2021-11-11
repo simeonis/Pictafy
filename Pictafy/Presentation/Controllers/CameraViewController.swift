@@ -8,11 +8,15 @@
 import UIKit
 import AVFoundation
 
-class CameraController: UIViewController{
-    
+class CameraViewController: UIViewController{
     
     // MARK: Vars
-    @IBOutlet var cameraButton:UIButton!
+    public var preferredStartingCameraType: AVCaptureDevice.DeviceType?
+    public var preferredStartingCameraPosition: AVCaptureDevice.Position?
+    
+    public var delegate: CameraViewControllerDelegate?
+    
+    //@IBOutlet var cameraButton:UIButton!
     
     var backFacingCamera: AVCaptureDevice?
     var frontFacingCamera: AVCaptureDevice?
@@ -21,7 +25,12 @@ class CameraController: UIViewController{
     var stillImageOutput: AVCapturePhotoOutput!
     var stillImage: UIImage?
     
+    ///current capture session
     let captureSession = AVCaptureSession()
+    private let sessionQueue = DispatchQueue(label: "session queue")
+    
+    //Private Output Variables 
+    private var photoOutput: AVCapturePhotoOutput?
     
     var cameraPreviewLayer: AVCaptureVideoPreviewLayer?
     
@@ -63,24 +72,26 @@ class CameraController: UIViewController{
         cameraPreviewLayer?.frame = view.layer.frame
                  
         // Bring the camera button to front
-        view.bringSubviewToFront(cameraButton)
+        //view.bringSubviewToFront(cameraButton)
         captureSession.startRunning()
         
     }
     
-    // MARK: Action methods
-    @IBAction func capture(sender: UIButton) {
-            // Set photo settings
-            let photoSettings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
-            photoSettings.isHighResolutionPhotoEnabled = true
-            photoSettings.flashMode = .auto
+    // MARK: Public Action Methods
+    public func takePhoto() {
+        sessionQueue.async {
+             let photoSettings = AVCapturePhotoSettings()
              
-            stillImageOutput.isHighResolutionCaptureEnabled = true
-            stillImageOutput.capturePhoto(with: photoSettings, delegate: self)
-    }
+//             if self.videoDeviceInput!.device.isFlashAvailable {
+//                 photoSettings.flashMode = self.flashMode
+//             }
+             
+             self.photoOutput?.capturePhoto(with: photoSettings, delegate: self)
+        }
+     }
 }
 
-extension CameraController: AVCapturePhotoCaptureDelegate {
+extension CameraViewController: AVCapturePhotoCaptureDelegate {
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         guard error == nil else {
             return
