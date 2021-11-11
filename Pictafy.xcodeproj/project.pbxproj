@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A2367CEF273CC40800DC28B3 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2367CEE273CC40800DC28B3 /* SignInView.swift */; };
 		F05CB5C1272E0F6F00EC951C /* PictafyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05CB5C0272E0F6F00EC951C /* PictafyApp.swift */; };
 		F05CB5C3272E0F6F00EC951C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05CB5C2272E0F6F00EC951C /* ContentView.swift */; };
 		F05CB5C5272E0F7000EC951C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F05CB5C4272E0F7000EC951C /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A2367CEE273CC40800DC28B3 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		F05CB5BD272E0F6F00EC951C /* Pictafy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pictafy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F05CB5C0272E0F6F00EC951C /* PictafyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictafyApp.swift; sourceTree = "<group>"; };
 		F05CB5C2272E0F6F00EC951C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -54,6 +56,7 @@
 			children = (
 				F05CB5C0272E0F6F00EC951C /* PictafyApp.swift */,
 				F05CB5C2272E0F6F00EC951C /* ContentView.swift */,
+				A2367CEE273CC40800DC28B3 /* SignInView.swift */,
 				F05CB5C4272E0F7000EC951C /* Assets.xcassets */,
 				F05CB5C9272E0F7000EC951C /* Info.plist */,
 				F05CB5C6272E0F7000EC951C /* Preview Content */,
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2367CEF273CC40800DC28B3 /* SignInView.swift in Sources */,
 				F05CB5C3272E0F6F00EC951C /* ContentView.swift in Sources */,
 				F05CB5C1272E0F6F00EC951C /* PictafyApp.swift in Sources */,
 			);
