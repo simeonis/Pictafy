@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		A2367CEF273CC40800DC28B3 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2367CEE273CC40800DC28B3 /* SignInView.swift */; };
 		F05CB5C1272E0F6F00EC951C /* PictafyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05CB5C0272E0F6F00EC951C /* PictafyApp.swift */; };
-		F05CB5C3272E0F6F00EC951C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05CB5C2272E0F6F00EC951C /* ContentView.swift */; };
+		F05CB5C3272E0F6F00EC951C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05CB5C2272E0F6F00EC951C /* HomeView.swift */; };
 		F05CB5C5272E0F7000EC951C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F05CB5C4272E0F7000EC951C /* Assets.xcassets */; };
 		F05CB5C8272E0F7000EC951C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F05CB5C7272E0F7000EC951C /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -18,7 +18,7 @@
 		A2367CEE273CC40800DC28B3 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		F05CB5BD272E0F6F00EC951C /* Pictafy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pictafy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F05CB5C0272E0F6F00EC951C /* PictafyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictafyApp.swift; sourceTree = "<group>"; };
-		F05CB5C2272E0F6F00EC951C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F05CB5C2272E0F6F00EC951C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		F05CB5C4272E0F7000EC951C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F05CB5C7272E0F7000EC951C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F05CB5C9272E0F7000EC951C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -35,6 +35,52 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5DABF792273CCCE0008CB9ED /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5DABF793273CCCEE008CB9ED /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A2367CEE273CC40800DC28B3 /* SignInView.swift */,
+				F05CB5C2272E0F6F00EC951C /* HomeView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5DABF794273CCD03008CB9ED /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				5DABF795273CCD0C008CB9ED /* Repositories */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		5DABF795273CCD0C008CB9ED /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		5DABF796273CCD37008CB9ED /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		5DABF797273CCD49008CB9ED /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				F05CB5C0272E0F6F00EC951C /* PictafyApp.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
 		F05CB5B4272E0F6F00EC951C = {
 			isa = PBXGroup;
 			children = (
@@ -54,9 +100,11 @@
 		F05CB5BF272E0F6F00EC951C /* Pictafy */ = {
 			isa = PBXGroup;
 			children = (
-				F05CB5C0272E0F6F00EC951C /* PictafyApp.swift */,
-				F05CB5C2272E0F6F00EC951C /* ContentView.swift */,
-				A2367CEE273CC40800DC28B3 /* SignInView.swift */,
+				5DABF797273CCD49008CB9ED /* Application */,
+				5DABF793273CCCEE008CB9ED /* Views */,
+				5DABF792273CCCE0008CB9ED /* Models */,
+				5DABF794273CCD03008CB9ED /* Data */,
+				5DABF796273CCD37008CB9ED /* Services */,
 				F05CB5C4272E0F7000EC951C /* Assets.xcassets */,
 				F05CB5C9272E0F7000EC951C /* Info.plist */,
 				F05CB5C6272E0F7000EC951C /* Preview Content */,
@@ -142,7 +190,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2367CEF273CC40800DC28B3 /* SignInView.swift in Sources */,
-				F05CB5C3272E0F6F00EC951C /* ContentView.swift in Sources */,
+				F05CB5C3272E0F6F00EC951C /* HomeView.swift in Sources */,
 				F05CB5C1272E0F6F00EC951C /* PictafyApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
