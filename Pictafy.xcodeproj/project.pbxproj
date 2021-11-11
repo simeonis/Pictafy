@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D5BEA36273D72AD000440DE /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5BEA35273D72AD000440DE /* CameraController.swift */; };
+		5DF4BAD2273CED2000E06F74 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF4BAD1273CED2000E06F74 /* CameraView.swift */; };
 		A2367CEF273CC40800DC28B3 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2367CEE273CC40800DC28B3 /* SignInView.swift */; };
 		F05CB5C1272E0F6F00EC951C /* PictafyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05CB5C0272E0F6F00EC951C /* PictafyApp.swift */; };
 		F05CB5C3272E0F6F00EC951C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05CB5C2272E0F6F00EC951C /* HomeView.swift */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D5BEA35273D72AD000440DE /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
+		5DF4BAD1273CED2000E06F74 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		A2367CEE273CC40800DC28B3 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		F05CB5BD272E0F6F00EC951C /* Pictafy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pictafy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F05CB5C0272E0F6F00EC951C /* PictafyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictafyApp.swift; sourceTree = "<group>"; };
@@ -35,6 +39,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D5BEA34273D7284000440DE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5D5BEA35273D72AD000440DE /* CameraController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		5D5BEA39273D813B000440DE /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				5DF4BAD1273CED2000E06F74 /* CameraView.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
 		5DABF792273CCCE0008CB9ED /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -45,8 +65,8 @@
 		5DABF793273CCCEE008CB9ED /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A2367CEE273CC40800DC28B3 /* SignInView.swift */,
-				F05CB5C2272E0F6F00EC951C /* HomeView.swift */,
+				5DF4BACA273CEA9800E06F74 /* Components */,
+				5DF4BAD0273CEC1A00E06F74 /* Screens */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -81,6 +101,40 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
+		5DF4BAC9273CEA8000E06F74 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				5DABF793273CCCEE008CB9ED /* Views */,
+				5D5BEA34273D7284000440DE /* Controllers */,
+				5DF4BACD273CEB2600E06F74 /* Utils */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		5DF4BACA273CEA9800E06F74 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				5D5BEA39273D813B000440DE /* Camera */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		5DF4BACD273CEB2600E06F74 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		5DF4BAD0273CEC1A00E06F74 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				A2367CEE273CC40800DC28B3 /* SignInView.swift */,
+				F05CB5C2272E0F6F00EC951C /* HomeView.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
 		F05CB5B4272E0F6F00EC951C = {
 			isa = PBXGroup;
 			children = (
@@ -101,7 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				5DABF797273CCD49008CB9ED /* Application */,
-				5DABF793273CCCEE008CB9ED /* Views */,
+				5DF4BAC9273CEA8000E06F74 /* Presentation */,
 				5DABF792273CCCE0008CB9ED /* Models */,
 				5DABF794273CCD03008CB9ED /* Data */,
 				5DABF796273CCD37008CB9ED /* Services */,
@@ -190,6 +244,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2367CEF273CC40800DC28B3 /* SignInView.swift in Sources */,
+				5DF4BAD2273CED2000E06F74 /* CameraView.swift in Sources */,
+				5D5BEA36273D72AD000440DE /* CameraController.swift in Sources */,
 				F05CB5C3272E0F6F00EC951C /* HomeView.swift in Sources */,
 				F05CB5C1272E0F6F00EC951C /* PictafyApp.swift in Sources */,
 			);
@@ -321,7 +377,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Pictafy/Preview Content\"";
-				DEVELOPMENT_TEAM = QP5FF7Y6D5;
+				DEVELOPMENT_TEAM = 2C833Y2NTV;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Pictafy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -343,7 +399,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Pictafy/Preview Content\"";
-				DEVELOPMENT_TEAM = QP5FF7Y6D5;
+				DEVELOPMENT_TEAM = 2C833Y2NTV;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Pictafy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
