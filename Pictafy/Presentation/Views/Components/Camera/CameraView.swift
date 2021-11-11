@@ -20,33 +20,30 @@ struct CameraView: UIViewControllerRepresentable {
     public init(events: CameraUserEvents,
                 preferredStartingCameraType: AVCaptureDevice.DeviceType = .builtInWideAngleCamera,
                 preferredStartingCameraPosition: AVCaptureDevice.Position = .back) {
-        
-           self.events = events
+        self.events = events
            
-           self.preferredStartingCameraType = preferredStartingCameraType
-           self.preferredStartingCameraPosition = preferredStartingCameraPosition
-           
-
+        self.preferredStartingCameraType = preferredStartingCameraType
+        self.preferredStartingCameraPosition = preferredStartingCameraPosition
     }
     
     public func makeUIViewController(context: Context) -> CameraViewController {
-           let cameraViewController = CameraViewController()
-           cameraViewController.delegate = context.coordinator
+        let cameraViewController = CameraViewController()
+        cameraViewController.delegate = context.coordinator
            
-           cameraViewController.preferredStartingCameraType = preferredStartingCameraType
-           cameraViewController.preferredStartingCameraPosition = preferredStartingCameraPosition
+        cameraViewController.preferredStartingCameraType = preferredStartingCameraType
+        cameraViewController.preferredStartingCameraPosition = preferredStartingCameraPosition
            
-           return cameraViewController
+        return cameraViewController
     }
     
     public func updateUIViewController(_ cameraViewController: CameraViewController, context: Context) {
-            if events.didAskToCapturePhoto {
-                cameraViewController.takePhoto()
-            }
+        if events.didAskToCapturePhoto {
+            cameraViewController.takePhoto()
+        }
     }
     
     public func makeCoordinator() -> Coordinator {
-           Coordinator(self)
+        Coordinator(self)
     }
     
     // MARK: Coordinator
