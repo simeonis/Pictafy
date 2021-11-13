@@ -9,10 +9,19 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @ObservedObject var cameraUserEvents = CameraUserEvents()
-    
     var body: some View {
-        CameraView(events: cameraUserEvents);
+        TabView {
+            VStack{
+                Text("Home")
+            }
+            .tabItem {
+                Label("Home", systemImage: "house.fill")
+            }
+            CameraScreen()
+            .tabItem {
+                Label("Camera", systemImage: "camera.fill")
+            }
+        }
     }
 }
 

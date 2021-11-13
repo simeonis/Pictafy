@@ -8,8 +8,6 @@
 import UIKit
 
 public protocol CameraViewControllerDelegate {
-//    func cameraAccessGranted()
-//    func cameraAccessDenied()
     func noCameraDetected()
     func cameraSessionStarted()
     
@@ -19,5 +17,5 @@ public protocol CameraViewControllerDelegate {
     func didFinishProcessingPhoto(_ image: UIImage)
     func didFinishSavingWithError(_ image: UIImage, error: NSError?, contextInfo: UnsafeRawPointer)
     
-//    func didChangeMaximumVideoDuration(_ duration: Double)
+    //func didChangeMaximumVideoDuration(_ duration: Double)
 }

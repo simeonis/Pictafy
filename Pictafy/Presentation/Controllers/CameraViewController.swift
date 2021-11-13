@@ -17,9 +17,9 @@ class CameraViewController: UIViewController{
     public var delegate: CameraViewControllerDelegate?
     
     //Input Devices =====================================================
-//    var backFacingCamera: AVCaptureDevice?
-//    var frontFacingCamera: AVCaptureDevice?
-//    var currentDevice: AVCaptureDevice!
+    //var backFacingCamera: AVCaptureDevice?
+    //var frontFacingCamera: AVCaptureDevice?
+    //var currentDevice: AVCaptureDevice!
     private var videoDeviceInput: AVCaptureDeviceInput!
     
     //Outputs ===========================================================
@@ -32,10 +32,11 @@ class CameraViewController: UIViewController{
         case notAuthorized
         case configurationFailed
     }
+    private var setupResult: SessionSetupResult = .success
     ///current capture session
     let captureSession = AVCaptureSession()
     private let sessionQueue = DispatchQueue(label: "session queue")
-    private var setupResult: SessionSetupResult = .success
+    private var isCaptureSessionRunning = false
     
     //Private Output Variables===========================================
     let photoOutput = AVCapturePhotoOutput()
@@ -47,17 +48,63 @@ class CameraViewController: UIViewController{
     override func viewDidLoad() {
             super.viewDidLoad()
              
-        configurePreview()
-        getPermissions();
-    }
-    
-    private func configurePreview() {
         // Set up the video preview view.
         cameraPreviewView.session = captureSession
         //cameraPreviewView.videoPreviewLayer.videoGravity = videoGravity
         cameraPreviewView.videoPreviewLayer.connection?.videoOrientation = AVCaptureVideoOrientation.portrait
         cameraPreviewView.frame = view.frame
         view.addSubview(cameraPreviewView)
+        
+        getPermissions();
+        
+        sessionQueue.async {self.configureSession()}
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        sessionQueue.async {
+            switch self.setupResult {
+            case .success:
+                // Begin Session
+                self.captureSession.startRunning()
+                self.isCaptureSessionRunning = self.captureSession.isRunning
+                
+            case .notAuthorized:
+                DispatchQueue.main.async {
+                    let changePrivacySetting = "Pictafy doesn't have permission to use the camera, please change privacy settings"
+                    let message = NSLocalizedString(changePrivacySetting, comment: "Alert message when the user has denied access to the camera")
+                    let alertController = UIAlertController(title: "Pictafy", message: message, preferredStyle: .alert)
+                    
+                    alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Alert OK button"),
+                                                            style: .cancel,
+                                                            handler: nil))
+                    
+                    alertController.addAction(UIAlertAction(title: NSLocalizedString("Settings", comment: "Alert button to open Settings"),
+                                                            style: .`default`,
+                                                            handler: { _ in
+                                                                UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!,
+                                                                                          options: [:],
+                                                                                          completionHandler: nil)
+                    }))
+                    
+                    self.present(alertController, animated: true, completion: nil)
+                }
+                
+            case .configurationFailed:
+                DispatchQueue.main.async {
+                    let alertMsg = "Alert message when something goes wrong during capture session configuration"
+                    let message = NSLocalizedString("Unable to capture media", comment: alertMsg)
+                    let alertController = UIAlertController(title: "Pictafy", message: message, preferredStyle: .alert)
+                    
+                    alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Alert OK button"),
+                                                            style: .cancel,
+                                                            handler: nil))
+                    
+                    self.present(alertController, animated: true, completion: nil)
+                }
+            }
+        }
     }
     
     // MARK: Session Management
@@ -146,8 +193,6 @@ class CameraViewController: UIViewController{
             return
         }
         
-  
-        
         // Add the photo output.
         if captureSession.canAddOutput(photoOutput) {
             captureSession.addOutput(photoOutput)
@@ -159,10 +204,10 @@ class CameraViewController: UIViewController{
             photoOutput.enabledSemanticSegmentationMatteTypes = photoOutput.availableSemanticSegmentationMatteTypes
      
             photoOutput.maxPhotoQualityPrioritization = .quality
-//            livePhotoMode = photoOutput.isLivePhotoCaptureSupported ? .on : .off
-//            depthDataDeliveryMode = photoOutput.isDepthDataDeliverySupported ? .on : .off
-//            portraitEffectsMatteDeliveryMode = photoOutput.isPortraitEffectsMatteDeliverySupported ? .on : .off
-//            photoQualityPrioritizationMode = .balanced
+            //livePhotoMode = photoOutput.isLivePhotoCaptureSupported ? .on : .off
+            //depthDataDeliveryMode = photoOutput.isDepthDataDeliverySupported ? .on : .off
+            //portraitEffectsMatteDeliveryMode = photoOutput.isPortraitEffectsMatteDeliverySupported ? .on : .off
+            //photoQualityPrioritizationMode = .balanced
             
         } else {
             print("Could not add photo output to the session")
@@ -222,7 +267,8 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate {
            
             //2 options to save
             //First is to use UIImageWriteToSavedPhotosAlbum
-//            savePhoto(image)/////////////////////////////////////////////////////////////////////
+            // TODO: implement saving
+            //savePhoto(image)
             //Second is adapting Apple documentation with data of the modified image
             //savePhoto(image.jpegData(compressionQuality: 1)!)
            

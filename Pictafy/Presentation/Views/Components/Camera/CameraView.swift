@@ -69,12 +69,12 @@ struct CameraView: UIViewControllerRepresentable {
             print("didCapturePhoto")
         }
             
-        public func didFinishProcessingPhoto(_ image: UIImage) {
+        public func didFinishProcessingPhoto(image: UIImage) {
             //TODO
             print("didFinishProcessingPhoto")
         }
                     
-        public func didFinishSavingWithError(_ image: UIImage, error: NSError?, contextInfo: UnsafeRawPointer) {
+        public func didFinishSavingWithError(image: UIImage, error: NSError?, contextInfo: UnsafeRawPointer) {
             //TODO
             print("didFinishSavingWithError")
         }
