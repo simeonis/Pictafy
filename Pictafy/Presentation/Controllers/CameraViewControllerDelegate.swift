@@ -14,8 +14,8 @@ public protocol CameraViewControllerDelegate {
     func didCapturePhoto()
     
     //    func didSavePhoto()
-    func didFinishProcessingPhoto(_ image: UIImage)
-    func didFinishSavingWithError(_ image: UIImage, error: NSError?, contextInfo: UnsafeRawPointer)
+    func didFinishProcessingPhoto(image: UIImage)
+    func didFinishSavingWithError(image: UIImage, error: NSError?, contextInfo: UnsafeRawPointer)
     
     //func didChangeMaximumVideoDuration(_ duration: Double)
 }

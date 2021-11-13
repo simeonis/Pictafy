@@ -274,7 +274,7 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate {
            
            
             DispatchQueue.main.async {
-                self.delegate?.didFinishProcessingPhoto(image)
+                self.delegate?.didFinishProcessingPhoto(image:image)
             }
         }
    }
