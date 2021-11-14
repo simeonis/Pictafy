@@ -8,7 +8,7 @@
 import SwiftUI
 import AVFoundation
 
-struct CameraView: UIViewControllerRepresentable {
+struct Camera: UIViewControllerRepresentable {
     
     // MARK: Vars
     @ObservedObject var events: CameraUserEvents
@@ -50,9 +50,9 @@ struct CameraView: UIViewControllerRepresentable {
     // MARK: Coordinator
     public class Coordinator: NSObject, CameraViewControllerDelegate {
         
-        var parent: CameraView
+        var parent: Camera
         
-        init(_ parent: CameraView) {
+        init(_ parent: Camera) {
             self.parent = parent
         }
         

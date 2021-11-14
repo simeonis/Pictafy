@@ -14,12 +14,12 @@ struct CameraScreen: View {
     @StateObject var cameraUserEvents = CameraUserEvents()
     
     var body: some View {
-        CameraView(events: cameraUserEvents);
+        Camera(events: cameraUserEvents);
     }
 }
 
 struct CameraScreen_Previews: PreviewProvider {
     static var previews: some View {
-        SignInView()
+        CameraScreen()
     }
 }

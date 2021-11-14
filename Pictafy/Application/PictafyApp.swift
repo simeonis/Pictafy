@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct PictafyApp: App {
+    
+    let locationService = LocationService()
+    
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            HomeScreen()
+            .environmentObject(locationService)
         }
     }
 }

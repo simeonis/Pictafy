@@ -15,21 +15,25 @@ let pictures = [
 
 
 struct MapScreen: View {
-    @State private var region = MKCoordinateRegion(
-        center: CLLocationCoordinate2D(
-            latitude:   43.46921422071481,
-            longitude: -79.69997672872174
-        ),
-        span: MKCoordinateSpan(
-            latitudeDelta: 0.075,
-            longitudeDelta: 0.075
-        )
-    )
+    
+    @EnvironmentObject var locationService : LocationService
+
     var body: some View {
-        Map(coordinateRegion: $region, annotationItems: pictures){ pictureData in
+        Map(coordinateRegion: $locationService.region, annotationItems: pictures){ pictureData in
             MapAnnotation(coordinate: pictureData.coordinate, anchorPoint: CGPoint(x: 0.5, y: 0.5)) {
-                Label("", systemImage: "camera.fill")
+                ZStack{
+                    Circle()
+                        .fill(Color.blue)
+                        .frame(width:50, height: 25)
+
+                    Circle()
+                        .fill(Color.white)
+                        .frame(width:45, height: 20)
+                }
             }
+        }
+        .onAppear(){
+            self.locationService.checkPermission()
         }
     }
 }

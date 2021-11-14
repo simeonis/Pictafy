@@ -41,7 +41,7 @@ class CameraViewController: UIViewController{
     //Private Output Variables===========================================
     let photoOutput = AVCapturePhotoOutput()
     
-    private var cameraPreviewView = CameraPreviewView()
+    private var cameraPreviewView = CameraPreview()
     
     
     // MARK: View Controller Life Cycle

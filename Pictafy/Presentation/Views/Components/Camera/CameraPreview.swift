@@ -8,7 +8,7 @@
 import UIKit
 import AVFoundation
 
-class CameraPreviewView: UIView {
+class CameraPreview: UIView {
     
     var videoPreviewLayer: AVCaptureVideoPreviewLayer {
         guard let layer = layer as? AVCaptureVideoPreviewLayer else {

@@ -10,14 +10,15 @@
 		5D5BEA36273D72AD000440DE /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5BEA35273D72AD000440DE /* CameraViewController.swift */; };
 		5DBEC162273D85480010812C /* CameraUserEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBEC161273D85480010812C /* CameraUserEvents.swift */; };
 		5DBEC164273D86A40010812C /* CameraViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBEC163273D86A40010812C /* CameraViewControllerDelegate.swift */; };
-		5DBEC167273D8E2E0010812C /* CameraPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBEC166273D8E2E0010812C /* CameraPreviewView.swift */; };
+		5DBEC167273D8E2E0010812C /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBEC166273D8E2E0010812C /* CameraPreview.swift */; };
 		5DE5E4A42740624E00B84C06 /* CameraScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5E4A32740624E00B84C06 /* CameraScreen.swift */; };
 		5DE5E4A62740884B00B84C06 /* MapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5E4A52740884B00B84C06 /* MapScreen.swift */; };
 		5DE5E4A827408E4300B84C06 /* PictureData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5E4A727408E4300B84C06 /* PictureData.swift */; };
-		5DF4BAD2273CED2000E06F74 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF4BAD1273CED2000E06F74 /* CameraView.swift */; };
-		A2367CEF273CC40800DC28B3 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2367CEE273CC40800DC28B3 /* SignInView.swift */; };
+		5DE5E4AA27408FBB00B84C06 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5E4A927408FBB00B84C06 /* LocationService.swift */; };
+		5DF4BAD2273CED2000E06F74 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF4BAD1273CED2000E06F74 /* Camera.swift */; };
+		A2367CEF273CC40800DC28B3 /* SignInScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2367CEE273CC40800DC28B3 /* SignInScreen.swift */; };
 		F05CB5C1272E0F6F00EC951C /* PictafyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05CB5C0272E0F6F00EC951C /* PictafyApp.swift */; };
-		F05CB5C3272E0F6F00EC951C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05CB5C2272E0F6F00EC951C /* HomeView.swift */; };
+		F05CB5C3272E0F6F00EC951C /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05CB5C2272E0F6F00EC951C /* HomeScreen.swift */; };
 		F05CB5C5272E0F7000EC951C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F05CB5C4272E0F7000EC951C /* Assets.xcassets */; };
 		F05CB5C8272E0F7000EC951C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F05CB5C7272E0F7000EC951C /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -26,15 +27,16 @@
 		5D5BEA35273D72AD000440DE /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		5DBEC161273D85480010812C /* CameraUserEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraUserEvents.swift; sourceTree = "<group>"; };
 		5DBEC163273D86A40010812C /* CameraViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewControllerDelegate.swift; sourceTree = "<group>"; };
-		5DBEC166273D8E2E0010812C /* CameraPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreviewView.swift; sourceTree = "<group>"; };
+		5DBEC166273D8E2E0010812C /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
 		5DE5E4A32740624E00B84C06 /* CameraScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraScreen.swift; sourceTree = "<group>"; };
 		5DE5E4A52740884B00B84C06 /* MapScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreen.swift; sourceTree = "<group>"; };
 		5DE5E4A727408E4300B84C06 /* PictureData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureData.swift; sourceTree = "<group>"; };
-		5DF4BAD1273CED2000E06F74 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
-		A2367CEE273CC40800DC28B3 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		5DE5E4A927408FBB00B84C06 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		5DF4BAD1273CED2000E06F74 /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		A2367CEE273CC40800DC28B3 /* SignInScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInScreen.swift; sourceTree = "<group>"; };
 		F05CB5BD272E0F6F00EC951C /* Pictafy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pictafy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F05CB5C0272E0F6F00EC951C /* PictafyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictafyApp.swift; sourceTree = "<group>"; };
-		F05CB5C2272E0F6F00EC951C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		F05CB5C2272E0F6F00EC951C /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		F05CB5C4272E0F7000EC951C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F05CB5C7272E0F7000EC951C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F05CB5C9272E0F7000EC951C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -63,8 +65,8 @@
 		5D5BEA39273D813B000440DE /* Camera */ = {
 			isa = PBXGroup;
 			children = (
-				5DF4BAD1273CED2000E06F74 /* CameraView.swift */,
-				5DBEC166273D8E2E0010812C /* CameraPreviewView.swift */,
+				5DF4BAD1273CED2000E06F74 /* Camera.swift */,
+				5DBEC166273D8E2E0010812C /* CameraPreview.swift */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -104,6 +106,7 @@
 		5DABF796273CCD37008CB9ED /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				5DE5E4A927408FBB00B84C06 /* LocationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -153,8 +156,8 @@
 		5DF4BAD0273CEC1A00E06F74 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				A2367CEE273CC40800DC28B3 /* SignInView.swift */,
-				F05CB5C2272E0F6F00EC951C /* HomeView.swift */,
+				A2367CEE273CC40800DC28B3 /* SignInScreen.swift */,
+				F05CB5C2272E0F6F00EC951C /* HomeScreen.swift */,
 				5DE5E4A32740624E00B84C06 /* CameraScreen.swift */,
 				5DE5E4A52740884B00B84C06 /* MapScreen.swift */,
 			);
@@ -269,16 +272,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DBEC167273D8E2E0010812C /* CameraPreviewView.swift in Sources */,
-				A2367CEF273CC40800DC28B3 /* SignInView.swift in Sources */,
-				5DF4BAD2273CED2000E06F74 /* CameraView.swift in Sources */,
+				5DBEC167273D8E2E0010812C /* CameraPreview.swift in Sources */,
+				A2367CEF273CC40800DC28B3 /* SignInScreen.swift in Sources */,
+				5DF4BAD2273CED2000E06F74 /* Camera.swift in Sources */,
 				5D5BEA36273D72AD000440DE /* CameraViewController.swift in Sources */,
 				5DE5E4A62740884B00B84C06 /* MapScreen.swift in Sources */,
 				5DBEC164273D86A40010812C /* CameraViewControllerDelegate.swift in Sources */,
-				F05CB5C3272E0F6F00EC951C /* HomeView.swift in Sources */,
+				F05CB5C3272E0F6F00EC951C /* HomeScreen.swift in Sources */,
 				5DBEC162273D85480010812C /* CameraUserEvents.swift in Sources */,
 				5DE5E4A42740624E00B84C06 /* CameraScreen.swift in Sources */,
 				F05CB5C1272E0F6F00EC951C /* PictafyApp.swift in Sources */,
+				5DE5E4AA27408FBB00B84C06 /* LocationService.swift in Sources */,
 				5DE5E4A827408E4300B84C06 /* PictureData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
