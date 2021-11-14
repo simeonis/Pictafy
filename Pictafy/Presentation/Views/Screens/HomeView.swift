@@ -17,6 +17,10 @@ struct HomeView: View {
             .tabItem {
                 Label("Home", systemImage: "house.fill")
             }
+            MapScreen()
+            .tabItem {
+                Label("Map", systemImage: "map.fill")
+            }
             CameraScreen()
             .tabItem {
                 Label("Camera", systemImage: "camera.fill")
