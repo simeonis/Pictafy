@@ -24,6 +24,10 @@ struct HomeScreen: View {
             .tabItem {
                 Label("Camera", systemImage: "camera.fill")
             }
+            CreatePostScreen()
+            .tabItem {
+                Label("Create Post", systemImage: "square.and.pencil")
+            }
         }
     }
 }
