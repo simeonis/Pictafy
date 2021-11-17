@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D084B992745848D00C0894D /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D084B982745848D00C0894D /* ColorExtension.swift */; };
 		5D40C5F92741BB3500D7EF52 /* CreatePostScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D40C5F82741BB3500D7EF52 /* CreatePostScreen.swift */; };
 		5D5BEA36273D72AD000440DE /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5BEA35273D72AD000440DE /* CameraViewController.swift */; };
 		5DBEC162273D85480010812C /* CameraUserEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBEC161273D85480010812C /* CameraUserEvents.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D084B982745848D00C0894D /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		5D40C5F82741BB3500D7EF52 /* CreatePostScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostScreen.swift; sourceTree = "<group>"; };
 		5D5BEA35273D72AD000440DE /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		5DBEC161273D85480010812C /* CameraUserEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraUserEvents.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 		5DF4BACD273CEB2600E06F74 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				5D084B982745848D00C0894D /* ColorExtension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				F02D5761274581AD00DD6850 /* ScaleButtonStyle.swift in Sources */,
 				5DF4BAD2273CED2000E06F74 /* Camera.swift in Sources */,
 				5D5BEA36273D72AD000440DE /* CameraViewController.swift in Sources */,
+				5D084B992745848D00C0894D /* ColorExtension.swift in Sources */,
 				5DE5E4A62740884B00B84C06 /* MapScreen.swift in Sources */,
 				5DBEC164273D86A40010812C /* CameraViewControllerDelegate.swift in Sources */,
 				F05CB5C3272E0F6F00EC951C /* HomeScreen.swift in Sources */,
