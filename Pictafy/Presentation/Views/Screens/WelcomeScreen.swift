@@ -21,8 +21,13 @@ struct WelcomeScreen: View {
         NavigationView {
             VStack {
                 NavigationLink(destination: HomeScreen(), tag: 1, selection: $_selection) {}
+                NavigationLink(destination: SignInScreen(), tag: 2, selection: $_selection) {}
                 Button(action: { _selection = 1 }) {
                     Text("Go To Home Screen")
+                        .foregroundColor(.blue)
+                }
+                Button(action: { _selection = 2 }) {
+                    Text("Go To Log in")
                         .foregroundColor(.blue)
                 }
                 .navigationBarHidden(true)
