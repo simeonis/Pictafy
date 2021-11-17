@@ -9,13 +9,14 @@ import SwiftUI
 
 @main
 struct PictafyApp: App {
-    
-    let locationService = LocationService()
+    @AppStorage("isDarkMode") private var isDarkMode = false
+    private let locationService = LocationService()
     
     var body: some Scene {
         WindowGroup {
-            HomeScreen()
+            WelcomeScreen()
             .environmentObject(locationService)
+            .preferredColorScheme(isDarkMode ? .dark : .light)
         }
     }
 }
