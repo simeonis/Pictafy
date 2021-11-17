@@ -35,5 +35,6 @@ struct MapScreen: View {
         .onAppear(){
             self.locationService.checkPermission()
         }
+        .navigationBarHidden(true)
     }
 }

@@ -15,7 +15,7 @@ struct CreatePostScreen: View {
     @State var tags : [String] = ["Hello", "Hi", "Yes"]
     
     var body: some View {
-        VStack{
+        VStack {
 //            Image("house.fill")
             Form{
                 TextField("Enter title", text: $post_name)
@@ -33,7 +33,7 @@ struct CreatePostScreen: View {
             Button(action: {self.postAction()} ){
                 Text("Post")
             }
-        }
+        }.navigationBarHidden(true)
     }
     
     func postAction(){
