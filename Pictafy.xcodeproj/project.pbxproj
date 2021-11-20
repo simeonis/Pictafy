@@ -15,7 +15,7 @@
 		5DBEC167273D8E2E0010812C /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBEC166273D8E2E0010812C /* CameraPreview.swift */; };
 		5DE5E4A42740624E00B84C06 /* CameraScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5E4A32740624E00B84C06 /* CameraScreen.swift */; };
 		5DE5E4A62740884B00B84C06 /* MapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5E4A52740884B00B84C06 /* MapScreen.swift */; };
-		5DE5E4A827408E4300B84C06 /* PictureData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5E4A727408E4300B84C06 /* PictureData.swift */; };
+		5DE5E4A827408E4300B84C06 /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5E4A727408E4300B84C06 /* PostData.swift */; };
 		5DE5E4AA27408FBB00B84C06 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5E4A927408FBB00B84C06 /* LocationService.swift */; };
 		5DF4BAD2273CED2000E06F74 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF4BAD1273CED2000E06F74 /* Camera.swift */; };
 		A2367CEF273CC40800DC28B3 /* SignInScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2367CEE273CC40800DC28B3 /* SignInScreen.swift */; };
@@ -40,7 +40,7 @@
 		5DBEC166273D8E2E0010812C /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
 		5DE5E4A32740624E00B84C06 /* CameraScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraScreen.swift; sourceTree = "<group>"; };
 		5DE5E4A52740884B00B84C06 /* MapScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreen.swift; sourceTree = "<group>"; };
-		5DE5E4A727408E4300B84C06 /* PictureData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureData.swift; sourceTree = "<group>"; };
+		5DE5E4A727408E4300B84C06 /* PostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
 		5DE5E4A927408FBB00B84C06 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		5DF4BAD1273CED2000E06F74 /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		A2367CEE273CC40800DC28B3 /* SignInScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInScreen.swift; sourceTree = "<group>"; };
@@ -90,7 +90,7 @@
 		5DABF792273CCCE0008CB9ED /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5DE5E4A727408E4300B84C06 /* PictureData.swift */,
+				5DE5E4A727408E4300B84C06 /* PostData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -323,7 +323,7 @@
 				F04725A52743117900984A37 /* SettingScreen.swift in Sources */,
 				F05CB5C1272E0F6F00EC951C /* PictafyApp.swift in Sources */,
 				5DE5E4AA27408FBB00B84C06 /* LocationService.swift in Sources */,
-				5DE5E4A827408E4300B84C06 /* PictureData.swift in Sources */,
+				5DE5E4A827408E4300B84C06 /* PostData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

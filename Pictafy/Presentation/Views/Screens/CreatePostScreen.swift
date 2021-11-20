@@ -6,13 +6,17 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct CreatePostScreen: View {
     
+    //remove this later
+    let coordinate : CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 43.46921422071481, longitude: -79.69997672872174)
     @State var post_name : String = ""
     @State var description : String = ""
     @State var newTag : String = ""
     @State var tags : [String] = []
+    @State var tagError : String = ""
     @State var error : String = ""
     
     var body: some View {
@@ -22,11 +26,15 @@ struct CreatePostScreen: View {
             .aspectRatio(contentMode: .fit)
             Form{
                 Section{
+                    if(self.error != ""){
+                        Text(error)
+                            .foregroundColor(Color.red)
+                    }
                     TextField("Enter title", text: $post_name)
                     TextField("Description", text: $description)
                     VStack{
-                        if(self.error != ""){
-                            Text(error)
+                        if(self.tagError != ""){
+                            Text(tagError)
                                 .foregroundColor(Color.red)
                         }
                         HStack{
@@ -93,18 +101,19 @@ struct CreatePostScreen: View {
         if(tagIsValid(tag: tag)){
             tags.append(tag.lowercased())
             self.newTag = ""
+            self.tagError = ""
         }
     }
     
     private func tagIsValid(tag : String) -> Bool{
         let lTag = tag.lowercased()
         if(tag == ""){
-            self.error = "Can't add empty tag"
+            self.tagError = "Can't add empty tag"
             return false
             
         }
         else if (tags.contains(lTag)){
-            self.error = "Tag already added"
+            self.tagError = "Tag already added"
             return false
         }
         else{
@@ -114,6 +123,13 @@ struct CreatePostScreen: View {
     
     func postAction(){
         print("Posted")
+        if(self.post_name != "" && self.description != ""){
+            self.error = ""
+            let postData = PostData(name: self.post_name, description: self.description, coordinate: self.coordinate )
+        }
+        else{
+            self.error = "Name and Description can't be null"
+        }
     }
 }
 
