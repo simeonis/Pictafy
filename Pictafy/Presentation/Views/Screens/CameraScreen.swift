@@ -14,7 +14,10 @@ struct CameraScreen: View {
     @StateObject var cameraUserEvents = CameraUserEvents()
     
     var body: some View {
-        Camera(events: cameraUserEvents);
+        ZStack{
+            Camera(events: cameraUserEvents)
+            CameraInterfaceView(events: cameraUserEvents)
+        }
     }
 }
 
