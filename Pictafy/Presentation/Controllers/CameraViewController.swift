@@ -249,6 +249,8 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate {
     /// - Tag: DidFinishProcessing
     public func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         guard error == nil else { print("Error capturing photo: \(error!)"); return }
+        
+      
        
         if let photoData = photo.fileDataRepresentation() {
             let dataProvider = CGDataProvider(data: photoData as CFData)
@@ -256,6 +258,8 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate {
                                     decode: nil,
                                     shouldInterpolate: true,
                                     intent: CGColorRenderingIntent.defaultIntent)
+            
+       
            
             // TODO: implement imageOrientation
             // Set proper orientation for photo
@@ -263,7 +267,7 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate {
             //          let imageOrientation = getImageOrientation()
            
             // For now, it is only right
-            let image = UIImage(cgImage: cgImageRef!, scale: 1, orientation: .right)
+            let image = UIImage(cgImage: cgImageRef!, scale: 1, orientation: .right)         
            
             //2 options to save
             //First is to use UIImageWriteToSavedPhotosAlbum

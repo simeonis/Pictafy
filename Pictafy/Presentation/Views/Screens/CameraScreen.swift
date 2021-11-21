@@ -13,10 +13,12 @@ struct CameraScreen: View {
     
     @StateObject var cameraUserEvents = CameraUserEvents()
     
+    @State var image : UIImage? = nil
+    
     var body: some View {
         ZStack{
-            Camera(events: cameraUserEvents)
-            CameraInterfaceView(events: cameraUserEvents)
+            Camera(events: cameraUserEvents, image: $image)
+            CameraInterfaceView(events: cameraUserEvents, image: $image)
         }
     }
 }
