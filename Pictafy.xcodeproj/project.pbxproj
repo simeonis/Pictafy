@@ -18,6 +18,7 @@
 		5DE5E4A827408E4300B84C06 /* PictureData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5E4A727408E4300B84C06 /* PictureData.swift */; };
 		5DE5E4AA27408FBB00B84C06 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5E4A927408FBB00B84C06 /* LocationService.swift */; };
 		5DF4BAD2273CED2000E06F74 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF4BAD1273CED2000E06F74 /* Camera.swift */; };
+		A206C5E1274E9B9900BA2366 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A206C5E0274E9B9900BA2366 /* GoogleService-Info.plist */; };
 		A21E451C274DDA1B00462E66 /* SignUpScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21E451B274DDA1B00462E66 /* SignUpScreen.swift */; };
 		A2367CEF273CC40800DC28B3 /* SignInScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2367CEE273CC40800DC28B3 /* SignInScreen.swift */; };
 		F02D575F2745812300DD6850 /* DarkModeToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02D575E2745812300DD6850 /* DarkModeToggleStyle.swift */; };
@@ -30,6 +31,7 @@
 		F05CB5C3272E0F6F00EC951C /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05CB5C2272E0F6F00EC951C /* HomeScreen.swift */; };
 		F05CB5C5272E0F7000EC951C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F05CB5C4272E0F7000EC951C /* Assets.xcassets */; };
 		F05CB5C8272E0F7000EC951C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F05CB5C7272E0F7000EC951C /* Preview Assets.xcassets */; };
+		FA574BAAEDE0209D2666AB2D /* libPods-Pictafy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DFAD61C8853A07371F6B08AC /* libPods-Pictafy.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,8 +46,12 @@
 		5DE5E4A727408E4300B84C06 /* PictureData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureData.swift; sourceTree = "<group>"; };
 		5DE5E4A927408FBB00B84C06 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		5DF4BAD1273CED2000E06F74 /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		A206C5E0274E9B9900BA2366 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A21E451B274DDA1B00462E66 /* SignUpScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpScreen.swift; sourceTree = "<group>"; };
 		A2367CEE273CC40800DC28B3 /* SignInScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInScreen.swift; sourceTree = "<group>"; };
+		BF083FFB25218394A1B4882D /* Pods-Pictafy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pictafy.debug.xcconfig"; path = "Target Support Files/Pods-Pictafy/Pods-Pictafy.debug.xcconfig"; sourceTree = "<group>"; };
+		DFAD61C8853A07371F6B08AC /* libPods-Pictafy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Pictafy.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E180F31D937E0809D76B0767 /* Pods-Pictafy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pictafy.release.xcconfig"; path = "Target Support Files/Pods-Pictafy/Pods-Pictafy.release.xcconfig"; sourceTree = "<group>"; };
 		F02D575E2745812300DD6850 /* DarkModeToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkModeToggleStyle.swift; sourceTree = "<group>"; };
 		F02D5760274581AD00DD6850 /* ScaleButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleButtonStyle.swift; sourceTree = "<group>"; };
 		F02D5762274582A300DD6850 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
@@ -65,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA574BAAEDE0209D2666AB2D /* libPods-Pictafy.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,6 +181,23 @@
 			path = Screens;
 			sourceTree = "<group>";
 		};
+		7E3B1717476BEAE020849487 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DFAD61C8853A07371F6B08AC /* libPods-Pictafy.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		857D3039F2A3413B808E8254 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BF083FFB25218394A1B4882D /* Pods-Pictafy.debug.xcconfig */,
+				E180F31D937E0809D76B0767 /* Pods-Pictafy.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		F02D575D274580C400DD6850 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +229,8 @@
 			children = (
 				F05CB5BF272E0F6F00EC951C /* Pictafy */,
 				F05CB5BE272E0F6F00EC951C /* Products */,
+				857D3039F2A3413B808E8254 /* Pods */,
+				7E3B1717476BEAE020849487 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -225,6 +251,7 @@
 				5DABF796273CCD37008CB9ED /* Services */,
 				F05CB5C4272E0F7000EC951C /* Assets.xcassets */,
 				F05CB5C9272E0F7000EC951C /* Info.plist */,
+				A206C5E0274E9B9900BA2366 /* GoogleService-Info.plist */,
 				F05CB5C6272E0F7000EC951C /* Preview Content */,
 			);
 			path = Pictafy;
@@ -245,6 +272,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F05CB5CC272E0F7000EC951C /* Build configuration list for PBXNativeTarget "Pictafy" */;
 			buildPhases = (
+				5D023D9EB0E320359DFE60F8 /* [CP] Check Pods Manifest.lock */,
 				F05CB5B9272E0F6F00EC951C /* Sources */,
 				F05CB5BA272E0F6F00EC951C /* Frameworks */,
 				F05CB5BB272E0F6F00EC951C /* Resources */,
@@ -297,10 +325,36 @@
 			files = (
 				F05CB5C8272E0F7000EC951C /* Preview Assets.xcassets in Resources */,
 				F05CB5C5272E0F7000EC951C /* Assets.xcassets in Resources */,
+				A206C5E1274E9B9900BA2366 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5D023D9EB0E320359DFE60F8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Pictafy-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F05CB5B9272E0F6F00EC951C /* Sources */ = {
@@ -452,6 +506,7 @@
 		};
 		F05CB5CD272E0F7000EC951C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BF083FFB25218394A1B4882D /* Pods-Pictafy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -474,6 +529,7 @@
 		};
 		F05CB5CE272E0F7000EC951C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E180F31D937E0809D76B0767 /* Pods-Pictafy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
