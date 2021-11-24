@@ -18,6 +18,7 @@
 		5DE5E4A827408E4300B84C06 /* PictureData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5E4A727408E4300B84C06 /* PictureData.swift */; };
 		5DE5E4AA27408FBB00B84C06 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5E4A927408FBB00B84C06 /* LocationService.swift */; };
 		5DF4BAD2273CED2000E06F74 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF4BAD1273CED2000E06F74 /* Camera.swift */; };
+		A21E451C274DDA1B00462E66 /* SignUpScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21E451B274DDA1B00462E66 /* SignUpScreen.swift */; };
 		A2367CEF273CC40800DC28B3 /* SignInScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2367CEE273CC40800DC28B3 /* SignInScreen.swift */; };
 		F02D575F2745812300DD6850 /* DarkModeToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02D575E2745812300DD6850 /* DarkModeToggleStyle.swift */; };
 		F02D5761274581AD00DD6850 /* ScaleButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02D5760274581AD00DD6850 /* ScaleButtonStyle.swift */; };
@@ -43,6 +44,7 @@
 		5DE5E4A727408E4300B84C06 /* PictureData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureData.swift; sourceTree = "<group>"; };
 		5DE5E4A927408FBB00B84C06 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		5DF4BAD1273CED2000E06F74 /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		A21E451B274DDA1B00462E66 /* SignUpScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpScreen.swift; sourceTree = "<group>"; };
 		A2367CEE273CC40800DC28B3 /* SignInScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInScreen.swift; sourceTree = "<group>"; };
 		F02D575E2745812300DD6850 /* DarkModeToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkModeToggleStyle.swift; sourceTree = "<group>"; };
 		F02D5760274581AD00DD6850 /* ScaleButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleButtonStyle.swift; sourceTree = "<group>"; };
@@ -160,13 +162,14 @@
 		5DF4BAD0273CEC1A00E06F74 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				F02D57662745991400DD6850 /* WelcomeScreen.swift */,
 				A2367CEE273CC40800DC28B3 /* SignInScreen.swift */,
+				A21E451B274DDA1B00462E66 /* SignUpScreen.swift */,
 				F05CB5C2272E0F6F00EC951C /* HomeScreen.swift */,
 				5DE5E4A32740624E00B84C06 /* CameraScreen.swift */,
 				5DE5E4A52740884B00B84C06 /* MapScreen.swift */,
 				5D40C5F82741BB3500D7EF52 /* CreatePostScreen.swift */,
 				F04725A42743117900984A37 /* SettingScreen.swift */,
-				F02D57662745991400DD6850 /* WelcomeScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 			files = (
 				F02D57672745991400DD6850 /* WelcomeScreen.swift in Sources */,
 				F02D5763274582A300DD6850 /* IconButton.swift in Sources */,
+				A21E451C274DDA1B00462E66 /* SignUpScreen.swift in Sources */,
 				5D40C5F92741BB3500D7EF52 /* CreatePostScreen.swift in Sources */,
 				5DBEC167273D8E2E0010812C /* CameraPreview.swift in Sources */,
 				A2367CEF273CC40800DC28B3 /* SignInScreen.swift in Sources */,

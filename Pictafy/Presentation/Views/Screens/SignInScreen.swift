@@ -20,7 +20,7 @@ struct SignInScreen: View {
        var onCommit: (()->Void)?
        
        var body: some View {
-        VStack(alignment: .leading, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
+        VStack(alignment: .leading, content: {
             
             Text("Log in")
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
@@ -41,6 +41,7 @@ struct SignInScreen: View {
             .background(Color.white
                 .cornerRadius(10)
                 .shadow(color: Color.gray, radius: 3, x: 0, y: 2)
+                
                 
               )
             
@@ -82,9 +83,17 @@ struct SignInScreen: View {
                 
               )
             
-            
+            Button(action:  {
+                
+            }){
+                Text("Log in")
+                    .foregroundColor(.white)
+                    .background(Color.blue)
+            }
  
         }).padding()
+//        .navigationBarBackButtonHidden(true)
+//        .padding(.top, -208)
 
        }
    }
