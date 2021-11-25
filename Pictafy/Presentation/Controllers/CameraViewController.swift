@@ -50,9 +50,10 @@ class CameraViewController: UIViewController{
              
         // Set up the video preview view.
         cameraPreviewView.session = captureSession
-        //cameraPreviewView.videoPreviewLayer.videoGravity = videoGravity
+        cameraPreviewView.videoPreviewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
         cameraPreviewView.videoPreviewLayer.connection?.videoOrientation = AVCaptureVideoOrientation.portrait
         cameraPreviewView.frame = view.frame
+        
         view.addSubview(cameraPreviewView)
         
         getPermissions();

@@ -10,6 +10,8 @@ import MapKit
 
 struct CreatePostScreen: View {
     
+    var image : UIImage
+    
     //remove this later
     let coordinate : CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 43.46921422071481, longitude: -79.69997672872174)
     @State var post_name : String = ""
@@ -19,60 +21,79 @@ struct CreatePostScreen: View {
     @State var tagError : String = ""
     @State var error : String = ""
     
+    
     var body: some View {
-        VStack{
-            Image("sample_post")
+        ZStack{
+            Image(uiImage: image)
             .resizable()
-            .aspectRatio(contentMode: .fit)
-            Form{
-                Section{
+            .aspectRatio(contentMode: .fill)
+  
+            VStack{
+                Form{
                     if(self.error != ""){
                         Text(error)
                             .foregroundColor(Color.red)
                     }
-                    TextField("Enter title", text: $post_name)
-                    TextField("Description", text: $description)
+                    TextField("", text: $post_name)
+                        .modifier(PlaceholderStyle(showPlaceHolder: self.post_name.isEmpty, placeholder: "Title"))
+                        .listRowBackground(Color(red: 0, green: 0, blue: 0, opacity: 0.1))
+                        .foregroundColor(Color(red: 0.85, green: 0.85, blue: 0.85))
+                        .font(Font.system(size: 14))
+                       
+                 
+                        TextEditor(text: $description)
+                            .modifier(PlaceholderStyle(showPlaceHolder: self.description.isEmpty, placeholder: "Description"))
+                            .listRowBackground(Color(red: 0, green: 0, blue: 0, opacity: 0.1))
+                            .foregroundColor(Color(red: 0.85, green: 0.85, blue: 0.85))
+                            .font(Font.system(size: 14))
+                    
                     VStack{
                         if(self.tagError != ""){
                             Text(tagError)
-                                .foregroundColor(Color.red)
+                            .foregroundColor(Color.red)
+                            .listRowBackground(Color.clear)
                         }
+                        
                         HStack{
-                            ForEach(tags, id: \.self){ tag in
-                                HStack{
-                                    Text(tag)
-                                    Image(systemName: "xmark.circle")
-                                }
-                                .font(Font.custom("a", size: 12))
-                                .padding(5)
-                                .onTapGesture {
-                                    tags = tags.filter({ $0 != tag })
-                                }
-                            }
-                            .background(Color.gray)
-                            .foregroundColor(Color.white)
-                            .cornerRadius(8.0)
-                            
-                            TextField("Add Tags", text: $newTag, onCommit: {
-                                addTag(tag: newTag)
+                        
+                            TextField("", text: $newTag, onCommit: {
+                                  addTag(tag: newTag)
                             })
-                            Spacer()
-                            Image(systemName: "plus.circle")
-                                .foregroundColor(.blue)
-                                .onTapGesture {
-                                    addTag(tag: newTag)
-                                }
-                            
-                        }
-                        .onChange(of: newTag, perform: { value in
-                            if value.contains(",") {
-                                newTag = value.replacingOccurrences(of: ",", with: "")
-                                addTag(tag: newTag)
-                            }
-                        })
+                             .modifier(PlaceholderStyle(showPlaceHolder: self.newTag.isEmpty, placeholder: "Add Tags"))
+                             .foregroundColor(Color(red: 0.85, green: 0.85, blue: 0.85))
+                             .font(Font.system(size: 14))
+         
+                              Spacer()
+                              Image(systemName: "plus.circle")
+                              .foregroundColor(.black)
+                              .onTapGesture {
+                                  addTag(tag: newTag)
+                              }
+                        }//HStack
+                        .background(Color.clear)
+                        .frame(minWidth: 100, maxWidth: .infinity)
+                        
+                        TagCloudView(tags: self.tags)
+            
+                         .onChange(of: newTag, perform: { value in
+                             if value.contains(",") {
+                                 newTag = value.replacingOccurrences(of: ",", with: "")
+                                 addTag(tag: newTag)
+                             }
+                          })
                     }
-                }
+                    .listRowBackground(Color(red: 0, green: 0, blue: 0, opacity: 0.1))
+                    .padding(0)
+
+                }//form
+                .frame(width: 320)
+                .padding(.horizontal, 10)
+                .background(BlurView(style: .systemUltraThinMaterialLight))
+                .cornerRadius(20)
+                .shadow(color: Color.black.opacity(0.5), radius: 5.0, x: 4, y: 4)
+                .shadow(color: Color.gray.opacity(0.5), radius: 10.0, x: 8, y: 8)
                 
+                //Submit Button
                 HStack{
                     Spacer()
                     Button(action: {self.postAction()} ){
@@ -80,22 +101,33 @@ struct CreatePostScreen: View {
                             .padding(.horizontal, 60)
                             .padding(.vertical, 15)
                     }
-                    .buttonStyle(PlainButtonStyle())
+                    .buttonStyle(ScaleButtonStyle())
                     .foregroundColor(Color.white)
                     .background(
                         LinearGradient(gradient: Gradient(colors: [Color.ui.primaryColor,Color.ui.blue]), startPoint: .leading, endPoint: .trailing)
                     )
                     .cornerRadius(50.0)
+                    .shadow(color: Color.black.opacity(0.5), radius: 5.0, x: 4, y: 4)
                     Spacer()
-                }
+                }//HStack
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                 .listRowInsets(EdgeInsets())
-                .background(Color(UIColor.systemGroupedBackground))
-            
-            }
+                .listRowBackground(Color.clear)
 
-        }
-    }
+                }//VStack
+                .padding(20)
+                .padding(.top, 120)
+                .onAppear { // ADD THESE AFTER YOUR FORM VIEW
+                    UITableView.appearance().backgroundColor = .clear
+
+                }
+                .onDisappear { // CHANGE BACK TO SYSTEM's DEFAULT
+                    UITableView.appearance().backgroundColor = .systemGroupedBackground
+                }
+
+        }//ZStack
+        .navigationBarTitle("", displayMode: .inline)
+    }//Body
     
     func addTag(tag : String){
         if(tagIsValid(tag: tag)){
@@ -133,8 +165,8 @@ struct CreatePostScreen: View {
     }
 }
 
-struct CreatePostScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        CreatePostScreen()
-    }
-}
+//struct CreatePostScreen_Previews: PreviewProvider {
+//    static var previews: some View {
+//        //CreatePostScreen()
+//    }
+//}

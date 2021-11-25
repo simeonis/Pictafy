@@ -6,7 +6,6 @@
 //
 
 import Foundation
-
 import SwiftUI
 
 struct CameraScreen: View {
@@ -16,10 +15,14 @@ struct CameraScreen: View {
     @State var image : UIImage? = nil
     
     var body: some View {
-        ZStack{
-            Camera(events: cameraUserEvents, image: $image)
-            CameraInterfaceView(events: cameraUserEvents, image: $image)
-        }
+    
+            ZStack{
+                Camera(events: cameraUserEvents, image: $image)
+                CameraInterfaceView(events: cameraUserEvents, image: $image)
+            }
+            .background(Color.white)
+            //.navigationBarTitle("", displayMode: .inline)
+            .navigationBarHidden(true)
     }
 }
 

@@ -21,33 +21,38 @@ struct CameraInterfaceView: View, CameraActions {
     var body: some View {
         VStack {
             Spacer()
-            HStack{
-                if(imageT.wrappedValue != nil){
-                    Image(uiImage: imageT.wrappedValue!)
-                    .resizable()
-                    .frame(width: 75, height: 75)
+            ZStack{
+                HStack{
+                    if(imageT.wrappedValue != nil){
+                        NavigationLink(destination: CreatePostScreen(image: imageT.wrappedValue!))
+                        {
+                            Image(uiImage: imageT.wrappedValue!)
+                            .resizable()
+                            .frame(width: 75, height: 75)
+                        }
+                        .padding(.leading, 10)
+                    }
+                    Spacer()
                 }
-                else{
-                    Rectangle()
-                        .fill(Color.red)
-                        .frame(width: 75, height: 75)
-                }
-                Spacer()
-                ZStack {
-                    Circle()
-                        .fill(Color(red: 1.0, green: 1.0, blue: 1.0, opacity: 0.2))
+                HStack{
+                    Spacer()
+                    ZStack {
+                        Circle()
+                            .fill(Color(red: 1.0, green: 1.0, blue: 1.0, opacity: 0.2))
 
-                    Circle()
-                        .strokeBorder(Color.white, lineWidth: 2)
+                        Circle()
+                            .strokeBorder(Color.white.opacity(0.6), lineWidth: 2)
+                    }
+                    .frame(width: 75, height: 75)
+                    .onTapGesture {
+                        self.takePhoto(events: events)
+                    }
+                    Spacer()
+                    
                 }
-                .frame(width: 75, height: 75)
-                .onTapGesture {
-                    self.takePhoto(events: events)
-                }
-                Spacer()
-                
             }
            
         }
+        .padding(.bottom, 30)
     }
 }

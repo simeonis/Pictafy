@@ -19,7 +19,10 @@
 		5DE5E4A62740884B00B84C06 /* MapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5E4A52740884B00B84C06 /* MapScreen.swift */; };
 		5DE5E4A827408E4300B84C06 /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5E4A727408E4300B84C06 /* PostData.swift */; };
 		5DE5E4AA27408FBB00B84C06 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5E4A927408FBB00B84C06 /* LocationService.swift */; };
+		5DE9E1D7274FC95E0032CEC5 /* PlaceholderModifer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE9E1D6274FC95E0032CEC5 /* PlaceholderModifer.swift */; };
+		5DE9E1D9274FE4330032CEC5 /* TagCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE9E1D8274FE4330032CEC5 /* TagCloud.swift */; };
 		5DF4BAD2273CED2000E06F74 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF4BAD1273CED2000E06F74 /* Camera.swift */; };
+		5DFFEC94274ED01C002273F4 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFFEC93274ED01C002273F4 /* BlurView.swift */; };
 		A2367CEF273CC40800DC28B3 /* SignInScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2367CEE273CC40800DC28B3 /* SignInScreen.swift */; };
 		F02D575F2745812300DD6850 /* DarkModeToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02D575E2745812300DD6850 /* DarkModeToggleStyle.swift */; };
 		F02D5761274581AD00DD6850 /* ScaleButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02D5760274581AD00DD6850 /* ScaleButtonStyle.swift */; };
@@ -46,7 +49,10 @@
 		5DE5E4A52740884B00B84C06 /* MapScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreen.swift; sourceTree = "<group>"; };
 		5DE5E4A727408E4300B84C06 /* PostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
 		5DE5E4A927408FBB00B84C06 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		5DE9E1D6274FC95E0032CEC5 /* PlaceholderModifer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderModifer.swift; sourceTree = "<group>"; };
+		5DE9E1D8274FE4330032CEC5 /* TagCloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCloud.swift; sourceTree = "<group>"; };
 		5DF4BAD1273CED2000E06F74 /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		5DFFEC93274ED01C002273F4 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		A2367CEE273CC40800DC28B3 /* SignInScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInScreen.swift; sourceTree = "<group>"; };
 		F02D575E2745812300DD6850 /* DarkModeToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkModeToggleStyle.swift; sourceTree = "<group>"; };
 		F02D5760274581AD00DD6850 /* ScaleButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleButtonStyle.swift; sourceTree = "<group>"; };
@@ -151,6 +157,9 @@
 				F02D575D274580C400DD6850 /* Buttons */,
 				F04725A7274323DB00984A37 /* Settings */,
 				5D5BEA39273D813B000440DE /* Camera */,
+				5DFFEC93274ED01C002273F4 /* BlurView.swift */,
+				5DE9E1D6274FC95E0032CEC5 /* PlaceholderModifer.swift */,
+				5DE9E1D8274FE4330032CEC5 /* TagCloud.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -312,6 +321,8 @@
 			files = (
 				F02D57672745991400DD6850 /* WelcomeScreen.swift in Sources */,
 				F02D5763274582A300DD6850 /* IconButton.swift in Sources */,
+				5DE9E1D9274FE4330032CEC5 /* TagCloud.swift in Sources */,
+				5DFFEC94274ED01C002273F4 /* BlurView.swift in Sources */,
 				5D40C5F92741BB3500D7EF52 /* CreatePostScreen.swift in Sources */,
 				5DBEC167273D8E2E0010812C /* CameraPreview.swift in Sources */,
 				A2367CEF273CC40800DC28B3 /* SignInScreen.swift in Sources */,
@@ -329,6 +340,7 @@
 				F02D575F2745812300DD6850 /* DarkModeToggleStyle.swift in Sources */,
 				5DE5E4A42740624E00B84C06 /* CameraScreen.swift in Sources */,
 				F04725A52743117900984A37 /* SettingScreen.swift in Sources */,
+				5DE9E1D7274FC95E0032CEC5 /* PlaceholderModifer.swift in Sources */,
 				F05CB5C1272E0F6F00EC951C /* PictafyApp.swift in Sources */,
 				5DE5E4AA27408FBB00B84C06 /* LocationService.swift in Sources */,
 				5DE5E4A827408E4300B84C06 /* PostData.swift in Sources */,

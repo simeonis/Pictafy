@@ -14,6 +14,11 @@ struct HomeScreen: View {
     init() {
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         UINavigationBar.appearance().shadowImage = UIImage()
+        
+        //UITabBar.appearance().barTintColor = UIColor(Color.ui.primaryColor)
+        UITabBar.appearance().backgroundColor = UIColor(Color.white)
+        
+        UITableViewCell.appearance().backgroundColor = UIColor.clear
     }
     
     var body: some View {
@@ -30,14 +35,14 @@ struct HomeScreen: View {
                 .tabItem {
                     Label("Map", systemImage: "map.fill")
                 }
-                CameraScreen()
+                CreatePostScreen(image: UIImage(imageLiteralResourceName: "sample_post"))
                 .tabItem {
                     Label("Camera", systemImage: "camera.fill")
                 }
-                CreatePostScreen()
-                .tabItem {
-                    Label("Create Post", systemImage: "square.and.pencil")
-                }
+//                CreatePostScreen()
+//                .tabItem {
+//                    Label("Create Post", systemImage: "square.and.pencil")
+//                }
             } // TabView
             .navigationBarBackButtonHidden(true)
             .navigationBarItems(trailing:

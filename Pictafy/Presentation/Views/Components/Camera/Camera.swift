@@ -9,7 +9,6 @@ import SwiftUI
 import AVFoundation
 
 struct Camera: UIViewControllerRepresentable {
-    
     // MARK: Vars
     @ObservedObject var events: CameraUserEvents
     var imageT: Binding<UIImage?>
@@ -29,7 +28,6 @@ struct Camera: UIViewControllerRepresentable {
            
         self.preferredStartingCameraType = preferredStartingCameraType
         self.preferredStartingCameraPosition = preferredStartingCameraPosition
-        
     }
     
     public func makeUIViewController(context: Context) -> CameraViewController {
