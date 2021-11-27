@@ -19,6 +19,9 @@
 		5DE5E4AA27408FBB00B84C06 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5E4A927408FBB00B84C06 /* LocationService.swift */; };
 		5DF4BAD2273CED2000E06F74 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF4BAD1273CED2000E06F74 /* Camera.swift */; };
 		A206C5E1274E9B9900BA2366 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A206C5E0274E9B9900BA2366 /* GoogleService-Info.plist */; };
+		A206C5E3274EB9AE00BA2366 /* Textbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A206C5E2274EB9AE00BA2366 /* Textbox.swift */; };
+		A206C5E52750089500BA2366 /* SignInSignUpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A206C5E42750089500BA2366 /* SignInSignUpButton.swift */; };
+		A206C5E727500E7F00BA2366 /* ToggleTextbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A206C5E627500E7F00BA2366 /* ToggleTextbox.swift */; };
 		A21E451C274DDA1B00462E66 /* SignUpScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21E451B274DDA1B00462E66 /* SignUpScreen.swift */; };
 		A2367CEF273CC40800DC28B3 /* SignInScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2367CEE273CC40800DC28B3 /* SignInScreen.swift */; };
 		F02D575F2745812300DD6850 /* DarkModeToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02D575E2745812300DD6850 /* DarkModeToggleStyle.swift */; };
@@ -47,6 +50,9 @@
 		5DE5E4A927408FBB00B84C06 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		5DF4BAD1273CED2000E06F74 /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		A206C5E0274E9B9900BA2366 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A206C5E2274EB9AE00BA2366 /* Textbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Textbox.swift; sourceTree = "<group>"; };
+		A206C5E42750089500BA2366 /* SignInSignUpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInSignUpButton.swift; sourceTree = "<group>"; };
+		A206C5E627500E7F00BA2366 /* ToggleTextbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleTextbox.swift; sourceTree = "<group>"; };
 		A21E451B274DDA1B00462E66 /* SignUpScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpScreen.swift; sourceTree = "<group>"; };
 		A2367CEE273CC40800DC28B3 /* SignInScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInScreen.swift; sourceTree = "<group>"; };
 		BF083FFB25218394A1B4882D /* Pods-Pictafy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pictafy.debug.xcconfig"; path = "Target Support Files/Pods-Pictafy/Pods-Pictafy.debug.xcconfig"; sourceTree = "<group>"; };
@@ -154,6 +160,8 @@
 				F02D575D274580C400DD6850 /* Buttons */,
 				F04725A7274323DB00984A37 /* Settings */,
 				5D5BEA39273D813B000440DE /* Camera */,
+				A206C5E2274EB9AE00BA2366 /* Textbox.swift */,
+				A206C5E627500E7F00BA2366 /* ToggleTextbox.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -203,6 +211,7 @@
 			children = (
 				F02D5764274597F700DD6850 /* Styles */,
 				F02D5762274582A300DD6850 /* IconButton.swift */,
+				A206C5E42750089500BA2366 /* SignInSignUpButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -361,6 +370,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A206C5E3274EB9AE00BA2366 /* Textbox.swift in Sources */,
 				F02D57672745991400DD6850 /* WelcomeScreen.swift in Sources */,
 				F02D5763274582A300DD6850 /* IconButton.swift in Sources */,
 				A21E451C274DDA1B00462E66 /* SignUpScreen.swift in Sources */,
@@ -371,8 +381,10 @@
 				5DF4BAD2273CED2000E06F74 /* Camera.swift in Sources */,
 				5D5BEA36273D72AD000440DE /* CameraViewController.swift in Sources */,
 				5D084B992745848D00C0894D /* ColorExtension.swift in Sources */,
+				A206C5E52750089500BA2366 /* SignInSignUpButton.swift in Sources */,
 				5DE5E4A62740884B00B84C06 /* MapScreen.swift in Sources */,
 				5DBEC164273D86A40010812C /* CameraViewControllerDelegate.swift in Sources */,
+				A206C5E727500E7F00BA2366 /* ToggleTextbox.swift in Sources */,
 				F05CB5C3272E0F6F00EC951C /* HomeScreen.swift in Sources */,
 				F04725A9274323F000984A37 /* ProfileIcon.swift in Sources */,
 				5DBEC162273D85480010812C /* CameraUserEvents.swift in Sources */,
