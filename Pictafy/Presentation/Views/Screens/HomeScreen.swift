@@ -35,14 +35,14 @@ struct HomeScreen: View {
                 .tabItem {
                     Label("Map", systemImage: "map.fill")
                 }
-                CreatePostScreen(image: UIImage(imageLiteralResourceName: "sample_post"))
+                CameraScreen()
                 .tabItem {
                     Label("Camera", systemImage: "camera.fill")
                 }
-//                CreatePostScreen()
-//                .tabItem {
-//                    Label("Create Post", systemImage: "square.and.pencil")
-//                }
+                CreatePostScreen(image: UIImage(imageLiteralResourceName: "sample_post"))
+                .tabItem {
+                    Label("Create Post", systemImage: "square.and.pencil")
+                }
             } // TabView
             .navigationBarBackButtonHidden(true)
             .navigationBarItems(trailing:

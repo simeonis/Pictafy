@@ -22,6 +22,7 @@
 		5DE9E1D7274FC95E0032CEC5 /* PlaceholderModifer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE9E1D6274FC95E0032CEC5 /* PlaceholderModifer.swift */; };
 		5DE9E1D9274FE4330032CEC5 /* TagCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE9E1D8274FE4330032CEC5 /* TagCloud.swift */; };
 		5DF4BAD2273CED2000E06F74 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF4BAD1273CED2000E06F74 /* Camera.swift */; };
+		5DF4F4732758015500711760 /* CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF4F4722758015500711760 /* CornerRadius.swift */; };
 		5DFFEC94274ED01C002273F4 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFFEC93274ED01C002273F4 /* BlurView.swift */; };
 		A2367CEF273CC40800DC28B3 /* SignInScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2367CEE273CC40800DC28B3 /* SignInScreen.swift */; };
 		F02D575F2745812300DD6850 /* DarkModeToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02D575E2745812300DD6850 /* DarkModeToggleStyle.swift */; };
@@ -52,6 +53,7 @@
 		5DE9E1D6274FC95E0032CEC5 /* PlaceholderModifer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderModifer.swift; sourceTree = "<group>"; };
 		5DE9E1D8274FE4330032CEC5 /* TagCloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCloud.swift; sourceTree = "<group>"; };
 		5DF4BAD1273CED2000E06F74 /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		5DF4F4722758015500711760 /* CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadius.swift; sourceTree = "<group>"; };
 		5DFFEC93274ED01C002273F4 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		A2367CEE273CC40800DC28B3 /* SignInScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInScreen.swift; sourceTree = "<group>"; };
 		F02D575E2745812300DD6850 /* DarkModeToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkModeToggleStyle.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				5DFFEC93274ED01C002273F4 /* BlurView.swift */,
 				5DE9E1D6274FC95E0032CEC5 /* PlaceholderModifer.swift */,
 				5DE9E1D8274FE4330032CEC5 /* TagCloud.swift */,
+				5DF4F4722758015500711760 /* CornerRadius.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DF4F4732758015500711760 /* CornerRadius.swift in Sources */,
 				F02D57672745991400DD6850 /* WelcomeScreen.swift in Sources */,
 				F02D5763274582A300DD6850 /* IconButton.swift in Sources */,
 				5DE9E1D9274FE4330032CEC5 /* TagCloud.swift in Sources */,

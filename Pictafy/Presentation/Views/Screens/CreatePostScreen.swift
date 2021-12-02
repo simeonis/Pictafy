@@ -33,17 +33,32 @@ struct CreatePostScreen: View {
                     if(self.error != ""){
                         Text(error)
                             .foregroundColor(Color.red)
+                            .listRowBackground(Color.clear)
                     }
                     TextField("", text: $post_name)
                         .modifier(PlaceholderStyle(showPlaceHolder: self.post_name.isEmpty, placeholder: "Title"))
-                        .listRowBackground(Color(red: 0, green: 0, blue: 0, opacity: 0.1))
+                        .listRowBackground(
+                            Rectangle()
+                                .background(BlurView(style: .systemUltraThinMaterialLight))
+                                .cornerRadius(20, corners: [.topLeft, .topRight])
+                                .opacity(0.17)
+                                .shadow(color: Color.black.opacity(0.5), radius: 5.0, x: 4, y: 4)
+                                .shadow(color: Color.gray.opacity(0.5), radius: 10.0, x: 8, y: 8)
+                        )
                         .foregroundColor(Color(red: 0.85, green: 0.85, blue: 0.85))
                         .font(Font.system(size: 14))
+      
                        
                  
                         TextEditor(text: $description)
                             .modifier(PlaceholderStyle(showPlaceHolder: self.description.isEmpty, placeholder: "Description"))
-                            .listRowBackground(Color(red: 0, green: 0, blue: 0, opacity: 0.1))
+                            .listRowBackground(
+                                Rectangle()
+                                    .background(BlurView(style: .systemUltraThinMaterialLight))
+                                    .opacity(0.25)
+                                    .shadow(color: Color.black.opacity(0.5), radius: 5.0, x: 4, y: 4)
+                                    .shadow(color: Color.gray.opacity(0.5), radius: 10.0, x: 8, y: 8)
+                            )
                             .foregroundColor(Color(red: 0.85, green: 0.85, blue: 0.85))
                             .font(Font.system(size: 14))
                     
@@ -51,7 +66,7 @@ struct CreatePostScreen: View {
                         if(self.tagError != ""){
                             Text(tagError)
                             .foregroundColor(Color.red)
-                            .listRowBackground(Color.clear)
+                            .listRowBackground(Color(red: 0, green: 0, blue: 0, opacity: 0.1))
                         }
                         
                         HStack{
@@ -82,16 +97,27 @@ struct CreatePostScreen: View {
                              }
                           })
                     }
-                    .listRowBackground(Color(red: 0, green: 0, blue: 0, opacity: 0.1))
+                    .listRowBackground(
+                        Rectangle()
+                            .background(BlurView(style: .systemUltraThinMaterialLight))
+                            .cornerRadius(20, corners: [.bottomLeft, .bottomRight])
+                            .opacity(0.2)
+                            .shadow(color: Color.black.opacity(0.5), radius: 5.0, x: 4, y: 4)
+                            .shadow(color: Color.gray.opacity(0.5), radius: 10.0, x: 8, y: 8)
+                            
+                    )
                     .padding(0)
+                    
 
                 }//form
-                .frame(width: 320)
+                .frame(width: 320, height: 300)
                 .padding(.horizontal, 10)
-                .background(BlurView(style: .systemUltraThinMaterialLight))
+                .background(Color.clear)
                 .cornerRadius(20)
                 .shadow(color: Color.black.opacity(0.5), radius: 5.0, x: 4, y: 4)
                 .shadow(color: Color.gray.opacity(0.5), radius: 10.0, x: 8, y: 8)
+                
+            
                 
                 //Submit Button
                 HStack{
@@ -110,23 +136,24 @@ struct CreatePostScreen: View {
                     .shadow(color: Color.black.opacity(0.5), radius: 5.0, x: 4, y: 4)
                     Spacer()
                 }//HStack
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-                .listRowInsets(EdgeInsets())
-                .listRowBackground(Color.clear)
-
+                //.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                //.listRowInsets(EdgeInsets())
+                //.listRowBackground(Color.clear)
+        
                 }//VStack
                 .padding(20)
-                .padding(.top, 120)
-                .onAppear { // ADD THESE AFTER YOUR FORM VIEW
+                //.padding(.top, 0)
+                .onAppear {
                     UITableView.appearance().backgroundColor = .clear
 
                 }
-                .onDisappear { // CHANGE BACK TO SYSTEM's DEFAULT
+                .onDisappear {
                     UITableView.appearance().backgroundColor = .systemGroupedBackground
                 }
 
         }//ZStack
-        .navigationBarTitle("", displayMode: .inline)
+        .navigationBarHidden(true)
+        
     }//Body
     
     func addTag(tag : String){
