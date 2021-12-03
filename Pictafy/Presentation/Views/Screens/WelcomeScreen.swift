@@ -27,62 +27,34 @@ struct WelcomeScreen: View {
                     .padding(.leading,150)
                     .rotationEffect(.degrees(-10))
                 
-            VStack {
-                NavigationLink(destination: SignInScreen(), tag: 1, selection: $_selection) {}
-                NavigationLink(destination: SignUpScreen(), tag: 2, selection: $_selection) {}
-                NavigationLink(destination: HomeScreen(), tag: 3, selection: $_selection) {}
-                
-                Image(systemName: "camera")
-                    .foregroundColor(.white)
-                    .font(.system(size: 100))
-                    .padding(5)
-                
-                Text("Pictafy")
-                    .foregroundColor(.white)
-                
-                    .fontWeight(.heavy)
-                    .textCase(/*@START_MENU_TOKEN@*/.uppercase/*@END_MENU_TOKEN@*/)
-                    .font(.largeTitle)
+                VStack {
+                    NavigationLink(destination: SignInScreen(), tag: 1, selection: $_selection) {}
+                    NavigationLink(destination: SignUpScreen(), tag: 2, selection: $_selection) {}
+                    NavigationLink(destination: HomeScreen(), tag: 3, selection: $_selection) {}
                     
-                Button(action: { _selection = 1 }) {
-                    Text("Log in")
-                        .foregroundColor(.ui.blue)
+                    Image(systemName: "camera")
+                        .foregroundColor(.white)
+                        .font(.system(size: 100))
+                        .padding(5)
+                    
+                    Text("Pictafy")
+                        .foregroundColor(.white)
                         .fontWeight(.heavy)
-                        .font(.title2)
-                        .padding(.init(.init(top: 10, leading: 0, bottom: 10, trailing: 0)))
                         .textCase(/*@START_MENU_TOKEN@*/.uppercase/*@END_MENU_TOKEN@*/)
-                        .frame(width: UIScreen.main.bounds.width - 110)
+                        .font(.largeTitle)
+                    
+                    WelcomeButton(action: {_selection = 1}, text: "Log in")
+                        .padding(.top,200)
+                    
+                    WelcomeButton(action: {_selection = 2}, text: "Sign up")
+                    
+                    //will be removed later
+                    Button(action: { _selection = 3 }) {
+                        Text("Home")
+                            .foregroundColor(.blue)
+                    }
+                    .navigationBarHidden(true)
                 }
-                .background(Color.white
-                    .cornerRadius(100)
-                    .shadow(color: Color.ui.blue, radius: 3, x: 0, y: 2)
-                  )
-                .padding(.top,200)
-           
-                Button(action: { _selection = 2 }) {
-                    Text("Sign up")
-                        .foregroundColor(.ui.blue)
-                        .fontWeight(.heavy)
-                        .font(.title3)
-                        .padding(.init(.init(top: 10, leading: 0, bottom: 10, trailing: 0)))
-                        .textCase(/*@START_MENU_TOKEN@*/.uppercase/*@END_MENU_TOKEN@*/)
-                        .frame(width: UIScreen.main.bounds.width - 110)
-                        
-                }
-                .background(Color.white
-                    .cornerRadius(100)
-                    .shadow(color: Color.ui.blue, radius: 3, x: 0, y: 2)
-                  )
-                .padding(.top,30)
-                
-                
-              //will be removed later
-                Button(action: { _selection = 3 }) {
-                    Text("Home")
-                        .foregroundColor(.blue)
-                }
-                .navigationBarHidden(true)
-            }
             }
         } // NavigationView
         .navigationViewStyle(StackNavigationViewStyle())

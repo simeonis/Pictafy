@@ -7,27 +7,26 @@
 
 import SwiftUI
 import Firebase
+import FirebaseFirestore
 
 @main
 struct PictafyApp: App {
     
-     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    let fireDBHelper : FireDBHelper
+    
+    init() {
+        FirebaseApp.configure()
+        fireDBHelper = FireDBHelper(database: Firestore.firestore())
+      }
     
     @AppStorage("isDarkMode") private var isDarkMode = false
     private let locationService = LocationService()
     
     var body: some Scene {
         WindowGroup {
-            WelcomeScreen()
+            WelcomeScreen().environmentObject(fireDBHelper)
             .environmentObject(locationService)
             .preferredColorScheme(isDarkMode ? .dark : .light)
         }
-    }
-}
-
-class AppDelegate: NSObject, UIApplicationDelegate{
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        FirebaseApp.configure()
-        return true
     }
 }

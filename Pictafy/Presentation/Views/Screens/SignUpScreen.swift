@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SignUpScreen: View {
-    let placeholder: String = "Enter Password"
+    @EnvironmentObject var fireDBHelper : FireDBHelper
     @State private var _selection: Int? = nil
     @State private var showText: Bool = false
     @State private var showText2: Bool = false
@@ -17,7 +17,6 @@ struct SignUpScreen: View {
     @State var email: String = ""
     @State var password: String = ""
     @State var repassword: String = ""
-    var onCommit: (()->Void)?
     
     var body: some View {
         VStack(alignment: .leading, content: {
@@ -28,23 +27,22 @@ struct SignUpScreen: View {
                 .font(.largeTitle)
                 .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                 .padding(.init(top: 0, leading: 0, bottom: 20, trailing: 0))
-            
-           
+        
             Textbox(text: $fullname, placeholder: Text("Full name"))
             
-           
             Textbox(text: $username, placeholder: Text("Username"))
             
-           
             Textbox(text: $email, placeholder: Text("Email"))
-
             
-            ToggleTextbox(action: {showText.toggle()}, text: $password, showText: showText, onCommit: onCommit, placeholder: "Enter Password")
-
-        
-            ToggleTextbox(action: {showText2.toggle()}, text: $repassword, showText: showText2, onCommit: onCommit, placeholder: "Re-Enter Password")
+            ToggleTextbox(action: {showText.toggle()}, text: $password, showText: showText, placeholder: "Enter Password")
             
-            SignInSignUpButton(action: {_selection = 1}, text: "Sign up")
+            ToggleTextbox(action: {showText2.toggle()}, text: $repassword, showText: showText2, placeholder: "Re-Enter Password")
+            
+            SignInSignUpButton(action: {
+                print(self.fullname,self.username,self.email,self.password)
+                self.fireDBHelper.insertAccount(newAccount: Account( fullName: self.fullname, username: self.username, email: self.email, password: self.password))
+                _selection = 1
+            }, text: "Sign up")
             
             HStack{
                 Text("Already have an account?")

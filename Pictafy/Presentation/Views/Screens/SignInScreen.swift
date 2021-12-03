@@ -9,13 +9,10 @@
 import SwiftUI
 
 struct SignInScreen: View {
-    
-    let placeholder: String = "Enter Password"
        @State private var _selection: Int? = nil
        @State private var showText: Bool = false
        @State var username: String = ""
        @State var password: String = ""
-       var onCommit: (()->Void)?
        
        var body: some View {
         VStack(alignment: .leading, content: {
@@ -31,7 +28,7 @@ struct SignInScreen: View {
             Textbox(text: $username, placeholder: Text("Username"))
             
             Text("Password")
-            ToggleTextbox(action: {showText.toggle()}, text: $password, showText: showText, onCommit: onCommit, placeholder: "Enter Password")
+            ToggleTextbox(action: {showText.toggle()}, text: $password, showText: showText, placeholder: "Enter Password")
             
             SignInSignUpButton(action: {_selection = 1}, text: "Log in")
             
