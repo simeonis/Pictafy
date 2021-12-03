@@ -1,0 +1,6 @@
+framework module Pods_Pictafy {
+  umbrella header "Pods-Pictafy-umbrella.h"
+
+  export *
+  module * { export * }
+}
