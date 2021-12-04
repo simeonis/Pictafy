@@ -18,7 +18,6 @@
 		5DE5E4A827408E4300B84C06 /* PictureData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5E4A727408E4300B84C06 /* PictureData.swift */; };
 		5DE5E4AA27408FBB00B84C06 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5E4A927408FBB00B84C06 /* LocationService.swift */; };
 		5DF4BAD2273CED2000E06F74 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF4BAD1273CED2000E06F74 /* Camera.swift */; };
-		A206C5E1274E9B9900BA2366 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A206C5E0274E9B9900BA2366 /* GoogleService-Info.plist */; };
 		A206C5E3274EB9AE00BA2366 /* Textbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A206C5E2274EB9AE00BA2366 /* Textbox.swift */; };
 		A206C5E52750089500BA2366 /* SignInSignUpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A206C5E42750089500BA2366 /* SignInSignUpButton.swift */; };
 		A206C5E727500E7F00BA2366 /* ToggleTextbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A206C5E627500E7F00BA2366 /* ToggleTextbox.swift */; };
@@ -27,6 +26,8 @@
 		A206C5F0275AC74800BA2366 /* WelcomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A206C5EF275AC74800BA2366 /* WelcomeButton.swift */; };
 		A21E451C274DDA1B00462E66 /* SignUpScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21E451B274DDA1B00462E66 /* SignUpScreen.swift */; };
 		A2367CEF273CC40800DC28B3 /* SignInScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2367CEE273CC40800DC28B3 /* SignInScreen.swift */; };
+		A24BB34E275B012B00B65FE8 /* Pictafy.xcworkspace in Resources */ = {isa = PBXBuildFile; fileRef = A24BB34D275B012B00B65FE8 /* Pictafy.xcworkspace */; };
+		A24BB352275B036F00B65FE8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A24BB351275B036F00B65FE8 /* GoogleService-Info.plist */; };
 		EA9FE7855539525D63D69D2A /* Pods_Pictafy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DEF893F1470DCDDB5B386B7 /* Pods_Pictafy.framework */; };
 		F02D575F2745812300DD6850 /* DarkModeToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02D575E2745812300DD6850 /* DarkModeToggleStyle.swift */; };
 		F02D5761274581AD00DD6850 /* ScaleButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02D5760274581AD00DD6850 /* ScaleButtonStyle.swift */; };
@@ -54,7 +55,6 @@
 		5DE5E4A927408FBB00B84C06 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		5DF4BAD1273CED2000E06F74 /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		77DC07E669EB3F73B6CA439E /* Pods-Pictafy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pictafy.release.xcconfig"; path = "Target Support Files/Pods-Pictafy/Pods-Pictafy.release.xcconfig"; sourceTree = "<group>"; };
-		A206C5E0274E9B9900BA2366 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A206C5E2274EB9AE00BA2366 /* Textbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Textbox.swift; sourceTree = "<group>"; };
 		A206C5E42750089500BA2366 /* SignInSignUpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInSignUpButton.swift; sourceTree = "<group>"; };
 		A206C5E627500E7F00BA2366 /* ToggleTextbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleTextbox.swift; sourceTree = "<group>"; };
@@ -63,6 +63,8 @@
 		A206C5EF275AC74800BA2366 /* WelcomeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeButton.swift; sourceTree = "<group>"; };
 		A21E451B274DDA1B00462E66 /* SignUpScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpScreen.swift; sourceTree = "<group>"; };
 		A2367CEE273CC40800DC28B3 /* SignInScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInScreen.swift; sourceTree = "<group>"; };
+		A24BB34D275B012B00B65FE8 /* Pictafy.xcworkspace */ = {isa = PBXFileReference; lastKnownFileType = wrapper.workspace; path = Pictafy.xcworkspace; sourceTree = "<group>"; };
+		A24BB351275B036F00B65FE8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		A6045588E42E698213835D96 /* Pods-Pictafy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pictafy.debug.xcconfig"; path = "Target Support Files/Pods-Pictafy/Pods-Pictafy.debug.xcconfig"; sourceTree = "<group>"; };
 		F02D575E2745812300DD6850 /* DarkModeToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkModeToggleStyle.swift; sourceTree = "<group>"; };
 		F02D5760274581AD00DD6850 /* ScaleButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleButtonStyle.swift; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 		F05CB5B4272E0F6F00EC951C = {
 			isa = PBXGroup;
 			children = (
+				A24BB34D275B012B00B65FE8 /* Pictafy.xcworkspace */,
 				F05CB5BF272E0F6F00EC951C /* Pictafy */,
 				F05CB5BE272E0F6F00EC951C /* Products */,
 				0F741CA94C749D42E6E9F1C5 /* Pods */,
@@ -263,13 +266,13 @@
 		F05CB5BF272E0F6F00EC951C /* Pictafy */ = {
 			isa = PBXGroup;
 			children = (
+				A24BB351275B036F00B65FE8 /* GoogleService-Info.plist */,
 				5DABF797273CCD49008CB9ED /* Application */,
 				5DF4BAC9273CEA8000E06F74 /* Presentation */,
 				5DABF792273CCCE0008CB9ED /* Models */,
 				5DABF796273CCD37008CB9ED /* Services */,
 				F05CB5C4272E0F7000EC951C /* Assets.xcassets */,
 				F05CB5C9272E0F7000EC951C /* Info.plist */,
-				A206C5E0274E9B9900BA2366 /* GoogleService-Info.plist */,
 				F05CB5C6272E0F7000EC951C /* Preview Content */,
 			);
 			path = Pictafy;
@@ -342,9 +345,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A24BB34E275B012B00B65FE8 /* Pictafy.xcworkspace in Resources */,
+				A24BB352275B036F00B65FE8 /* GoogleService-Info.plist in Resources */,
 				F05CB5C8272E0F7000EC951C /* Preview Assets.xcassets in Resources */,
 				F05CB5C5272E0F7000EC951C /* Assets.xcassets in Resources */,
-				A206C5E1274E9B9900BA2366 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
