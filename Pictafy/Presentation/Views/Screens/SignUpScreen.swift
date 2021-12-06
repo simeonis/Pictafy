@@ -39,6 +39,7 @@ struct SignUpScreen: View {
             ToggleTextbox(action: {showText2.toggle()}, text: $repassword, showText: showText2, placeholder: "Re-Enter Password")
             
             SignInSignUpButton(action: {
+                self.fireDBHelper.createAccount(email: email, password: password)
                 print(self.fullname,self.username,self.email,self.password)
                 self.fireDBHelper.insertAccount(newAccount: Account( fullName: self.fullname, username: self.username, email: self.email, password: self.password))
                 _selection = 1

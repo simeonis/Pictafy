@@ -15,4 +15,6 @@ target 'Pictafy' do
 	#Swift extensions
 	pod 'FirebaseFirestoreSwift'
 
+	pod 'Firebase/Auth'
+
 end

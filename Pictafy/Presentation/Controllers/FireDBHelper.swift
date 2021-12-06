@@ -7,6 +7,7 @@
 
 import Foundation
 import FirebaseFirestore
+import FirebaseAuth
 
 class FireDBHelper: ObservableObject{
     @Published var accountList = [Account]()
@@ -33,6 +34,25 @@ class FireDBHelper: ObservableObject{
             print(#function, "Error while inserting the Account", error)
         }
     }
+    
+    var handle = Auth.auth().addStateDidChangeListener{ auth, user in
+        
+    }
+    
+    func signIn(email: String, password: String){
+        Auth.auth().signIn(withEmail: email, password: password ){ [weak self] authResult, error in
+            guard let strongSelf = self else {return}
+            
+        }
+    }
+    
+    func createAccount(email: String, password: String){
+        Auth.auth().signIn(withEmail: email, password: password ){ authResult, error in
+            
+            
+        }
+    }
+    
     
 //    func getAllAccounts(){
 //            self.store.collection(COLLECTION_NAME)
