@@ -14,10 +14,14 @@ struct SignInScreen: View {
        @State private var showText: Bool = false
        @State var email: String = ""
        @State var password: String = ""
-       
+       @State var shouldShowHome = false
+    
+    
+    
        var body: some View {
         VStack(alignment: .leading, content: {
-            NavigationLink(destination: HomeScreen(), tag: 1, selection: $_selection) {}
+//            NavigationLink(destination: HomeScreen(), tag: 1, selection: $_selection) {}
+            NavigationLink(destination: HomeScreen(), isActive: $shouldShowHome){}
             NavigationLink(destination: SignUpScreen(), tag: 2, selection: $_selection) {}
             
             Text("Log in")
@@ -51,10 +55,10 @@ struct SignInScreen: View {
         }).padding().padding()
         .navigationBarBackButtonHidden(true)
         .onReceive(fireDBHelper.$isAuth) { success in
-            print("I'm here!")
+            print("zsuccess \(success)")
             if success{
-                print("Success!")
-                 _selection = 1
+                print("zSuccess passed!")
+                shouldShowHome = true
             }
         }
        }

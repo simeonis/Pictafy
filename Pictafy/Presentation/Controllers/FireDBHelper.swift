@@ -13,10 +13,13 @@ class FireDBHelper: ObservableObject{
     @Published var accountList = [Account]()
     @Published var isAuth : Bool = false
     @Published var signUpSuccess : Bool = false
+    
     private let COLLECTION_NAME : String = "Accounts"
     private let store : Firestore
     
     private static var shared : FireDBHelper?
+    
+    var handle: AuthStateDidChangeListenerHandle?
     
     static func getInstance() -> FireDBHelper {
         if shared == nil{
@@ -32,62 +35,64 @@ class FireDBHelper: ObservableObject{
     
     func insertAccount(newAccount: Account){
         do{
-            try self.store.collection(COLLECTION_NAME).addDocument(from: newAccount)
+            var res = try self.store.collection(COLLECTION_NAME).addDocument(from: newAccount)
+            print(res)
         }catch let error as NSError{
             print(#function, "Error while inserting the Account", error)
         }
     }
     
     func listen(){
-    
-        Auth.auth().addStateDidChangeListener{ auth, user in
+        
+        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+            if(user == nil){
+                self.isAuth = false
+                print("zAuth false")
+            }
+            else{
+                self.isAuth = true
+                print("zAuth true")
+            }
+        }
+        
+//        Auth.auth().addStateDidChangeListener{ auth, user in
 //            if user != nil {
-//                print("user is here")
 //                self.isAuth = true
 //            }
 //            else{
 //                self.isAuth = false
 //            }
-            if let user = user {
-                self.isAuth = true
-            }
-            else{
-                self.isAuth = false
-            }
-        }
+//        }
     
     }
     
     func signIn(email: String, password: String){
         Auth.auth().signIn(withEmail: email, password: password ){ authResult, error in
-            print("Auth result = \(authResult)")
 
-//            guard let strongSelf = self else {return}
-//            if error != nil {
-//                print(error)
-//                print("error is good")
-//                self.signUpSuccess = false
-//                return
-//            }
-//            print("sign up success \(self.signUpSuccess)")
-//            self.signUpSuccess = true
-//            else{
-//                print("Error is not nil")
-//                self.signUpSuccess = false
-//            }
+            //guard let strongSelf = self else {return}
+            
+            if error != nil {
+                print("error in sign in")
+                self.signUpSuccess = false
+                return
+            }
+            else{
+                print("Sign in OK")
+                self.signUpSuccess = true
+            }
         }
     }
     
     func createAccount(email: String, password: String){
-        Auth.auth().createUser(withEmail: email, password: password ){ authResult, error in
-            print("Auth result = \(authResult)")
+        Auth.auth().createUser(withEmail: email, password: password ){[weak self] authResult, error in
+
             if let error = error {
                 print("Error when signing up: \(error)")
                 return
             }
             else{
                 print("NO Error when signing up!!!")
-                self.signUpSuccess = true 
+                self?.signUpSuccess = true
             }
             
         }

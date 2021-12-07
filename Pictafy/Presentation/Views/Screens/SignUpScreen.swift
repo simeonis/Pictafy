@@ -62,9 +62,8 @@ struct SignUpScreen: View {
         }).padding().padding()
         .navigationBarBackButtonHidden(true)
         .onReceive(fireDBHelper.$signUpSuccess) { success in
-            print("I'm here!")
+    
             if success{
-                print("Success!")
                  _selection = 1
 
             }
