@@ -52,7 +52,7 @@ struct SettingScreen: View {
             // Card
             ScreenCard {
                 VStack(alignment: .leading) {
-                    Text("title")
+                    Text(fullname)
                         .bold()
                         .padding(.top, 16)
                     HStack {

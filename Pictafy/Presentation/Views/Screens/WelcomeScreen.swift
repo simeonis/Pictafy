@@ -39,7 +39,8 @@ struct WelcomeScreen: View {
                 VStack {
                     NavigationLink(destination: SignInScreen(), tag: 1, selection: $_selection) {}
                     NavigationLink(destination: SignUpScreen(), tag: 2, selection: $_selection) {}
-//                    NavigationLink(destination: HomeScreen(), tag: 3, selection: $_selection) {}
+                    NavigationLink(destination: HomeScreen(), tag: 3, selection: $_selection) {}
+                    NavigationLink(destination: HomeScreen(), isActive: pushNavigationBinding) {}
                     
                     Image(systemName: "camera")
                         .foregroundColor(.white)
@@ -49,7 +50,7 @@ struct WelcomeScreen: View {
                     Text("Pictafy")
                         .foregroundColor(.white)
                         .fontWeight(.heavy)
-                        .textCase(/*@START_MENU_TOKEN@*/.uppercase/*@END_MENU_TOKEN@*/)
+                        .textCase(.uppercase)
                         .font(.largeTitle)
                     
                     WelcomeButton(action: {_selection = 1}, text: "Log in")
