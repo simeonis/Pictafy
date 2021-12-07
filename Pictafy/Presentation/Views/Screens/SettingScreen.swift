@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SettingScreen: View {
+    @EnvironmentObject var fireDBHelper : FireDBHelper
     // MARK: UI Variables
     let imageFilter = Color(red: 45/255, green: 45/255, blue: 64/255).opacity(0.75)
     let screenWidth = UIScreen.main.bounds.width
@@ -34,6 +35,7 @@ struct SettingScreen: View {
     
     func logOut() {
         // TO-DO
+        fireDBHelper.logout()
     }
     
     func deleteAccount() {

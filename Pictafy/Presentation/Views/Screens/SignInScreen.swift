@@ -20,7 +20,6 @@ struct SignInScreen: View {
     
        var body: some View {
         VStack(alignment: .leading, content: {
-//            NavigationLink(destination: HomeScreen(), tag: 1, selection: $_selection) {}
             NavigationLink(destination: HomeScreen(), isActive: $shouldShowHome){}
             NavigationLink(destination: SignUpScreen(), tag: 2, selection: $_selection) {}
             
@@ -37,8 +36,6 @@ struct SignInScreen: View {
             
             SignInSignUpButton(action: {
                 self.fireDBHelper.signIn(email: email, password: password)
-//                _selection = 1
-                
             }, text: "Log in")
             
             HStack{
@@ -54,12 +51,14 @@ struct SignInScreen: View {
             
         }).padding().padding()
         .navigationBarBackButtonHidden(true)
-        .onReceive(fireDBHelper.$isAuth) { success in
-            print("zsuccess \(success)")
+        .onReceive(fireDBHelper.$signedIn) { success in
+            print("Signin? \(success)")
             if success{
-                print("zSuccess passed!")
                 shouldShowHome = true
             }
+        }
+        .onAppear(){
+            fireDBHelper.signUpSuccess = false
         }
        }
    }

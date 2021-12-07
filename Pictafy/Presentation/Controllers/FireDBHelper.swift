@@ -13,9 +13,11 @@ class FireDBHelper: ObservableObject{
     @Published var accountList = [Account]()
     @Published var isAuth : Bool = false
     @Published var signUpSuccess : Bool = false
+    @Published var signedIn : Bool = false
     
     private let COLLECTION_NAME : String = "Accounts"
     private let store : Firestore
+    private let auth = Auth.auth()
     
     private static var shared : FireDBHelper?
     
@@ -35,25 +37,34 @@ class FireDBHelper: ObservableObject{
     
     func insertAccount(newAccount: Account){
         do{
-            var res = try self.store.collection(COLLECTION_NAME).addDocument(from: newAccount)
-            print(res)
+            try self.store.collection(COLLECTION_NAME).addDocument(from: newAccount)
         }catch let error as NSError{
             print(#function, "Error while inserting the Account", error)
         }
     }
     
     func listen(){
-        
-        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
-            if(user == nil){
-                self.isAuth = false
-                print("zAuth false")
+        print("Listen Called")
+        Auth.auth().addStateDidChangeListener {[weak self] (auth, user) in
+            var state = false;
+            
+            if(user != nil)
+            {
+                state = true
+                print("State true")
             }
             else{
-                self.isAuth = true
-                print("zAuth true")
+                state = false
+                print("State false")
             }
+            
+            //DispatchQueue.main.async{
+                self?.isAuth = state
+            //}
+            
+           
         }
+    }
         
 //        Auth.auth().addStateDidChangeListener{ auth, user in
 //            if user != nil {
@@ -64,7 +75,7 @@ class FireDBHelper: ObservableObject{
 //            }
 //        }
     
-    }
+    
     
     func signIn(email: String, password: String){
         Auth.auth().signIn(withEmail: email, password: password ){ authResult, error in
@@ -73,12 +84,12 @@ class FireDBHelper: ObservableObject{
             
             if error != nil {
                 print("error in sign in")
-                self.signUpSuccess = false
+                self.signedIn = false
                 return
             }
             else{
                 print("Sign in OK")
-                self.signUpSuccess = true
+                self.signedIn = true
             }
         }
     }
@@ -96,6 +107,18 @@ class FireDBHelper: ObservableObject{
             }
             
         }
+    }
+    
+    func logout(){
+        print("Logout called")
+        do{
+           try Auth.auth().signOut()
+            self.signedIn = false
+            
+        }catch let error as NSError{
+            print(#function, "Error while inserting the Account", error)
+        }
+        
     }
     
     

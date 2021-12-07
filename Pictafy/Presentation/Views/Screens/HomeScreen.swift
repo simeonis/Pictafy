@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct HomeScreen: View {
+    @EnvironmentObject var fireDBHelper : FireDBHelper
     @State private var _selection: Int? = nil
     
     var body: some View {
         VStack {
             NavigationLink(destination: SettingScreen(), tag: 1, selection: $_selection) {}
             NavigationLink(destination: FriendScreen(), tag: 2, selection: $_selection) {}
+            NavigationLink(destination: SignInScreen(), tag: 3, selection: $_selection) {}
             TabView {
                 VStack{
                     Text("Home")
@@ -48,8 +50,17 @@ struct HomeScreen: View {
                         Image(systemName: "gearshape.fill")
                     }
                 })
+            .onReceive(fireDBHelper.$isAuth) { success in
+                print("AUTH STATE IN WELCOME? \(success)")
+                if success == false{
+                    print("success == false")
+                    self._selection = 3
+                }
+            }
         }
+        
     }
+   
 }
 
 struct HomeScreen_Previews: PreviewProvider {
