@@ -19,9 +19,11 @@
 		5DE5E4AA27408FBB00B84C06 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5E4A927408FBB00B84C06 /* LocationService.swift */; };
 		5DF4BAD2273CED2000E06F74 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF4BAD1273CED2000E06F74 /* Camera.swift */; };
 		A2367CEF273CC40800DC28B3 /* SignInScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2367CEE273CC40800DC28B3 /* SignInScreen.swift */; };
+		F01BFA50275F217300542953 /* ScreenCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01BFA4F275F217300542953 /* ScreenCard.swift */; };
+		F01BFA52275F219C00542953 /* CardFormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01BFA51275F219C00542953 /* CardFormField.swift */; };
+		F01C796627560DE2000D0712 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01C796527560DE2000D0712 /* Friend.swift */; };
 		F02D575F2745812300DD6850 /* DarkModeToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02D575E2745812300DD6850 /* DarkModeToggleStyle.swift */; };
 		F02D5761274581AD00DD6850 /* ScaleButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02D5760274581AD00DD6850 /* ScaleButtonStyle.swift */; };
-		F02D5763274582A300DD6850 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02D5762274582A300DD6850 /* IconButton.swift */; };
 		F02D57672745991400DD6850 /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02D57662745991400DD6850 /* WelcomeScreen.swift */; };
 		F04725A52743117900984A37 /* SettingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04725A42743117900984A37 /* SettingScreen.swift */; };
 		F04725A9274323F000984A37 /* ProfileIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04725A8274323F000984A37 /* ProfileIcon.swift */; };
@@ -29,6 +31,9 @@
 		F05CB5C3272E0F6F00EC951C /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05CB5C2272E0F6F00EC951C /* HomeScreen.swift */; };
 		F05CB5C5272E0F7000EC951C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F05CB5C4272E0F7000EC951C /* Assets.xcassets */; };
 		F05CB5C8272E0F7000EC951C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F05CB5C7272E0F7000EC951C /* Preview Assets.xcassets */; };
+		F0907B22275EE0780026B6B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0907B21275EE0780026B6B9 /* AppDelegate.swift */; };
+		F0EE477B2749BA2100A1C755 /* FriendScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EE477A2749BA2100A1C755 /* FriendScreen.swift */; };
+		F0EE477D2749BB1B00A1C755 /* FriendCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EE477C2749BB1B00A1C755 /* FriendCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,9 +49,11 @@
 		5DE5E4A927408FBB00B84C06 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		5DF4BAD1273CED2000E06F74 /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		A2367CEE273CC40800DC28B3 /* SignInScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInScreen.swift; sourceTree = "<group>"; };
+		F01BFA4F275F217300542953 /* ScreenCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenCard.swift; sourceTree = "<group>"; };
+		F01BFA51275F219C00542953 /* CardFormField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFormField.swift; sourceTree = "<group>"; };
+		F01C796527560DE2000D0712 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		F02D575E2745812300DD6850 /* DarkModeToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkModeToggleStyle.swift; sourceTree = "<group>"; };
 		F02D5760274581AD00DD6850 /* ScaleButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleButtonStyle.swift; sourceTree = "<group>"; };
-		F02D5762274582A300DD6850 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
 		F02D57662745991400DD6850 /* WelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreen.swift; sourceTree = "<group>"; };
 		F04725A42743117900984A37 /* SettingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingScreen.swift; sourceTree = "<group>"; };
 		F04725A8274323F000984A37 /* ProfileIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileIcon.swift; sourceTree = "<group>"; };
@@ -56,6 +63,10 @@
 		F05CB5C4272E0F7000EC951C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F05CB5C7272E0F7000EC951C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F05CB5C9272E0F7000EC951C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F0907B1E275ED3A60026B6B9 /* Pictafy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pictafy.entitlements; sourceTree = "<group>"; };
+		F0907B21275EE0780026B6B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F0EE477A2749BA2100A1C755 /* FriendScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendScreen.swift; sourceTree = "<group>"; };
+		F0EE477C2749BB1B00A1C755 /* FriendCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				5DE5E4A727408E4300B84C06 /* PictureData.swift */,
+				F01C796527560DE2000D0712 /* Friend.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -116,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				F05CB5C0272E0F6F00EC951C /* PictafyApp.swift */,
+				F0907B21275EE0780026B6B9 /* AppDelegate.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -142,6 +155,7 @@
 		5DF4BACA273CEA9800E06F74 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				F01C796427560DAB000D0712 /* Cards */,
 				F02D575D274580C400DD6850 /* Buttons */,
 				F04725A7274323DB00984A37 /* Settings */,
 				5D5BEA39273D813B000440DE /* Camera */,
@@ -167,15 +181,25 @@
 				5D40C5F82741BB3500D7EF52 /* CreatePostScreen.swift */,
 				F04725A42743117900984A37 /* SettingScreen.swift */,
 				F02D57662745991400DD6850 /* WelcomeScreen.swift */,
+				F0EE477A2749BA2100A1C755 /* FriendScreen.swift */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		F01C796427560DAB000D0712 /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				F0EE477C2749BB1B00A1C755 /* FriendCard.swift */,
+				F01BFA4F275F217300542953 /* ScreenCard.swift */,
+				F01BFA51275F219C00542953 /* CardFormField.swift */,
+			);
+			path = Cards;
 			sourceTree = "<group>";
 		};
 		F02D575D274580C400DD6850 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
 				F02D5764274597F700DD6850 /* Styles */,
-				F02D5762274582A300DD6850 /* IconButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -216,6 +240,7 @@
 		F05CB5BF272E0F6F00EC951C /* Pictafy */ = {
 			isa = PBXGroup;
 			children = (
+				F0907B1E275ED3A60026B6B9 /* Pictafy.entitlements */,
 				5DABF797273CCD49008CB9ED /* Application */,
 				5DF4BAC9273CEA8000E06F74 /* Presentation */,
 				5DABF792273CCCE0008CB9ED /* Models */,
@@ -305,7 +330,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F02D57672745991400DD6850 /* WelcomeScreen.swift in Sources */,
-				F02D5763274582A300DD6850 /* IconButton.swift in Sources */,
 				5D40C5F92741BB3500D7EF52 /* CreatePostScreen.swift in Sources */,
 				5DBEC167273D8E2E0010812C /* CameraPreview.swift in Sources */,
 				A2367CEF273CC40800DC28B3 /* SignInScreen.swift in Sources */,
@@ -318,12 +342,18 @@
 				F05CB5C3272E0F6F00EC951C /* HomeScreen.swift in Sources */,
 				F04725A9274323F000984A37 /* ProfileIcon.swift in Sources */,
 				5DBEC162273D85480010812C /* CameraUserEvents.swift in Sources */,
+				F01BFA50275F217300542953 /* ScreenCard.swift in Sources */,
 				F02D575F2745812300DD6850 /* DarkModeToggleStyle.swift in Sources */,
 				5DE5E4A42740624E00B84C06 /* CameraScreen.swift in Sources */,
 				F04725A52743117900984A37 /* SettingScreen.swift in Sources */,
 				F05CB5C1272E0F6F00EC951C /* PictafyApp.swift in Sources */,
 				5DE5E4AA27408FBB00B84C06 /* LocationService.swift in Sources */,
+				F01C796627560DE2000D0712 /* Friend.swift in Sources */,
+				F0EE477B2749BA2100A1C755 /* FriendScreen.swift in Sources */,
 				5DE5E4A827408E4300B84C06 /* PictureData.swift in Sources */,
+				F0EE477D2749BB1B00A1C755 /* FriendCard.swift in Sources */,
+				F01BFA52275F219C00542953 /* CardFormField.swift in Sources */,
+				F0907B22275EE0780026B6B9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,9 +481,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Pictafy/Pictafy.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Pictafy/Preview Content\"";
-				DEVELOPMENT_TEAM = 2C833Y2NTV;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Pictafy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -463,6 +495,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.simeoni.Pictafy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -473,9 +506,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Pictafy/Pictafy.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Pictafy/Preview Content\"";
-				DEVELOPMENT_TEAM = 2C833Y2NTV;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Pictafy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -485,6 +520,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.simeoni.Pictafy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -9,12 +9,9 @@ import SwiftUI
 
 struct SettingScreen: View {
     // MARK: UI Variables
-    let primaryColor = Color(red: 21/255, green: 27/255, blue: 31/255)
-    let secondaryColor = Color.white
-    let backgroundColor = Color.orange
+    let imageFilter = Color(red: 45/255, green: 45/255, blue: 64/255).opacity(0.75)
     let screenWidth = UIScreen.main.bounds.width
     let screenHeight = UIScreen.main.bounds.height
-    let aspectRatio = UIScreen.main.bounds.height / UIScreen.main.bounds.width
     
     // MARK: Functionality Variables
     @AppStorage("isDarkMode") var isDarkMode : Bool = false
@@ -23,78 +20,107 @@ struct SettingScreen: View {
     @State var email : String = "richard94@gmail.com"
     @State var notificationOn : Bool = true
     
-    func signOut() {
+    func changeProfile() {
         // TO-DO
     }
     
-    func deleteAcc() {
+    func changePassword() {
+        // TO-DO
+    }
+    
+    func toggleNotification(value : Bool) {
+        // TO-DO
+    }
+    
+    func logOut() {
+        // TO-DO
+    }
+    
+    func deleteAccount() {
         // TO-DO
     }
     
     var body: some View {
         VStack(spacing: 0) {
+            // Image Background
             ZStack {
-                RadialGradient(gradient: Gradient(colors: [.white, backgroundColor]), center: UnitPoint(x: 1/2, y: 2/3), startRadius: 0, endRadius: 225).edgesIgnoringSafeArea(.top)
-
-                Button(action: {}) {
-                    ProfileIcon(image: "profile_pic1", editable: true, primary: self.primaryColor, secondary: self.secondaryColor, scale: self.aspectRatio * 0.65)
-                }.buttonStyle(ScaleButtonStyle())
-            }.frame(height: self.screenHeight / 4)
-
-            Form {
-                Section(header: Text("ACCOUNT INFORMATION")) {
-                    HStack {
-                        Text("Name").bold()
-                        Spacer()
-                        Text(fullname)
-                    }
-                    HStack {
-                        Text("Username").bold()
-                        Spacer()
-                        Text(username)
-                    }
-                    HStack {
-                        Text("Email").bold()
-                        Spacer()
-                        Text(email)
-                    }
-                    HStack {
-                        Text("Password").bold()
-                        Spacer()
-                        Button(action: {}) {
-                            Text("Change Password").foregroundColor(.blue)
-                        }
-                    }
-                } // Section
-                
-                Section(header: Text("NOTIFICATIONS")) {
-                    VStack {
-                        HStack {
-                            Image(systemName: "bell.fill")
-                            Text("Turn \(notificationOn ? "off" : "on") notification?")
-                        }
-                        Picker("Notification", selection: $notificationOn) {
-                            Text("On").tag(true)
-                            Text("Off").tag(false)
-                        }.pickerStyle(SegmentedPickerStyle())
-                    }.padding(4)
-                } // Section
-                
+                Image("profile_pic1").blur(radius: 6)
+                    .overlay(Rectangle()
+                                .foregroundColor(imageFilter))
+            }.frame(width: self.screenWidth, height: self.screenHeight / 4)
+            
+            // Card
+            ScreenCard {
                 VStack(alignment: .leading) {
-                    IconButton(action: signOut, text: "SIGN OUT", sysIcon: "circlebadge", primaryColor: .orange, secondaryColor: .white)
-                    IconButton(action: deleteAcc, text: "DELETE ACCOUNT", sysIcon: "trash", primaryColor: .red, secondaryColor: .white)
+                    Text("title")
+                        .bold()
+                        .padding(.top, 16)
+                    HStack {
+                        Image(systemName: "location.fill")
+                        Text("Oakville, CAN")
+                    }.font(.system(size: 12))
+                    .foregroundColor(.gray)
                 }
-                .padding(8)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .listRowInsets(EdgeInsets())
-                .background(Color(UIColor.systemGroupedBackground))
-            }
-        }
-        
-        .navigationBarItems(trailing:
-            Toggle("", isOn: $isDarkMode).toggleStyle(DarkModeToggleStyle())
-        )
-        .navigationBarTitle("", displayMode: .inline)
+                .frame(maxWidth: .infinity)
+                .padding(.leading, 100)
+                
+                CardFormField(title: "Information") {
+                    HStack {
+                        Image(systemName: "envelope.fill")
+                        Text("Email").padding(.leading, 16)
+                        Spacer()
+                        Text("test@mail.com")
+                    }
+                    HStack {
+                        Image(systemName: "lock.fill")
+                        Text("Password").padding(.leading, 16)
+                        Spacer()
+                        Button("Change Password", action: changePassword)
+                            .foregroundColor(.blue)
+                    }
+                } // CardFormField
+                CardFormField(title: "Settings") {
+                    HStack {
+                        Image(systemName: "moon.fill")
+                        Text("Dark Mode").padding(.leading, 16)
+                        Toggle("", isOn: $isDarkMode)
+                            .toggleStyle(DarkModeToggleStyle())
+                    }
+                    HStack {
+                        Image(systemName: "bell.fill")
+                        Text("Push Notification").padding(.leading, 16)
+                        Toggle("", isOn: $notificationOn)
+                            .onChange(of: notificationOn) { value in
+                                toggleNotification(value: value)
+                            }
+                    }
+                } // CardFormField
+                CardFormField(title: "General") {
+                    HStack {
+                        Image(systemName: "arrow.right")
+                        Button("Logout", action: logOut)
+                            .foregroundColor(.blue)
+                            .padding(.leading, 16)
+                        Spacer()
+                    }
+                    HStack {
+                        Image(systemName: "trash.fill")
+                        Button("Delete Account", action: deleteAccount).foregroundColor(.red)
+                            .padding(.leading, 16)
+                        Spacer()
+                    }
+                } // CardFormField
+            }.overlay(
+                Button(action: changeProfile) {
+                    ProfileIcon(image: "profile_pic1", editable: true)
+                }
+                .buttonStyle(ScaleButtonStyle())
+                .position(x: 115, y: 5)
+            ) // ScreenCard
+        } // VStack
+        .background(Color.red)
+        .edgesIgnoringSafeArea(.vertical)
+        .navigationBarTitle("Settings", displayMode: .inline)
     }
 }
 

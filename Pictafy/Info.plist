@@ -20,6 +20,12 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Please enable the camera to get the full experience of this app</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Pictafy wants to access your location to provide you with an optimized experience</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Pictafy wants to access your location to provide you with an optimized experience</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -27,6 +33,10 @@
 	</dict>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
 	<key>UILaunchScreen</key>
 	<dict/>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -39,8 +49,6 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSCameraUsageDescription</key>
-	<string>Please enable the camera to get the full experience of this app</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -48,9 +56,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Pictafy wants to access your location to provide you with an optimized experience</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Pictafy wants to access your location to provide you with an optimized experience</string>
 </dict>
 </plist>

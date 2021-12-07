@@ -8,19 +8,30 @@
 import SwiftUI
 
 struct WelcomeScreen: View {
+    @ObservedObject var appState = AppState.shared
     @State private var _selection: Int? = nil
-    @AppStorage("isDarkMode") var isDarkMode : Bool = false
+    
+    var pushNavigationBinding : Binding<Bool> {
+        .init { () -> Bool in
+            appState.pageToNavigateTo != nil
+        } set: { (newValue) in
+            if !newValue { appState.pageToNavigateTo = nil }
+        }
+    }
     
     init() {
         // Transparent NavBar
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(.blue)]
     }
     
     var body: some View {
         NavigationView {
             VStack {
                 NavigationLink(destination: HomeScreen(), tag: 1, selection: $_selection) {}
+                // Push Notification Post
+                NavigationLink(destination: FriendScreen(), isActive: pushNavigationBinding) {}
                 Button(action: { _selection = 1 }) {
                     Text("Go To Home Screen")
                         .foregroundColor(.blue)
@@ -29,7 +40,6 @@ struct WelcomeScreen: View {
             }
         } // NavigationView
         .navigationViewStyle(StackNavigationViewStyle())
-        .accentColor(isDarkMode ? .white : .black)
     }
 }
 
