@@ -14,27 +14,24 @@ struct Account : Codable, Identifiable, Hashable{
     var fullName : String = ""
     var username : String = ""
     var email : String = ""
-    var password : String = ""
     var dateCreated : Date = Date()
     
     init() {
 
     }
 
-    init(fullName: String, username: String, email: String, password: String){
+    init(fullName: String, username: String, email: String){
         self.fullName = fullName
         self.username = username
         self.email = email
-        self.password = password
         self.dateCreated = Date()
     }
     
-    init(image: String, fullName: String, username: String, email: String, password: String, dateCreated: Date){
+    init(image: String, fullName: String, username: String, email: String, dateCreated: Date){
         self.image = "https://cdn.discordapp.com/attachments/912830780714147861/916359537802506300/blank-profile-picture-973460_640.png"
         self.fullName = fullName
         self.username = username
         self.email = email
-        self.password = password
         self.dateCreated = dateCreated
     }
     
@@ -56,15 +53,11 @@ struct Account : Codable, Identifiable, Hashable{
             return nil
         }
         
-        guard let password = dictionary["password"] as? String else{
-            return nil
-        }
-        
         guard let dateCreated = dictionary["dateCreated"] as? Date else {
             return nil
         }
         
-        self.init(image: image, fullName: fullName, username: username, email: email, password: password, dateCreated: dateCreated)
+        self.init(image: image, fullName: fullName, username: username, email: email, dateCreated: dateCreated)
     }
 }
 

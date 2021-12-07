@@ -20,8 +20,11 @@ struct SignUpScreen: View {
     
     var body: some View {
         VStack(alignment: .leading, content: {
-            NavigationLink(destination: SignInScreen(), tag: 1, selection: $_selection) {}
-            NavigationLink(destination: SignInScreen(), tag: 2, selection: $_selection) {}
+          
+                NavigationLink(destination: SignInScreen(), tag: 1, selection: $_selection) {}
+          
+            
+//            NavigationLink(destination: SignInScreen(), tag: 2, selection: $_selection) {}
             
             Text("Sign up")
                 .font(.largeTitle)
@@ -41,14 +44,14 @@ struct SignUpScreen: View {
             SignInSignUpButton(action: {
                 self.fireDBHelper.createAccount(email: email, password: password)
                 print(self.fullname,self.username,self.email,self.password)
-                self.fireDBHelper.insertAccount(newAccount: Account( fullName: self.fullname, username: self.username, email: self.email, password: self.password))
-                _selection = 1
+                self.fireDBHelper.insertAccount(newAccount: Account( fullName: self.fullname, username: self.username, email: self.email))
+//                _selection = 1
             }, text: "Sign up")
             
             HStack{
                 Text("Already have an account?")
                 Button(action:  {
-                    _selection = 2
+                    _selection = 1
                 }){
                     Text("Sign in")
                         .foregroundColor(.ui.primaryColor)
@@ -58,6 +61,15 @@ struct SignUpScreen: View {
             
         }).padding().padding()
         .navigationBarBackButtonHidden(true)
+        .onReceive(fireDBHelper.$signUpSuccess) { success in
+            print("I'm here!")
+            if success{
+                print("Success!")
+                 _selection = 1
+
+            }
+
+        }
     }
 }
 

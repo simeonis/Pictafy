@@ -30,7 +30,7 @@ struct WelcomeScreen: View {
                 VStack {
                     NavigationLink(destination: SignInScreen(), tag: 1, selection: $_selection) {}
                     NavigationLink(destination: SignUpScreen(), tag: 2, selection: $_selection) {}
-                    NavigationLink(destination: HomeScreen(), tag: 3, selection: $_selection) {}
+//                    NavigationLink(destination: HomeScreen(), tag: 3, selection: $_selection) {}
                     
                     Image(systemName: "camera")
                         .foregroundColor(.white)

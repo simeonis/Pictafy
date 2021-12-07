@@ -9,9 +9,10 @@
 import SwiftUI
 
 struct SignInScreen: View {
+       @EnvironmentObject var fireDBHelper : FireDBHelper
        @State private var _selection: Int? = nil
        @State private var showText: Bool = false
-       @State var username: String = ""
+       @State var email: String = ""
        @State var password: String = ""
        
        var body: some View {
@@ -25,12 +26,16 @@ struct SignInScreen: View {
                 .padding(.init(top: 0, leading: 0, bottom: 20, trailing: 0))
                 
             Text("Username")
-            Textbox(text: $username, placeholder: Text("Username"))
+            Textbox(text: $email, placeholder: Text("Username"))
             
             Text("Password")
             ToggleTextbox(action: {showText.toggle()}, text: $password, showText: showText, placeholder: "Enter Password")
             
-            SignInSignUpButton(action: {_selection = 1}, text: "Log in")
+            SignInSignUpButton(action: {
+                self.fireDBHelper.signIn(email: email, password: password)
+//                _selection = 1
+                
+            }, text: "Log in")
             
             HStack{
                 Text("Don't have an account?")
@@ -45,6 +50,13 @@ struct SignInScreen: View {
             
         }).padding().padding()
         .navigationBarBackButtonHidden(true)
+        .onReceive(fireDBHelper.$isAuth) { success in
+            print("I'm here!")
+            if success{
+                print("Success!")
+                 _selection = 1
+            }
+        }
        }
    }
 

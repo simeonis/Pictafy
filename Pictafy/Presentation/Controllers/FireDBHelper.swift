@@ -11,6 +11,8 @@ import FirebaseAuth
 
 class FireDBHelper: ObservableObject{
     @Published var accountList = [Account]()
+    @Published var isAuth : Bool = false
+    @Published var signUpSuccess : Bool = false
     private let COLLECTION_NAME : String = "Accounts"
     private let store : Firestore
     
@@ -25,6 +27,7 @@ class FireDBHelper: ObservableObject{
     
     init(database : Firestore){
         self.store = database
+        self.listen()
     }
     
     func insertAccount(newAccount: Account){
@@ -35,20 +38,57 @@ class FireDBHelper: ObservableObject{
         }
     }
     
-    var handle = Auth.auth().addStateDidChangeListener{ auth, user in
-        
+    func listen(){
+    
+        Auth.auth().addStateDidChangeListener{ auth, user in
+//            if user != nil {
+//                print("user is here")
+//                self.isAuth = true
+//            }
+//            else{
+//                self.isAuth = false
+//            }
+            if let user = user {
+                self.isAuth = true
+            }
+            else{
+                self.isAuth = false
+            }
+        }
+    
     }
     
     func signIn(email: String, password: String){
-        Auth.auth().signIn(withEmail: email, password: password ){ [weak self] authResult, error in
-            guard let strongSelf = self else {return}
-            
+        Auth.auth().signIn(withEmail: email, password: password ){ authResult, error in
+            print("Auth result = \(authResult)")
+
+//            guard let strongSelf = self else {return}
+//            if error != nil {
+//                print(error)
+//                print("error is good")
+//                self.signUpSuccess = false
+//                return
+//            }
+//            print("sign up success \(self.signUpSuccess)")
+//            self.signUpSuccess = true
+//            else{
+//                print("Error is not nil")
+//                self.signUpSuccess = false
+//            }
         }
     }
     
     func createAccount(email: String, password: String){
-        Auth.auth().signIn(withEmail: email, password: password ){ authResult, error in
-            
+        Auth.auth().createUser(withEmail: email, password: password ){ authResult, error in
+            print("Auth result = \(authResult)")
+            if let error = error {
+                print("Error when signing up: \(error)")
+                return
+            }
+            else{
+                print("NO Error when signing up!!!")
+                self.signUpSuccess = true 
+            }
             
         }
     }
