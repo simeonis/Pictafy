@@ -9,16 +9,11 @@ import SwiftUI
 
 struct HomeScreen: View {
     @State private var _selection: Int? = nil
-    @AppStorage("isDarkMode") var isDarkMode : Bool = false
-    
-    init() {
-        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        UINavigationBar.appearance().shadowImage = UIImage()
-    }
     
     var body: some View {
         VStack {
             NavigationLink(destination: SettingScreen(), tag: 1, selection: $_selection) {}
+            NavigationLink(destination: FriendScreen(), tag: 2, selection: $_selection) {}
             TabView {
                 VStack{
                     Text("Home")
@@ -40,12 +35,19 @@ struct HomeScreen: View {
                 }
             } // TabView
             .navigationBarBackButtonHidden(true)
+            .navigationBarTitle("", displayMode: .inline)
             .navigationBarItems(trailing:
-                // User Settings Button
-                Button(action: { self._selection = 1 }) {
-                    Image(systemName: "gearshape.fill")
+                HStack {
+                    // Friend List Button
+                    Button(action: { self._selection = 2 }) {
+                        Image(systemName: "person.2")
+                    }
+                    
+                    // User Settings Button
+                    Button(action: { self._selection = 1 }) {
+                        Image(systemName: "gearshape.fill")
+                    }
                 })
-            .padding(.top, -48)
         }
     }
 }

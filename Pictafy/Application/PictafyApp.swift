@@ -9,6 +9,11 @@ import SwiftUI
 import Firebase
 import FirebaseFirestore
 
+class AppState: ObservableObject {
+    static let shared = AppState()
+    @Published var pageToNavigateTo : String?
+}
+
 @main
 struct PictafyApp: App {
     
@@ -19,6 +24,7 @@ struct PictafyApp: App {
         fireDBHelper = FireDBHelper(database: Firestore.firestore())
       }
     
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @AppStorage("isDarkMode") private var isDarkMode = false
     private let locationService = LocationService()
     
