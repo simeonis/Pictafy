@@ -9,19 +9,22 @@ import SwiftUI
 import AVFoundation
 
 struct Camera: UIViewControllerRepresentable {
-    
     // MARK: Vars
     @ObservedObject var events: CameraUserEvents
+    var imageT: Binding<UIImage?>
     
     private var preferredStartingCameraType: AVCaptureDevice.DeviceType
     private var preferredStartingCameraPosition: AVCaptureDevice.Position
     
     // MARK: Public Methods
     public init(events: CameraUserEvents,
+                image: Binding<UIImage?>,
                 preferredStartingCameraType: AVCaptureDevice.DeviceType = .builtInWideAngleCamera,
                 preferredStartingCameraPosition: AVCaptureDevice.Position = .back) {
         
         self.events = events
+        
+        self.imageT = image
            
         self.preferredStartingCameraType = preferredStartingCameraType
         self.preferredStartingCameraPosition = preferredStartingCameraPosition
@@ -52,6 +55,7 @@ struct Camera: UIViewControllerRepresentable {
         
         var parent: Camera
         
+        
         init(_ parent: Camera) {
             self.parent = parent
         }
@@ -71,7 +75,8 @@ struct Camera: UIViewControllerRepresentable {
             
         public func didFinishProcessingPhoto(image: UIImage) {
             //TODO
-            print("didFinishProcessingPhoto")
+            print("didFinishProcessingPhoto seth")
+            parent.imageT.wrappedValue = image
         }
                     
         public func didFinishSavingWithError(image: UIImage, error: NSError?, contextInfo: UnsafeRawPointer) {

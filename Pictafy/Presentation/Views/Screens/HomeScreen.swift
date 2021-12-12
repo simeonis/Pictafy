@@ -10,6 +10,19 @@ import SwiftUI
 struct HomeScreen: View {
     @EnvironmentObject var fireDBHelper : FireDBHelper
     @State private var _selection: Int? = nil
+
+    @AppStorage("isDarkMode") var isDarkMode : Bool = false
+    
+    init() {
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        UINavigationBar.appearance().shadowImage = UIImage()
+        
+        //UITabBar.appearance().barTintColor = UIColor(Color.ui.primaryColor)
+        UITabBar.appearance().backgroundColor = UIColor(Color.white)
+        
+        UITableViewCell.appearance().backgroundColor = UIColor.clear
+    }
+
     
     var body: some View {
         VStack {
@@ -31,10 +44,10 @@ struct HomeScreen: View {
                 .tabItem {
                     Label("Camera", systemImage: "camera.fill")
                 }
-                CreatePostScreen()
-                .tabItem {
-                    Label("Create Post", systemImage: "square.and.pencil")
-                }
+//                CreatePostScreen(image: UIImage(imageLiteralResourceName: "sample_post"))
+//                .tabItem {
+//                    Label("Create Post", systemImage: "square.and.pencil")
+//                }
             } // TabView
             .navigationBarBackButtonHidden(true)
             .navigationBarTitle("", displayMode: .inline)
