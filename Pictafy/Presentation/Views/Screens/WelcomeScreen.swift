@@ -23,7 +23,6 @@ struct WelcomeScreen: View {
         // Transparent NavBar
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         UINavigationBar.appearance().shadowImage = UIImage()
-        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(.blue)]
     }
     
     var body: some View {
@@ -68,6 +67,7 @@ struct WelcomeScreen: View {
             }
         } // NavigationView
         .navigationViewStyle(StackNavigationViewStyle())
+        .accentColor(.primary)
     }
 }
 

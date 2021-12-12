@@ -51,6 +51,9 @@
 		F05CB5C5272E0F7000EC951C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F05CB5C4272E0F7000EC951C /* Assets.xcassets */; };
 		F05CB5C8272E0F7000EC951C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F05CB5C7272E0F7000EC951C /* Preview Assets.xcassets */; };
 		F0907B22275EE0780026B6B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0907B21275EE0780026B6B9 /* AppDelegate.swift */; };
+		F0ABE86627657CA300201742 /* PostOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0ABE86527657CA300201742 /* PostOverview.swift */; };
+		F0ABE86827657D3300201742 /* PostRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0ABE86727657D3300201742 /* PostRow.swift */; };
+		F0ABE86A27658C2700201742 /* PostScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0ABE86927658C2700201742 /* PostScreen.swift */; };
 		F0EE477B2749BA2100A1C755 /* FriendScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EE477A2749BA2100A1C755 /* FriendScreen.swift */; };
 		F0EE477D2749BB1B00A1C755 /* FriendCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EE477C2749BB1B00A1C755 /* FriendCard.swift */; };
 /* End PBXBuildFile section */
@@ -105,6 +108,9 @@
 		F05CB5C9272E0F7000EC951C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F0907B1E275ED3A60026B6B9 /* Pictafy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pictafy.entitlements; sourceTree = "<group>"; };
 		F0907B21275EE0780026B6B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F0ABE86527657CA300201742 /* PostOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostOverview.swift; sourceTree = "<group>"; };
+		F0ABE86727657D3300201742 /* PostRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRow.swift; sourceTree = "<group>"; };
+		F0ABE86927658C2700201742 /* PostScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostScreen.swift; sourceTree = "<group>"; };
 		F0EE477A2749BA2100A1C755 /* FriendScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendScreen.swift; sourceTree = "<group>"; };
 		F0EE477C2749BB1B00A1C755 /* FriendCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -221,6 +227,7 @@
 		5DF4BACA273CEA9800E06F74 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				F0ABE86427657C7300201742 /* Post */,
 				F01C796427560DAB000D0712 /* Cards */,
 				F02D575D274580C400DD6850 /* Buttons */,
 				F04725A7274323DB00984A37 /* Settings */,
@@ -249,7 +256,6 @@
 		5DF4BAD0273CEC1A00E06F74 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				F02D57662745991400DD6850 /* WelcomeScreen.swift */,
 				A2367CEE273CC40800DC28B3 /* SignInScreen.swift */,
 				A21E451B274DDA1B00462E66 /* SignUpScreen.swift */,
 				F05CB5C2272E0F6F00EC951C /* HomeScreen.swift */,
@@ -259,6 +265,7 @@
 				F04725A42743117900984A37 /* SettingScreen.swift */,
 				F02D57662745991400DD6850 /* WelcomeScreen.swift */,
 				F0EE477A2749BA2100A1C755 /* FriendScreen.swift */,
+				F0ABE86927658C2700201742 /* PostScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -277,7 +284,6 @@
 			isa = PBXGroup;
 			children = (
 				F02D5764274597F700DD6850 /* Styles */,
-				F02D5762274582A300DD6850 /* IconButton.swift */,
 				A206C5E42750089500BA2366 /* SignInSignUpButton.swift */,
 				A206C5EF275AC74800BA2366 /* WelcomeButton.swift */,
 			);
@@ -342,6 +348,15 @@
 				F05CB5C7272E0F7000EC951C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F0ABE86427657C7300201742 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				F0ABE86527657CA300201742 /* PostOverview.swift */,
+				F0ABE86727657D3300201742 /* PostRow.swift */,
+			);
+			path = Post;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -461,7 +476,6 @@
 			files = (
 				A206C5E3274EB9AE00BA2366 /* Textbox.swift in Sources */,
 				F02D57672745991400DD6850 /* WelcomeScreen.swift in Sources */,
-				F02D5763274582A300DD6850 /* IconButton.swift in Sources */,
 				A21E451C274DDA1B00462E66 /* SignUpScreen.swift in Sources */,
 				5DF4F4732758015500711760 /* CornerRadius.swift in Sources */,
 				F02D57672745991400DD6850 /* WelcomeScreen.swift in Sources */,
@@ -479,7 +493,9 @@
 				A206C5F0275AC74800BA2366 /* WelcomeButton.swift in Sources */,
 				A206C5E52750089500BA2366 /* SignInSignUpButton.swift in Sources */,
 				5D65C78527498461009B4B18 /* CameraInterface.swift in Sources */,
+				F0ABE86627657CA300201742 /* PostOverview.swift in Sources */,
 				5DE5E4A62740884B00B84C06 /* MapScreen.swift in Sources */,
+				F0ABE86827657D3300201742 /* PostRow.swift in Sources */,
 				5DBEC164273D86A40010812C /* CameraViewControllerDelegate.swift in Sources */,
 				A206C5E727500E7F00BA2366 /* ToggleTextbox.swift in Sources */,
 				F05CB5C3272E0F6F00EC951C /* HomeScreen.swift in Sources */,
@@ -493,6 +509,7 @@
 				A206C5EE275A737500BA2366 /* Account.swift in Sources */,
 				F05CB5C1272E0F6F00EC951C /* PictafyApp.swift in Sources */,
 				5DE5E4AA27408FBB00B84C06 /* LocationService.swift in Sources */,
+				F0ABE86A27658C2700201742 /* PostScreen.swift in Sources */,
 				F01C796627560DE2000D0712 /* Friend.swift in Sources */,
 				F0EE477B2749BA2100A1C755 /* FriendScreen.swift in Sources */,
 				5DE5E4A827408E4300B84C06 /* PictureData.swift in Sources */,
