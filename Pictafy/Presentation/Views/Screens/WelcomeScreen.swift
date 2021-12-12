@@ -56,12 +56,6 @@ struct WelcomeScreen: View {
                         .padding(.top,200)
                     
                     WelcomeButton(action: {_selection = 2}, text: "Sign up")
-                    
-                    //will be removed later
-                    Button(action: { _selection = 3 }) {
-                        Text("Home")
-                            .foregroundColor(.blue)
-                    }
                     .navigationBarHidden(true)
                 }
             }

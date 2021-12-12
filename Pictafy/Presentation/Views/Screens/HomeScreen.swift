@@ -25,19 +25,13 @@ struct HomeScreen: View {
     private var posts2 = [
         Friend(username: "Richard", fullname: "Richard Smith", image: "profile_pic1")
     ]
-
-    @AppStorage("isDarkMode") var isDarkMode : Bool = false
     
     init() {
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         UINavigationBar.appearance().shadowImage = UIImage()
-        
-        //UITabBar.appearance().barTintColor = UIColor(Color.ui.primaryColor)
-        UITabBar.appearance().backgroundColor = UIColor(Color.white)
-        
+        UITabBar.appearance().backgroundColor = UIColor.systemBackground
         UITableViewCell.appearance().backgroundColor = UIColor.clear
     }
-
     
     var body: some View {
         VStack {
@@ -71,10 +65,6 @@ struct HomeScreen: View {
                 .tabItem {
                     Label("Camera", systemImage: "camera.fill")
                 }
-//                CreatePostScreen(image: UIImage(imageLiteralResourceName: "sample_post"))
-//                .tabItem {
-//                    Label("Create Post", systemImage: "square.and.pencil")
-//                }
             } // TabView
             .navigationBarBackButtonHidden(true)
             .navigationBarTitle("", displayMode: .inline)
@@ -96,6 +86,11 @@ struct HomeScreen: View {
                     print("success == false")
                     self._selection = 3
                 }
+            }
+            .onAppear() {
+                nearbyPosts = posts
+                friendPosts = posts
+                recommendedPosts = []
             }
         }
         
