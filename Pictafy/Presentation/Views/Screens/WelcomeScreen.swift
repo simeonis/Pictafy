@@ -23,7 +23,6 @@ struct WelcomeScreen: View {
         // Transparent NavBar
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         UINavigationBar.appearance().shadowImage = UIImage()
-        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(.blue)]
     }
     
     var body: some View {
@@ -57,17 +56,12 @@ struct WelcomeScreen: View {
                         .padding(.top,200)
                     
                     WelcomeButton(action: {_selection = 2}, text: "Sign up")
-                    
-                    //will be removed later
-                    Button(action: { _selection = 3 }) {
-                        Text("Home")
-                            .foregroundColor(.blue)
-                    }
                     .navigationBarHidden(true)
                 }
             }
         } // NavigationView
         .navigationViewStyle(StackNavigationViewStyle())
+        .accentColor(.primary)
     }
 }
 

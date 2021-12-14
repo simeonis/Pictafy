@@ -10,19 +10,28 @@ import SwiftUI
 struct HomeScreen: View {
     @EnvironmentObject var fireDBHelper : FireDBHelper
     @State private var _selection: Int? = nil
-
-    @AppStorage("isDarkMode") var isDarkMode : Bool = false
+    @State private var nearbyPosts: [Friend] = []
+    @State private var friendPosts: [Friend] = []
+    @State private var recommendedPosts: [Friend] = []
+    
+    private var posts = [
+        Friend(username: "Richard", fullname: "Richard Smith", image: "profile_pic1"),
+        Friend(username: "Richard", fullname: "Richard Smith", image: "profile_pic1"),
+        Friend(username: "Richard", fullname: "Richard Smith", image: "profile_pic1"),
+        Friend(username: "Richard", fullname: "Richard Smith", image: "profile_pic1"),
+        Friend(username: "Richard", fullname: "Richard Smith", image: "profile_pic1")
+    ]
+    
+    private var posts2 = [
+        Friend(username: "Richard", fullname: "Richard Smith", image: "profile_pic1")
+    ]
     
     init() {
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         UINavigationBar.appearance().shadowImage = UIImage()
-        
-        //UITabBar.appearance().barTintColor = UIColor(Color.ui.primaryColor)
-        UITabBar.appearance().backgroundColor = UIColor(Color.white)
-        
+        UITabBar.appearance().backgroundColor = UIColor.systemBackground
         UITableViewCell.appearance().backgroundColor = UIColor.clear
     }
-
     
     var body: some View {
         VStack {
@@ -30,9 +39,21 @@ struct HomeScreen: View {
             NavigationLink(destination: FriendScreen(), tag: 2, selection: $_selection) {}
             NavigationLink(destination: SignInScreen(), tag: 3, selection: $_selection) {}
             TabView {
-                VStack{
-                    Text("Home")
+                // Content
+                VStack {
+                    if (posts.count > 0) {
+                        ScrollView(showsIndicators: false) {
+                            VStack(alignment: .leading, spacing: 0) {
+                                PostRow(title: "Post Near Me", posts: nearbyPosts)
+                                PostRow(title: "Friend's Posts", posts: friendPosts)
+                                PostRow(title: "Posts We Think You'd Like", posts: recommendedPosts)
+                            }
+                        }
+                    } else {
+                        Text("Something went wrong")
+                    }
                 }
+                // Tab buttons
                 .tabItem {
                     Label("Home", systemImage: "house.fill")
                 }
@@ -44,10 +65,6 @@ struct HomeScreen: View {
                 .tabItem {
                     Label("Camera", systemImage: "camera.fill")
                 }
-//                CreatePostScreen(image: UIImage(imageLiteralResourceName: "sample_post"))
-//                .tabItem {
-//                    Label("Create Post", systemImage: "square.and.pencil")
-//                }
             } // TabView
             .navigationBarBackButtonHidden(true)
             .navigationBarTitle("", displayMode: .inline)
@@ -70,6 +87,11 @@ struct HomeScreen: View {
                     self._selection = 3
                 }
             }
+            .onAppear() {
+                nearbyPosts = posts
+                friendPosts = posts
+                recommendedPosts = []
+            }
         }
         
     }
@@ -78,6 +100,6 @@ struct HomeScreen: View {
 
 struct HomeScreen_Previews: PreviewProvider {
     static var previews: some View {
-        HomeScreen()
+        HomeScreen().environmentObject(LocationService())
     }
 }
