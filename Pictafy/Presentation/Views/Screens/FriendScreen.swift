@@ -8,23 +8,32 @@
 import SwiftUI
 
 struct FriendScreen: View {
+    @EnvironmentObject var fireDBHelper : FireDBHelper
     @State private var friendSelected : Int = 0
+    @State private var friendList : [Account] = []
     
-    private let friendList =
-        [
-            Friend(username: "richie87", fullname: "Richard Smith", image: ""),
-            Friend(username: "clintBald", fullname: "Baldwin Clint", image: ""),
-            Friend(username: "mrsWard", fullname: "Hayley Ward", image: "")
-        ]
+    // onAppear
+    func loadData() {
+        fireDBHelper.getCurrentAccountFriends() { friendAccounts in
+            friendList = friendAccounts
+        }
+    }
     
     var body: some View {
-        List {
-            ForEach(friendList, id: \.self) { friend in
-                Button(action: {}) {
-                    FriendCard(friend: friend)
+        VStack {
+            if friendList.count > 0 {
+                List {
+                    ForEach(friendList, id: \.self) { friend in
+                        Button(action: {}) {
+                            FriendCard(friend: friend)
+                        }
+                    }
                 }
+            } else {
+                Text("You friends list is empty")
             }
         }
+        .onAppear() { loadData() }
         .navigationBarTitle("Your Friends", displayMode: .inline)
     }
 }

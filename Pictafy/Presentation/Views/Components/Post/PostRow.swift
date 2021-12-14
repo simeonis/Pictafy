@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PostRow: View {
     var title : String = "Placeholder"
-    var posts : [Friend] = []
+    var posts : [PostData] = []
     var color : Color = Color(UIColor.systemBackground)
     
     var body: some View {
@@ -20,7 +20,7 @@ struct PostRow: View {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack {
                             ForEach(posts, id: \.id) { post in
-                                PostOverview(friend: post, post: "sample_post", scale: 0.75)
+                                PostOverview(post: post, scale: 0.75)
                             }
                         }
                     }

@@ -8,20 +8,21 @@
 import SwiftUI
 
 struct PostScreen: View {
-    var friend: Friend? = nil
+    @EnvironmentObject var fireDBHelper : FireDBHelper
+    var post: PostData
     @State private var hideTag : Bool = false
     
     var body: some View {
         ZStack(alignment: .bottomLeading) {
-            Image("sample_post")
+            Image(uiImage: post.getImage(fb: fireDBHelper))
                 .resizable()
                 .scaledToFill()
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
                 .clipped()
             HStack {
-                ProfileIcon(image: nil, scale: 0.5)
+                ProfileIcon(image: post.getAvatar(fb: fireDBHelper), scale: 0.5)
                     .padding(8)
-                Text(friend?.username ?? "Unknown").foregroundColor(.white)
+                Text(post.username).foregroundColor(.white)
                     .bold()
                     .font(.system(size: 24))
                     .lineLimit(1)
@@ -38,12 +39,6 @@ struct PostScreen: View {
                 hideTag.toggle()
             }
         })
-    }
-}
-
-struct PostScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        PostScreen(friend: nil)
     }
 }
 

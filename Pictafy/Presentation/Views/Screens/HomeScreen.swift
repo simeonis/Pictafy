@@ -10,9 +10,8 @@ import SwiftUI
 struct HomeScreen: View {
     @EnvironmentObject var fireDBHelper : FireDBHelper
     @State private var _selection: Int? = nil
-    @State private var nearbyPosts: [Friend] = []
-    @State private var friendPosts: [Friend] = []
-    @State private var recommendedPosts: [Friend] = []
+    @State private var nearbyPosts: [PostData] = []
+    @State private var friendPosts: [PostData] = []
     
     private var posts = [
         Friend(username: "Richard", fullname: "Richard Smith", image: "profile_pic1"),
@@ -33,11 +32,16 @@ struct HomeScreen: View {
         UITableViewCell.appearance().backgroundColor = UIColor.clear
     }
     
+    func loadData() {
+        fireDBHelper.getFriendsPost() { posts in
+            friendPosts = posts
+        }
+    }
+    
     var body: some View {
         VStack {
             NavigationLink(destination: SettingScreen(), tag: 1, selection: $_selection) {}
             NavigationLink(destination: FriendScreen(), tag: 2, selection: $_selection) {}
-            NavigationLink(destination: SignInScreen(), tag: 3, selection: $_selection) {}
             TabView {
                 // Content
                 VStack {
@@ -46,7 +50,6 @@ struct HomeScreen: View {
                             VStack(alignment: .leading, spacing: 0) {
                                 PostRow(title: "Post Near Me", posts: nearbyPosts)
                                 PostRow(title: "Friend's Posts", posts: friendPosts)
-                                PostRow(title: "Posts We Think You'd Like", posts: recommendedPosts)
                             }
                         }
                     } else {
@@ -80,6 +83,7 @@ struct HomeScreen: View {
                         Image(systemName: "gearshape.fill")
                     }
                 })
+            .onAppear() { loadData() }
             .onReceive(fireDBHelper.$isAuth) { success in
                 if !success {
                     print("Invalid Authorization, Aborting!")

@@ -22,7 +22,8 @@ class FireDBHelper: ObservableObject {
     @Published var signedIn : Bool = false
     @Published var nearbyPosts = [PostData]()
     
-    private let COLLECTION_NAME : String = "Accounts"
+    private let COLLECTION_ACCOUNT : String = "Accounts"
+    private let COLLECTION_POST : String = "Posts"
     private let store : Firestore
     private let auth = Auth.auth()
     private let storage = Storage.storage()
@@ -45,7 +46,7 @@ class FireDBHelper: ObservableObject {
     
     func insertAccount(newAccount: Account){
         do {
-            try self.store.collection(COLLECTION_NAME).addDocument(from: newAccount)
+            try self.store.collection(COLLECTION_ACCOUNT).addDocument(from: newAccount)
         }catch let error as NSError{
             print(#function, "Error while inserting the Account", error)
         }
@@ -88,14 +89,14 @@ class FireDBHelper: ObservableObject {
         }
     }
     
-    func createAccount(email: String, password: String){
-        Auth.auth().createUser(withEmail: email, password: password ){[weak self] authResult, error in
+    func createAccount(email: String, password: String, completion: @escaping (Bool) -> Void){
+        Auth.auth().createUser(withEmail: email, password: password ) {[weak self] authResult, error in
             if let error = error {
                 print("Error when signing up: \(error)")
-                return
+                completion(false)
             }
             else{
-                print("NO Error when signing up!!!")
+                completion(true)
                 self?.signUpSuccess = true
             }
             
@@ -113,15 +114,9 @@ class FireDBHelper: ObservableObject {
         }
     }
     
-//    do {
-//        try self.store.collection(COLLECTION_NAME).addDocument(from: newAccount)
-//    }catch let error as NSError{
-//        print(#function, "Error while inserting the Account", error)
-//    }
-    
     func getCurrentAccount(completion: @escaping (Account) -> Void) {
         let user = Auth.auth().currentUser
-        let ref = store.collection(COLLECTION_NAME).whereField("email", isEqualTo: user?.email ?? "")
+        let ref = store.collection(COLLECTION_ACCOUNT).whereField("email", isEqualTo: user?.email ?? "")
         
         ref.getDocuments { (querySnapshot, err) in
             if let err = err {
@@ -132,6 +127,61 @@ class FireDBHelper: ObservableObject {
                 if (document != nil) {
                     completion(Account(id: document!.documentID, dictionary: document!.data()))
                 }
+            }
+        }
+    }
+    
+    func getCurrentAccountFriends(completion: @escaping ([Account]) -> Void) {
+        self.getCurrentAccount() { account in
+            let group = DispatchGroup()
+            var friendAccounts : [Account] = []
+            // For each friend document ID, convert into Account
+            account.friends.forEach { friendDocID in
+                group.enter() // Started async request (get from Firebase)
+                let friendRef = self.store.collection(self.COLLECTION_ACCOUNT).document(friendDocID)
+                friendRef.getDocument() { (document, error) in
+                    if let document = document {
+                        if (document.data() != nil) {
+                            friendAccounts.append(Account(id: document.documentID, dictionary: document.data()!))
+                        }
+                    } else {
+                        print("Document does not exist")
+                    }
+                    group.leave() // Finished async request
+                }
+            }
+            
+            // Wait for all request to finish
+            group.notify(queue: .main) {
+                completion(friendAccounts)
+            }
+        }
+    }
+    
+    func getFriendsPost(completion: @escaping ([PostData]) -> Void) {
+        self.getCurrentAccountFriends() { friendAccounts in
+            let group = DispatchGroup()
+            var friendPosts : [PostData] = []
+            
+            friendAccounts.forEach { account in
+                account.posts.forEach { post in
+                    group.enter()
+                    let postRef = self.store.collection(self.COLLECTION_POST).document(post)
+                    postRef.getDocument() { (document, err) in
+                        if let document = document {
+                            if document.data() != nil {
+                                friendPosts.append(PostData(dictionary: document.data()!) ?? PostData())
+                            }
+                        } else {
+                            print("Document does not exist")
+                        }
+                        group.leave()
+                    }
+                }
+            }
+            
+            group.notify(queue: .main) {
+                completion(friendPosts)
             }
         }
     }
@@ -149,13 +199,13 @@ class FireDBHelper: ObservableObject {
     }
     
     func removeUserAccount(email: String) {
-        let ref = store.collection(COLLECTION_NAME).whereField("email", isEqualTo: email)
+        let ref = store.collection(COLLECTION_ACCOUNT).whereField("email", isEqualTo: email)
         ref.getDocuments { (querySnapshot, err) in
             if let err = err {
                print("Error getting document(s): \(err)")
             } else {
                 for document in querySnapshot!.documents {
-                    self.store.collection(self.COLLECTION_NAME).document(document.documentID).delete() { err in
+                    self.store.collection(self.COLLECTION_ACCOUNT).document(document.documentID).delete() { err in
                         if let err = err {
                             print("Error removing document: \(err)")
                         } else {
@@ -181,9 +231,7 @@ class FireDBHelper: ObservableObject {
     }
     
     func uploadImage(image: UIImage, descriptor: String){
-        
-        print("Starting upload")
-        let storageRef = storage.reference().child("images/\(descriptor).jpg")
+        let storageRef = storage.reference().child("\(descriptor).jpg")
         
         let newWidth = CGFloat(200)
         

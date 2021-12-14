@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct PostOverview: View {
-    var friend: Friend? = nil
-    var post: String? = nil
+    @EnvironmentObject var fireDBHelper : FireDBHelper
+    var post: PostData
     var scale: CGFloat = 1
     @State private var pressed : Bool = false
     
     var body: some View {
-        NavigationLink(destination: PostScreen(friend: friend), isActive: $pressed) {}
+        NavigationLink(destination: PostScreen(post: post), isActive: $pressed) {}
         Button(action: { pressed = true }) {
-            Image(post ?? "sample_post")
+            Image(uiImage: post.getImage(fb: fireDBHelper))
                 .resizable()
                 .scaledToFill()
                 .frame(width: 256 * scale, height: 512 * scale)
@@ -25,9 +25,9 @@ struct PostOverview: View {
                 .overlay(
                     VStack {
                         HStack {
-                            ProfileIcon(image: nil, scale: 0.5 * scale)
+                            ProfileIcon(image: post.getAvatar(fb: fireDBHelper), scale: 0.5 * scale)
                                 .padding(8)
-                            Text(friend?.username ?? "Unknown").foregroundColor(.white)
+                            Text(post.username).foregroundColor(.white)
                                 .bold()
                                 .font(.system(size: 20 * scale))
                                 .lineLimit(1)

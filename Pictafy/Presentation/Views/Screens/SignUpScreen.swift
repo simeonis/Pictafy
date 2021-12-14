@@ -18,13 +18,18 @@ struct SignUpScreen: View {
     @State var password: String = ""
     @State var repassword: String = ""
     
+    func createAccount() {
+        self.fireDBHelper.createAccount(email: email, password: password) { success in
+            if (success) {
+                self.fireDBHelper.insertAccount(newAccount: Account(fullName: self.fullname, username: self.username, email: self.email))
+            }
+        }
+    }
+    
     var body: some View {
         VStack(alignment: .leading, content: {
           
-                NavigationLink(destination: SignInScreen(), tag: 1, selection: $_selection) {}
-          
-            
-//            NavigationLink(destination: SignInScreen(), tag: 2, selection: $_selection) {}
+            NavigationLink(destination: SignInScreen(), tag: 1, selection: $_selection) {}
             
             Text("Sign up")
                 .font(.largeTitle)
@@ -41,10 +46,7 @@ struct SignUpScreen: View {
             
             ToggleTextbox(action: {showText2.toggle()}, text: $repassword, showText: showText2, placeholder: "Re-Enter Password")
             
-            SignInSignUpButton(action: {
-                self.fireDBHelper.createAccount(email: email, password: password)
-                self.fireDBHelper.insertAccount(newAccount: Account( fullName: self.fullname, username: self.username, email: self.email))
-            }, text: "Sign up")
+            SignInSignUpButton(action: createAccount, text: "Sign up")
             
             HStack{
                 Text("Already have an account?")

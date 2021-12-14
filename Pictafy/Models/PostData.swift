@@ -19,18 +19,22 @@ struct PostData: Identifiable {
     var latitude: Double = 0.0
     var longitude: Double = 0.0
     var imageURL: String = ""
+    var username: String = ""
+    var avatarURL: String = ""
     
     init(){
         
     }
     
-    init(name : String, description : String, geoHash : String, latitude : Double, longitude : Double, imageURL : String){
+    init(name : String, description : String, geoHash : String, latitude : Double, longitude : Double, imageURL : String, username: String, avatarURL: String){
         self.name = name
         self.description = description
         self.geoHash = geoHash
         self.latitude = latitude
         self.longitude = longitude
         self.imageURL = imageURL
+        self.username = username
+        self.avatarURL = avatarURL
     }
     
     enum CodingKeys: String, CodingKey {
@@ -41,6 +45,18 @@ struct PostData: Identifiable {
             case latitude
             case longitude
             case imageURL
+            case username
+            case avatarURL
+    }
+}
+
+extension PostData {
+    func getImage(fb : FireDBHelper) -> UIImage {
+        return fb.getImage(url: imageURL) ?? UIImage(named: "sample_post")!
+    }
+    
+    func getAvatar(fb : FireDBHelper) -> UIImage? {
+        return fb.getImage(url: avatarURL)
     }
 }
 
@@ -53,6 +69,8 @@ extension PostData: Encodable{
         try container.encode(latitude, forKey: .latitude)
         try container.encode(longitude, forKey: .longitude)
         try container.encode(imageURL, forKey: .imageURL)
+        try container.encode(username, forKey: .username)
+        try container.encode(avatarURL, forKey: .avatarURL)
    }
 }
 
@@ -82,6 +100,14 @@ extension PostData: Decodable{
             return nil
         }
         
-        self.init(name: name, description: description, geoHash: geoHash, latitude: latitude, longitude: longitude, imageURL: imageURL)
+        guard let username = dictionary["username"] as? String else {
+            return nil
+        }
+        
+        guard let avatarURL = dictionary["avatarURL"] as? String else {
+            return nil
+        }
+        
+        self.init(name: name, description: description, geoHash: geoHash, latitude: latitude, longitude: longitude, imageURL: imageURL, username: username, avatarURL: avatarURL)
     }
 }

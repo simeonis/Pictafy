@@ -182,11 +182,10 @@ struct CreatePostScreen: View {
     }
     
     func postAction(){
-        print("Posted")
         if(self.post_name != "" && self.description != ""){
             self.error = ""
             
-            let imgDescriptor = "\(UUID.init())\(self.post_name)"
+            let imgDescriptor = "images/post/\(UUID.init())\(self.post_name)"
             
             print(imgDescriptor)
             
@@ -195,17 +194,20 @@ struct CreatePostScreen: View {
                 
     
                 let hash = fireDBHelper.getGeoHash(location: coordinate)
-
-            
-                let postData = PostData(
-                    name: self.post_name,
-                    description: self.description,
-                    geoHash: hash,
-                    latitude: coordinate.latitude,
-                    longitude: coordinate.longitude,
-                    imageURL: "images/\(imgDescriptor).jpg"
-          
-                )
+                
+                var postData = PostData()
+                fireDBHelper.getCurrentAccount() { account in
+                    postData = PostData(
+                        name: self.post_name,
+                        description: self.description,
+                        geoHash: hash,
+                        latitude: coordinate.latitude,
+                        longitude: coordinate.longitude,
+                        imageURL: "\(imgDescriptor)",
+                        username: account.username,
+                        avatarURL: account.image
+                    )
+                }
                 
                 fireDBHelper.insertPost(postData: postData)
                 fireDBHelper.uploadImage(image: image, descriptor: imgDescriptor)

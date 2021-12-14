@@ -21,6 +21,7 @@ struct SettingScreen: View {
     @State var newPassword: String = ""
     @State var showNewPassword: Bool = false
     
+    @State private var id : String = ""
     @State private var fullname : String = "Richard Smith"
     @State private var username : String = "Richie23"
     @State private var email : String = "richard94@gmail.com"
@@ -29,11 +30,13 @@ struct SettingScreen: View {
     @State private var avatarImage : UIImage? = nil
     
     // onAppear
-    func loadInfo() {
+    func loadData() {
         fireDBHelper.getCurrentAccount() { account in
             fullname = account.fullName
             username = account.username
             email = account.email
+            id = account.id ?? ""
+            avatarImage = fireDBHelper.getImage(url: "images/avatar/\(account.id!)avatar")
             // TO-DO: Get profile img
         }
     }
@@ -136,9 +139,14 @@ struct SettingScreen: View {
         } // VStack
         .background(Color.red)
         .edgesIgnoringSafeArea(.vertical)
-        .onAppear() { loadInfo() }
+        .onAppear() { loadData() }
         .sheet(isPresented: $isShowingPhotoPicker){
             PhotoPicker(avatarImage: $avatarImage)
+                .onDisappear() {
+                    if (avatarImage != nil) {
+                        fireDBHelper.uploadImage(image: avatarImage!, descriptor: "images/avatar/\(id)avatar")
+                    }
+                }
         }
         .sheet(isPresented: $isShowingPasswordChanger) {
             VStack(alignment: .leading, spacing: 32) {

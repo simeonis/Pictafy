@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FriendCard : View {
     @AppStorage("isDarkMode") var isDarkMode : Bool = false
-    var friend : Friend
+    var friend : Account
     var action : () -> Void = {}
     
     var body : some View {
@@ -17,7 +17,7 @@ struct FriendCard : View {
             ProfileIcon(scale: 0.5)
             VStack(alignment: .leading, spacing: 4) {
                 Text(friend.username).padding(.leading, 16)
-                Text(friend.fullname).padding(.leading, 16)
+                Text(friend.fullName).padding(.leading, 16)
             }
             Spacer()
         }
