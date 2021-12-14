@@ -8,17 +8,18 @@
 import SwiftUI
 import MapKit
 
-let posts = [
-    PostData(name: "Sheridan", description: "here's a photo I took", coordinate: CLLocationCoordinate2D(latitude: 43.46921422071481, longitude: -79.69997672872174))
-]
-
 struct MapScreen: View {
-    
+
     @EnvironmentObject var locationService : LocationService
+    
+    @EnvironmentObject var fireDBHelper : FireDBHelper
+    
+    @State var posts = [PostData]()
 
     var body: some View {
+        Text("Map View")
         Map(coordinateRegion: $locationService.region, annotationItems: posts){ postData in
-            MapAnnotation(coordinate: postData.coordinate, anchorPoint: CGPoint(x: 0.5, y: 0.5)) {
+            MapAnnotation(coordinate: CLLocationCoordinate2DMake(postData.latitude, postData.longitude), anchorPoint: CGPoint(x: 0.5, y: 0.5)) {
                 ZStack{
                     Circle()
                         .fill(Color.blue)
@@ -32,7 +33,19 @@ struct MapScreen: View {
         }
         .onAppear(){
             self.locationService.checkPermission()
+            
+            if(locationService.currentLocation != nil){
+                self.fireDBHelper.geoQuery(center: CLLocationCoordinate2D(
+                                                    latitude: locationService.currentLocation!.coordinate.latitude,
+                                                    longitude: locationService.currentLocation!.coordinate.longitude))
+            }
+            
         }
         .navigationBarHidden(true)
+        .onReceive(fireDBHelper.$nearbyPosts){nPosts in
+        
+            self.posts = nPosts
+             
+        }
     }
 }

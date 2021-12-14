@@ -44,10 +44,10 @@ struct HomeScreen: View {
                 .tabItem {
                     Label("Camera", systemImage: "camera.fill")
                 }
-//                CreatePostScreen(image: UIImage(imageLiteralResourceName: "sample_post"))
-//                .tabItem {
-//                    Label("Create Post", systemImage: "square.and.pencil")
-//                }
+                CreatePostScreen(image: UIImage(imageLiteralResourceName: "sample_post"))
+                .tabItem {
+                    Label("Create Post", systemImage: "square.and.pencil")
+                }
             } // TabView
             .navigationBarBackButtonHidden(true)
             .navigationBarTitle("", displayMode: .inline)

@@ -12,9 +12,13 @@ target 'Pictafy' do
 	#Cloud Firestore
 	pod 'Firebase/Firestore'
 
+	pod 'Firebase/Storage'
+
 	#Swift extensions
 	pod 'FirebaseFirestoreSwift'
 
 	pod 'Firebase/Auth'
+
+	pod 'GeoFire/Utils'
 
 end
