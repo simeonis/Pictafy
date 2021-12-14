@@ -20,9 +20,10 @@ struct PictafyApp: App {
     let fireDBHelper : FireDBHelper
     
     init() {
+        FirebaseConfiguration.shared.setLoggerLevel(.min)
         FirebaseApp.configure()
         fireDBHelper = FireDBHelper(database: Firestore.firestore())
-      }
+    }
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @AppStorage("isDarkMode") private var isDarkMode = false

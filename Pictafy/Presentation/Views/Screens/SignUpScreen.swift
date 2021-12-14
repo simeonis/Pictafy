@@ -43,9 +43,7 @@ struct SignUpScreen: View {
             
             SignInSignUpButton(action: {
                 self.fireDBHelper.createAccount(email: email, password: password)
-                print(self.fullname,self.username,self.email,self.password)
                 self.fireDBHelper.insertAccount(newAccount: Account( fullName: self.fullname, username: self.username, email: self.email))
-//                _selection = 1
             }, text: "Sign up")
             
             HStack{
@@ -55,14 +53,13 @@ struct SignUpScreen: View {
                 }){
                     Text("Sign in")
                         .foregroundColor(.ui.primaryColor)
-                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                        .fontWeight(.bold)
                 }
             } .frame(width: UIScreen.main.bounds.width - 60, height: 200,alignment: .bottom )
             
         }).padding().padding()
         .navigationBarBackButtonHidden(true)
         .onReceive(fireDBHelper.$signUpSuccess) { success in
-    
             if success{
                  _selection = 1
 

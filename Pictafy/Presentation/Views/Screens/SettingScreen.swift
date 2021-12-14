@@ -16,21 +16,33 @@ struct SettingScreen: View {
     
     // MARK: Functionality Variables
     @AppStorage("isDarkMode") var isDarkMode : Bool = false
-    @State var fullname : String = "Richard Smith"
-    @State var username : String = "Richard94"
-    @State var email : String = "richard94@gmail.com"
-    @State var currentPassword: String = ""
+    
+    @State var passwordError: String = ""
     @State var newPassword: String = ""
-    @State var notificationOn : Bool = true
-    @State var showCurrentText: Bool = false
-    @State var showNewText: Bool = false
+    @State var showNewPassword: Bool = false
+    
+    @State private var fullname : String = "Richard Smith"
+    @State private var username : String = "Richie23"
+    @State private var email : String = "richard94@gmail.com"
     @State private var isShowingPhotoPicker : Bool = false
     @State private var isShowingPasswordChanger : Bool = false
     @State private var avatarImage : UIImage? = nil
     
+    // onAppear
+    func loadInfo() {
+        fireDBHelper.getCurrentAccount() { account in
+            fullname = account.fullName
+            username = account.username
+            email = account.email
+            // TO-DO: Get profile img
+        }
+    }
+    
     func changePassword() {
-        // Check if password == currentPassword
-        fireDBHelper.changePassword(newPassword: newPassword)
+        fireDBHelper.changePassword(newPassword: newPassword) { success in
+            passwordError = success ? "" : "Something went wrong, please try again"
+            isShowingPasswordChanger = !success
+        }
     }
     
     func logOut() {
@@ -66,13 +78,11 @@ struct SettingScreen: View {
             ScreenCard {
                 VStack(alignment: .leading) {
                     Text(fullname)
-                        .bold()
+                        .font(.title3)
                         .padding(.top, 16)
-                    HStack {
-                        Image(systemName: "location.fill")
-                        Text("Oakville, CAN")
-                    }.font(.system(size: 12))
-                    .foregroundColor(.gray)
+                    Text("@\(username)")
+                        .font(.system(size: 12))
+                        .foregroundColor(.gray)
                 }
                 .frame(maxWidth: .infinity)
                 .padding(.leading, 100)
@@ -82,7 +92,7 @@ struct SettingScreen: View {
                         Image(systemName: "envelope.fill")
                         Text("Email").padding(.leading, 16)
                         Spacer()
-                        Text("test@mail.com")
+                        Text(email)
                     }
                     HStack {
                         Image(systemName: "lock.fill")
@@ -126,18 +136,16 @@ struct SettingScreen: View {
         } // VStack
         .background(Color.red)
         .edgesIgnoringSafeArea(.vertical)
+        .onAppear() { loadInfo() }
         .sheet(isPresented: $isShowingPhotoPicker){
             PhotoPicker(avatarImage: $avatarImage)
         }
         .sheet(isPresented: $isShowingPasswordChanger) {
             VStack(alignment: .leading, spacing: 32) {
                 VStack(alignment: .leading) {
-                    Text("Confirm Password")
-                    ToggleTextbox(action: {showCurrentText.toggle()}, text: $currentPassword, showText: showCurrentText, placeholder: "Enter Current Password")
-                }
-                VStack(alignment: .leading) {
                     Text("New Password")
-                    ToggleTextbox(action: {showNewText.toggle()}, text: $newPassword, showText: showNewText, placeholder: "Enter New Password")
+                    ToggleTextbox(action: {showNewPassword.toggle()}, text: $newPassword, showText: showNewPassword, placeholder: "Enter New Password")
+                    Text(passwordError).foregroundColor(.red)
                 }
                 PictafyButton(text: "Confirm", action: { changePassword() })
                     .frame(minWidth: 0, maxWidth: .infinity, alignment: .center)

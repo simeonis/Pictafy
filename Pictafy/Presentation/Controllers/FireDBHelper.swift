@@ -15,7 +15,7 @@ import CoreLocation
 import GeoFire
 
 
-class FireDBHelper: ObservableObject{
+class FireDBHelper: ObservableObject {
     @Published var accountList = [Account]()
     @Published var isAuth : Bool = false
     @Published var signUpSuccess : Bool = false
@@ -44,7 +44,7 @@ class FireDBHelper: ObservableObject{
     }
     
     func insertAccount(newAccount: Account){
-        do{
+        do {
             try self.store.collection(COLLECTION_NAME).addDocument(from: newAccount)
         }catch let error as NSError{
             print(#function, "Error while inserting the Account", error)
@@ -71,7 +71,6 @@ class FireDBHelper: ObservableObject{
         }
     }
         
-    
     func signIn(email: String, password: String){
         Auth.auth().signIn(withEmail: email, password: password ){ authResult, error in
 
@@ -91,7 +90,6 @@ class FireDBHelper: ObservableObject{
     
     func createAccount(email: String, password: String){
         Auth.auth().createUser(withEmail: email, password: password ){[weak self] authResult, error in
-
             if let error = error {
                 print("Error when signing up: \(error)")
                 return
@@ -115,12 +113,71 @@ class FireDBHelper: ObservableObject{
         }
     }
     
-    func changePassword(newPassword : String) {
+//    do {
+//        try self.store.collection(COLLECTION_NAME).addDocument(from: newAccount)
+//    }catch let error as NSError{
+//        print(#function, "Error while inserting the Account", error)
+//    }
+    
+    func getCurrentAccount(completion: @escaping (Account) -> Void) {
+        let user = Auth.auth().currentUser
+        let ref = store.collection(COLLECTION_NAME).whereField("email", isEqualTo: user?.email ?? "")
         
+        ref.getDocuments { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting document(s): \(err)")
+                completion(Account())
+            } else {
+                let document = querySnapshot!.documents.first
+                if (document != nil) {
+                    completion(Account(id: document!.documentID, dictionary: document!.data()))
+                }
+            }
+        }
+    }
+    
+    func changePassword(newPassword : String, completion: @escaping (Bool) -> Void) {
+        Auth.auth().currentUser?.updatePassword(to: newPassword) { error in
+            if let error = error {
+                print("Error while updating password", error)
+                completion(false)
+            } else {
+                print("Successfully updated password")
+                completion(true)
+            }
+        }
+    }
+    
+    func removeUserAccount(email: String) {
+        let ref = store.collection(COLLECTION_NAME).whereField("email", isEqualTo: email)
+        ref.getDocuments { (querySnapshot, err) in
+            if let err = err {
+               print("Error getting document(s): \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    self.store.collection(self.COLLECTION_NAME).document(document.documentID).delete() { err in
+                        if let err = err {
+                            print("Error removing document: \(err)")
+                        } else {
+                            print("Document successfully removed!")
+                        }
+                    }
+                }
+            }
+        }
     }
     
     func deleteAccount() {
-        
+        let user = Auth.auth().currentUser
+        let email = user?.email
+        user?.delete { error in
+            if let error = error {
+                print(#function, "Error while deleting account", error)
+            } else {
+                print(#function, "Successfully deleted account")
+                self.removeUserAccount(email: email ?? "")
+            }
+        }
     }
     
     func uploadImage(image: UIImage, descriptor: String){

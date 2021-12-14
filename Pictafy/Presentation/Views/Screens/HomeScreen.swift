@@ -81,21 +81,16 @@ struct HomeScreen: View {
                     }
                 })
             .onReceive(fireDBHelper.$isAuth) { success in
-                print("AUTH STATE IN WELCOME? \(success)")
-                if success == false{
-                    print("success == false")
+                if !success {
+                    print("Invalid Authorization, Aborting!")
                     self._selection = 3
+                } else {
+                    print("Successful Authorization, Welcome!")
                 }
-            }
-            .onAppear() {
-                nearbyPosts = posts
-                friendPosts = posts
-                recommendedPosts = []
             }
         }
         
     }
-   
 }
 
 struct HomeScreen_Previews: PreviewProvider {
