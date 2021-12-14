@@ -17,7 +17,6 @@ struct MapScreen: View {
     @State var posts = [PostData]()
 
     var body: some View {
-        Text("Map View")
         Map(coordinateRegion: $locationService.region, annotationItems: posts){ postData in
             MapAnnotation(coordinate: CLLocationCoordinate2DMake(postData.latitude, postData.longitude), anchorPoint: CGPoint(x: 0.5, y: 0.5)) {
                 ZStack{
