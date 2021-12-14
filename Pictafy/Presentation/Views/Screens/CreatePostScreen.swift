@@ -9,18 +9,19 @@ import SwiftUI
 import MapKit
 
 struct CreatePostScreen: View {
+    @EnvironmentObject var fireDBHelper : FireDBHelper
+    @EnvironmentObject var locationService : LocationService
     
     var image : UIImage
     
     //remove this later
-    let coordinate : CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 43.46921422071481, longitude: -79.69997672872174)
+    //let coordinate : CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 43.46921422071481, longitude: -79.69997672872174)
     @State var post_name : String = ""
     @State var description : String = ""
     @State var newTag : String = ""
     @State var tags : [String] = []
     @State var tagError : String = ""
     @State var error : String = ""
-    
     
     var body: some View {
         ZStack{
@@ -184,16 +185,34 @@ struct CreatePostScreen: View {
         print("Posted")
         if(self.post_name != "" && self.description != ""){
             self.error = ""
-            let postData = PostData(name: self.post_name, description: self.description, coordinate: self.coordinate )
+            
+            let imgDescriptor = "\(UUID.init())\(self.post_name)"
+            
+            print(imgDescriptor)
+            
+            if locationService.currentLocation != nil {
+                let coordinate = locationService.currentLocation!.coordinate
+                
+    
+                let hash = fireDBHelper.getGeoHash(location: coordinate)
+
+            
+                let postData = PostData(
+                    name: self.post_name,
+                    description: self.description,
+                    geoHash: hash,
+                    latitude: coordinate.latitude,
+                    longitude: coordinate.longitude,
+                    imageURL: "images/\(imgDescriptor).jpg"
+          
+                )
+                
+                fireDBHelper.insertPost(postData: postData)
+                fireDBHelper.uploadImage(image: image, descriptor: imgDescriptor)
+            }
         }
         else{
             self.error = "Name and Description can't be null"
         }
     }
 }
-
-//struct CreatePostScreen_Previews: PreviewProvider {
-//    static var previews: some View {
-//        //CreatePostScreen()
-//    }
-//}

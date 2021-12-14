@@ -7,17 +7,81 @@
 
 import SwiftUI
 import MapKit
+import Firebase
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
-//Codable?
 struct PostData: Identifiable {
-    let id = UUID()
-    let name: String
-    let description: String
-    var coordinate: CLLocationCoordinate2D
+    @DocumentID var id : String? = UUID().uuidString
+    var name: String = ""
+    var description: String = ""
+    var geoHash: String = ""
+    var latitude: Double = 0.0
+    var longitude: Double = 0.0
+    var imageURL: String = ""
     
-    init(name : String, description : String, coordinate : CLLocationCoordinate2D){
+    init(){
+        
+    }
+    
+    init(name : String, description : String, geoHash : String, latitude : Double, longitude : Double, imageURL : String){
         self.name = name
         self.description = description
-        self.coordinate = coordinate
+        self.geoHash = geoHash
+        self.latitude = latitude
+        self.longitude = longitude
+        self.imageURL = imageURL
+    }
+    
+    enum CodingKeys: String, CodingKey {
+            case id
+            case name
+            case description
+            case geoHash
+            case latitude
+            case longitude
+            case imageURL
+    }
+}
+
+extension PostData: Encodable{
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(name, forKey: .name)
+        try container.encode(description, forKey: .description)
+        try container.encode(geoHash, forKey: .geoHash)
+        try container.encode(latitude, forKey: .latitude)
+        try container.encode(longitude, forKey: .longitude)
+        try container.encode(imageURL, forKey: .imageURL)
+   }
+}
+
+extension PostData: Decodable{
+    
+    //initializer used to parse JSON objects into Swift objects
+    init?(dictionary: [String: Any]){
+        guard let name = dictionary["name"] as? String else{
+            return nil
+        }
+        
+        guard let description = dictionary["description"] as? String else{
+            return nil
+        }
+        
+        guard let geoHash = dictionary["geoHash"] as? String else{
+            return nil
+        }
+        
+        guard let latitude = dictionary["latitude"] as? Double else {
+            return nil
+        }
+        guard let longitude = dictionary["longitude"] as? Double else {
+            return nil
+        }
+        guard let imageURL = dictionary["imageURL"] as? String else {
+            return nil
+        }
+        
+        self.init(name: name, description: description, geoHash: geoHash, latitude: latitude, longitude: longitude, imageURL: imageURL)
     }
 }
