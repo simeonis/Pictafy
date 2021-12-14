@@ -16,8 +16,6 @@ struct SignInScreen: View {
        @State var password: String = ""
        @State var shouldShowHome = false
     
-    
-    
        var body: some View {
         VStack(alignment: .leading, content: {
             NavigationLink(destination: HomeScreen(), isActive: $shouldShowHome){}
@@ -25,11 +23,11 @@ struct SignInScreen: View {
             
             Text("Log in")
                 .font(.largeTitle)
-                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                .fontWeight(.bold)
                 .padding(.init(top: 0, leading: 0, bottom: 20, trailing: 0))
                 
-            Text("Username")
-            Textbox(text: $email, placeholder: Text("Username"))
+            Text("Email")
+            Textbox(text: $email, placeholder: Text("Enter Email"))
             
             Text("Password")
             ToggleTextbox(action: {showText.toggle()}, text: $password, showText: showText, placeholder: "Enter Password")
@@ -45,7 +43,7 @@ struct SignInScreen: View {
                 }){
                     Text("Sign up")
                         .foregroundColor(.ui.primaryColor)
-                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                        .fontWeight(.bold)
                 }
             } .frame(width: UIScreen.main.bounds.width - 60, height: 200,alignment: .bottom )
             

@@ -20,7 +20,7 @@ struct SignInSignUpButton: View {
                     .fontWeight(.heavy)
                     .font(.title2)
                     .padding(.init(.init(top: 10, leading: 20, bottom: 10, trailing: 0)))
-                    .textCase(/*@START_MENU_TOKEN@*/.uppercase/*@END_MENU_TOKEN@*/)
+                    .textCase(.uppercase)
                   
                 Image(systemName: "arrow.right")
                     .foregroundColor(.white)

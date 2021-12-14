@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProfileIcon: View {
-    var image : String = ""
+    var image : UIImage? = nil
     var editable : Bool = false
     var primary : Color = Color.black
     var secondary : Color = Color.white
@@ -41,7 +41,10 @@ struct ProfileIcon: View {
             }
             
             // Invalid Profile Image
-            if (UIImage(named: image) == nil) {
+            if (image == nil) {
+                Circle()
+                    .frame(width: self.profileRadius, height: self.profileRadius)
+                    .foregroundColor(.white)
                 Image(systemName: "person.crop.circle.fill")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -50,7 +53,10 @@ struct ProfileIcon: View {
             }
             // Valid Profile Image
             else {
-                Image(uiImage: UIImage(named: image)!)
+                Circle()
+                    .frame(width: self.profileRadius, height: self.profileRadius)
+                    .foregroundColor(.black)
+                Image(uiImage: image!)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: self.profileRadius, height: self.profileRadius)

@@ -118,9 +118,15 @@ class FireDBHelper: ObservableObject{
         }catch let error as NSError{
             print(#function, "Error while inserting the Account", error)
         }
+    }
+    
+    func changePassword(newPassword : String) {
         
     }
     
+    func deleteAccount() {
+        
+    }
     
 //    func getAllAccounts(){
 //            self.store.collection(COLLECTION_NAME)

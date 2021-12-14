@@ -10,7 +10,7 @@ import SwiftUI
 struct SettingScreen: View {
     @EnvironmentObject var fireDBHelper : FireDBHelper
     // MARK: UI Variables
-    let imageFilter = Color(red: 45/255, green: 45/255, blue: 64/255).opacity(0.75)
+    let imageFilter = Color(red: 45/255, green: 45/255, blue: 64/255).opacity(0.15)
     let screenWidth = UIScreen.main.bounds.width
     let screenHeight = UIScreen.main.bounds.height
     
@@ -19,36 +19,47 @@ struct SettingScreen: View {
     @State var fullname : String = "Richard Smith"
     @State var username : String = "Richard94"
     @State var email : String = "richard94@gmail.com"
+    @State var currentPassword: String = ""
+    @State var newPassword: String = ""
     @State var notificationOn : Bool = true
-    
-    func changeProfile() {
-        // TO-DO
-    }
+    @State var showCurrentText: Bool = false
+    @State var showNewText: Bool = false
+    @State private var isShowingPhotoPicker : Bool = false
+    @State private var isShowingPasswordChanger : Bool = false
+    @State private var avatarImage : UIImage? = nil
     
     func changePassword() {
-        // TO-DO
-    }
-    
-    func toggleNotification(value : Bool) {
-        // TO-DO
+        // Check if password == currentPassword
+        fireDBHelper.changePassword(newPassword: newPassword)
     }
     
     func logOut() {
-        // TO-DO
         fireDBHelper.logout()
     }
     
     func deleteAccount() {
-        // TO-DO
+        fireDBHelper.deleteAccount()
     }
     
     var body: some View {
         VStack(spacing: 0) {
             // Image Background
             ZStack {
-                Image("profile_pic1").blur(radius: 6)
-                    .overlay(Rectangle()
-                                .foregroundColor(imageFilter))
+                if (avatarImage != nil) {
+                    Image(uiImage: avatarImage!)
+                        .resizable()
+                        .frame(width: self.screenWidth * 1.33, height: self.screenHeight / 3)
+                        .blur(radius: 6)
+                        .overlay(Rectangle()
+                                    .foregroundColor(imageFilter))
+                } else {
+                    Image("sample_post")
+                        .resizable()
+                        .frame(width: self.screenWidth * 1.33, height: self.screenHeight / 3)
+                        .blur(radius: 3)
+                        .overlay(Rectangle()
+                                    .foregroundColor(imageFilter))
+                }
             }.frame(width: self.screenWidth, height: self.screenHeight / 4)
             
             // Card
@@ -77,7 +88,7 @@ struct SettingScreen: View {
                         Image(systemName: "lock.fill")
                         Text("Password").padding(.leading, 16)
                         Spacer()
-                        Button("Change Password", action: changePassword)
+                        Button("Change Password", action: {isShowingPasswordChanger = true})
                             .foregroundColor(.blue)
                     }
                 } // CardFormField
@@ -88,16 +99,8 @@ struct SettingScreen: View {
                         Toggle("", isOn: $isDarkMode)
                             .toggleStyle(DarkModeToggleStyle())
                     }
-                    HStack {
-                        Image(systemName: "bell.fill")
-                        Text("Push Notification").padding(.leading, 16)
-                        Toggle("", isOn: $notificationOn)
-                            .onChange(of: notificationOn) { value in
-                                toggleNotification(value: value)
-                            }
-                    }
                 } // CardFormField
-                CardFormField(title: "General") {
+                CardFormField(title: "Account") {
                     HStack {
                         Image(systemName: "arrow.right")
                         Button("Logout", action: logOut)
@@ -107,14 +110,15 @@ struct SettingScreen: View {
                     }
                     HStack {
                         Image(systemName: "trash.fill")
-                        Button("Delete Account", action: deleteAccount).foregroundColor(.red)
+                        Button("Delete Account", action: deleteAccount)
+                            .foregroundColor(.red)
                             .padding(.leading, 16)
                         Spacer()
                     }
                 } // CardFormField
             }.overlay(
-                Button(action: changeProfile) {
-                    ProfileIcon(image: "profile_pic1", editable: true)
+                Button(action: { isShowingPhotoPicker = true }) {
+                    ProfileIcon(image: avatarImage, editable: true)
                 }
                 .buttonStyle(ScaleButtonStyle())
                 .position(x: 115, y: 5)
@@ -122,7 +126,23 @@ struct SettingScreen: View {
         } // VStack
         .background(Color.red)
         .edgesIgnoringSafeArea(.vertical)
-        .navigationBarTitle("Settings", displayMode: .inline)
+        .sheet(isPresented: $isShowingPhotoPicker){
+            PhotoPicker(avatarImage: $avatarImage)
+        }
+        .sheet(isPresented: $isShowingPasswordChanger) {
+            VStack(alignment: .leading, spacing: 32) {
+                VStack(alignment: .leading) {
+                    Text("Confirm Password")
+                    ToggleTextbox(action: {showCurrentText.toggle()}, text: $currentPassword, showText: showCurrentText, placeholder: "Enter Current Password")
+                }
+                VStack(alignment: .leading) {
+                    Text("New Password")
+                    ToggleTextbox(action: {showNewText.toggle()}, text: $newPassword, showText: showNewText, placeholder: "Enter New Password")
+                }
+                PictafyButton(text: "Confirm", action: { changePassword() })
+                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
+            }.padding()
+        }
     }
 }
 

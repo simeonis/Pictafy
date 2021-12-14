@@ -15,9 +15,8 @@ struct DarkModeToggleStyle: ToggleStyle {
         HStack {
             configuration.label
             Spacer()
-            Image(configuration.isOn ? onImageName : offImageName)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
+            Rectangle()
+                .foregroundColor(configuration.isOn ? .green : Color(red: 233/255, green: 233/255, blue: 234/255))
                 .frame(width: 51, height: 31, alignment: .center)
                 .overlay(
                     Circle()

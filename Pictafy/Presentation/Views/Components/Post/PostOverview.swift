@@ -25,7 +25,7 @@ struct PostOverview: View {
                 .overlay(
                     VStack {
                         HStack {
-                            ProfileIcon(image: friend?.image ?? "profile_pic1", scale: 0.5 * scale)
+                            ProfileIcon(image: nil, scale: 0.5 * scale)
                                 .padding(8)
                             Text(friend?.username ?? "Unknown").foregroundColor(.white)
                                 .bold()

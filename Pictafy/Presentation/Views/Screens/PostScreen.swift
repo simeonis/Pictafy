@@ -19,7 +19,7 @@ struct PostScreen: View {
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
                 .clipped()
             HStack {
-                ProfileIcon(image: friend?.image ?? "profile_pic1", scale: 0.5)
+                ProfileIcon(image: nil, scale: 0.5)
                     .padding(8)
                 Text(friend?.username ?? "Unknown").foregroundColor(.white)
                     .bold()

@@ -22,7 +22,8 @@
 		5DE9E1D7274FC95E0032CEC5 /* PlaceholderModifer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE9E1D6274FC95E0032CEC5 /* PlaceholderModifer.swift */; };
 		5DE9E1D9274FE4330032CEC5 /* TagCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE9E1D8274FE4330032CEC5 /* TagCloud.swift */; };
 		5DF4BAD2273CED2000E06F74 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF4BAD1273CED2000E06F74 /* Camera.swift */; };
-
+		5DF4F4732758015500711760 /* CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF4F4722758015500711760 /* CornerRadius.swift */; };
+		5DFFEC94274ED01C002273F4 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFFEC93274ED01C002273F4 /* BlurView.swift */; };
 		A206C5E3274EB9AE00BA2366 /* Textbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A206C5E2274EB9AE00BA2366 /* Textbox.swift */; };
 		A206C5E52750089500BA2366 /* SignInSignUpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A206C5E42750089500BA2366 /* SignInSignUpButton.swift */; };
 		A206C5E727500E7F00BA2366 /* ToggleTextbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A206C5E627500E7F00BA2366 /* ToggleTextbox.swift */; };
@@ -30,10 +31,6 @@
 		A206C5EE275A737500BA2366 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = A206C5ED275A737500BA2366 /* Account.swift */; };
 		A206C5F0275AC74800BA2366 /* WelcomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A206C5EF275AC74800BA2366 /* WelcomeButton.swift */; };
 		A21E451C274DDA1B00462E66 /* SignUpScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21E451B274DDA1B00462E66 /* SignUpScreen.swift */; };
-
-		5DF4F4732758015500711760 /* CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF4F4722758015500711760 /* CornerRadius.swift */; };
-		5DFFEC94274ED01C002273F4 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFFEC93274ED01C002273F4 /* BlurView.swift */; };
-
 		A2367CEF273CC40800DC28B3 /* SignInScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2367CEE273CC40800DC28B3 /* SignInScreen.swift */; };
 		A24BB34E275B012B00B65FE8 /* Pictafy.xcworkspace in Resources */ = {isa = PBXBuildFile; fileRef = A24BB34D275B012B00B65FE8 /* Pictafy.xcworkspace */; };
 		A24BB352275B036F00B65FE8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A24BB351275B036F00B65FE8 /* GoogleService-Info.plist */; };
@@ -54,6 +51,8 @@
 		F0ABE86627657CA300201742 /* PostOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0ABE86527657CA300201742 /* PostOverview.swift */; };
 		F0ABE86827657D3300201742 /* PostRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0ABE86727657D3300201742 /* PostRow.swift */; };
 		F0ABE86A27658C2700201742 /* PostScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0ABE86927658C2700201742 /* PostScreen.swift */; };
+		F0D3FCBB2766FE6C000166E1 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D3FCBA2766FE6C000166E1 /* PhotoPicker.swift */; };
+		F0D3FCBD2767189E000166E1 /* PictafyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D3FCBC2767189E000166E1 /* PictafyButton.swift */; };
 		F0EE477B2749BA2100A1C755 /* FriendScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EE477A2749BA2100A1C755 /* FriendScreen.swift */; };
 		F0EE477D2749BB1B00A1C755 /* FriendCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EE477C2749BB1B00A1C755 /* FriendCard.swift */; };
 /* End PBXBuildFile section */
@@ -75,7 +74,8 @@
 		5DE9E1D6274FC95E0032CEC5 /* PlaceholderModifer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderModifer.swift; sourceTree = "<group>"; };
 		5DE9E1D8274FE4330032CEC5 /* TagCloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCloud.swift; sourceTree = "<group>"; };
 		5DF4BAD1273CED2000E06F74 /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
-
+		5DF4F4722758015500711760 /* CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadius.swift; sourceTree = "<group>"; };
+		5DFFEC93274ED01C002273F4 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		77DC07E669EB3F73B6CA439E /* Pods-Pictafy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pictafy.release.xcconfig"; path = "Target Support Files/Pods-Pictafy/Pods-Pictafy.release.xcconfig"; sourceTree = "<group>"; };
 		A206C5E2274EB9AE00BA2366 /* Textbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Textbox.swift; sourceTree = "<group>"; };
 		A206C5E42750089500BA2366 /* SignInSignUpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInSignUpButton.swift; sourceTree = "<group>"; };
@@ -84,10 +84,6 @@
 		A206C5ED275A737500BA2366 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		A206C5EF275AC74800BA2366 /* WelcomeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeButton.swift; sourceTree = "<group>"; };
 		A21E451B274DDA1B00462E66 /* SignUpScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpScreen.swift; sourceTree = "<group>"; };
-
-		5DF4F4722758015500711760 /* CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadius.swift; sourceTree = "<group>"; };
-		5DFFEC93274ED01C002273F4 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
-
 		A2367CEE273CC40800DC28B3 /* SignInScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInScreen.swift; sourceTree = "<group>"; };
 		A24BB34D275B012B00B65FE8 /* Pictafy.xcworkspace */ = {isa = PBXFileReference; lastKnownFileType = wrapper.workspace; path = Pictafy.xcworkspace; sourceTree = "<group>"; };
 		A24BB351275B036F00B65FE8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -111,6 +107,8 @@
 		F0ABE86527657CA300201742 /* PostOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostOverview.swift; sourceTree = "<group>"; };
 		F0ABE86727657D3300201742 /* PostRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRow.swift; sourceTree = "<group>"; };
 		F0ABE86927658C2700201742 /* PostScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostScreen.swift; sourceTree = "<group>"; };
+		F0D3FCBA2766FE6C000166E1 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
+		F0D3FCBC2767189E000166E1 /* PictafyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictafyButton.swift; sourceTree = "<group>"; };
 		F0EE477A2749BA2100A1C755 /* FriendScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendScreen.swift; sourceTree = "<group>"; };
 		F0EE477C2749BB1B00A1C755 /* FriendCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -168,13 +166,9 @@
 		5DABF792273CCCE0008CB9ED /* Models */ = {
 			isa = PBXGroup;
 			children = (
-
-				5DE5E4A727408E4300B84C06 /* PictureData.swift */,
 				A206C5ED275A737500BA2366 /* Account.swift */,
 				F01C796527560DE2000D0712 /* Friend.swift */,
-
 				5DE5E4A727408E4300B84C06 /* PostData.swift */,
-
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -192,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				5DE5E4A927408FBB00B84C06 /* LocationService.swift */,
+				F0D3FCBA2766FE6C000166E1 /* PhotoPicker.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -232,15 +227,12 @@
 				F02D575D274580C400DD6850 /* Buttons */,
 				F04725A7274323DB00984A37 /* Settings */,
 				5D5BEA39273D813B000440DE /* Camera */,
-
 				A206C5E2274EB9AE00BA2366 /* Textbox.swift */,
 				A206C5E627500E7F00BA2366 /* ToggleTextbox.swift */,
-
 				5DFFEC93274ED01C002273F4 /* BlurView.swift */,
 				5DE9E1D6274FC95E0032CEC5 /* PlaceholderModifer.swift */,
 				5DE9E1D8274FE4330032CEC5 /* TagCloud.swift */,
 				5DF4F4722758015500711760 /* CornerRadius.swift */,
-
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -286,6 +278,7 @@
 				F02D5764274597F700DD6850 /* Styles */,
 				A206C5E42750089500BA2366 /* SignInSignUpButton.swift */,
 				A206C5EF275AC74800BA2366 /* WelcomeButton.swift */,
+				F0D3FCBC2767189E000166E1 /* PictafyButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -479,7 +472,6 @@
 				A21E451C274DDA1B00462E66 /* SignUpScreen.swift in Sources */,
 				5DF4F4732758015500711760 /* CornerRadius.swift in Sources */,
 				F02D57672745991400DD6850 /* WelcomeScreen.swift in Sources */,
-				F02D5763274582A300DD6850 /* IconButton.swift in Sources */,
 				5DE9E1D9274FE4330032CEC5 /* TagCloud.swift in Sources */,
 				5DFFEC94274ED01C002273F4 /* BlurView.swift in Sources */,
 				5D40C5F92741BB3500D7EF52 /* CreatePostScreen.swift in Sources */,
@@ -509,13 +501,15 @@
 				A206C5EE275A737500BA2366 /* Account.swift in Sources */,
 				F05CB5C1272E0F6F00EC951C /* PictafyApp.swift in Sources */,
 				5DE5E4AA27408FBB00B84C06 /* LocationService.swift in Sources */,
+				F0D3FCBB2766FE6C000166E1 /* PhotoPicker.swift in Sources */,
 				F0ABE86A27658C2700201742 /* PostScreen.swift in Sources */,
 				F01C796627560DE2000D0712 /* Friend.swift in Sources */,
 				F0EE477B2749BA2100A1C755 /* FriendScreen.swift in Sources */,
-				5DE5E4A827408E4300B84C06 /* PictureData.swift in Sources */,
+				5DE5E4A827408E4300B84C06 /* PostData.swift in Sources */,
 				F0EE477D2749BB1B00A1C755 /* FriendCard.swift in Sources */,
 				F01BFA52275F219C00542953 /* CardFormField.swift in Sources */,
 				F0907B22275EE0780026B6B9 /* AppDelegate.swift in Sources */,
+				F0D3FCBD2767189E000166E1 /* PictafyButton.swift in Sources */,
 				5DE9E1D7274FC95E0032CEC5 /* PlaceholderModifer.swift in Sources */,
 				F05CB5C1272E0F6F00EC951C /* PictafyApp.swift in Sources */,
 				5DE5E4AA27408FBB00B84C06 /* LocationService.swift in Sources */,
