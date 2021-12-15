@@ -22,7 +22,7 @@ struct Textbox: View {
             HStack{
                 TextField("",text: $text)
                     .disableAutocorrection(true)
-                    .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
+                    .autocapitalization(.none)
             }
         }.padding()
         .overlay(RoundedRectangle(cornerRadius: 10)

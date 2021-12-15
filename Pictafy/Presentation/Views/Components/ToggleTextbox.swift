@@ -28,7 +28,7 @@ struct ToggleTextbox: View {
               })
               .opacity(showText ? 0 : 1)
               .disableAutocorrection(true)
-              .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
+              .autocapitalization(.none)
 
               if showText {
                   HStack {
