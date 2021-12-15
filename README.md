@@ -29,7 +29,7 @@ Exploring a new area can often be stressful as you are unsure of what to do or w
 * Friends list
 
 # Screen Shots
-### Login
+### Landing
 ![LoginScreen](https://user-images.githubusercontent.com/56656904/146266865-430ad998-668b-4f1a-a84b-77b6dfcb8022.png)
 ### Signup
 ![SignUp](https://user-images.githubusercontent.com/56656904/146266870-8f44b3d4-7064-405b-8bc5-d7d0472f08a4.png)
