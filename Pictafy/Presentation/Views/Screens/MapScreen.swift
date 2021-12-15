@@ -11,9 +11,7 @@ import MapKit
 struct MapScreen: View {
 
     @EnvironmentObject var locationService : LocationService
-    
     @EnvironmentObject var fireDBHelper : FireDBHelper
-    
     @State var posts = [Post]()
 
     var body: some View {
@@ -24,8 +22,8 @@ struct MapScreen: View {
                         .fill(Color.blue)
                         .frame(width:50, height: 25)
 
-                    Circle()
-                        .fill(Color.white)
+                    Image(systemName: "camera.circle.fill")
+                        .foregroundColor(.white)
                         .frame(width:45, height: 20)
                 }
             }
@@ -35,16 +33,14 @@ struct MapScreen: View {
             
             if(locationService.currentLocation != nil){
                 self.fireDBHelper.geoQuery(center: CLLocationCoordinate2D(
-                                                    latitude: locationService.currentLocation!.coordinate.latitude,
-                                                    longitude: locationService.currentLocation!.coordinate.longitude))
+                    latitude: locationService.currentLocation!.coordinate.latitude,
+                    longitude: locationService.currentLocation!.coordinate.longitude)
+                )
             }
-            
         }
         .navigationBarHidden(true)
         .onReceive(fireDBHelper.$nearbyPosts){nPosts in
-        
             self.posts = nPosts
-             
         }
     }
 }
