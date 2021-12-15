@@ -37,10 +37,10 @@ struct SettingScreen: View {
             username = account.username
             email = account.email
             id = account.id ?? ""
-            //avatarImage = fireDBHelper.getImage(url: "images/avatar/\(account.id!)avatar")
-            avatarPath = "images/avatar/\(account.id!)avatar"
-            
-            // TO-DO: Get profile img
+            fireDBHelper.getImage(url: "images/avatar/\(account.id!)avatar") { image in
+                avatarImage = image
+            }
+
         }
     }
     
