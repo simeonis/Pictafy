@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseFirestore
 
 struct PostScreen: View {
     @EnvironmentObject var fireDBHelper : FireDBHelper
@@ -14,7 +16,6 @@ struct PostScreen: View {
     @State private var hideTag : Bool = false
     @State private var postImage : UIImage? = nil
     @State private var avatarImage : UIImage? = nil
-
     
     func onLoad() {
         fireDBHelper.getImage(url: post.imageURL) { image in
@@ -26,28 +27,36 @@ struct PostScreen: View {
     }
     
     var body: some View {
-        ZStack(alignment: .bottomLeading) {
+        ZStack {
             Image(uiImage: postImage ?? UIImage())
                 .resizable()
                 .scaledToFill()
-                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
                 .clipped()
-            HStack {
-                ProfileIcon(image: avatarImage, scale: 0.5)
-
-                    .padding(8)
-                Text(post.username).foregroundColor(.white)
-                    .bold()
-                    .font(.system(size: 24))
-                    .lineLimit(1)
+                .edgesIgnoringSafeArea(.vertical)
+            VStack(alignment: .leading) {
+                HStack(spacing: 16) {
+                    ProfileIcon(image: avatarImage, scale: 0.5)
+                    VStack(alignment: .leading) {
+                        Text(post.username).foregroundColor(.white)
+                            .bold()
+                            .font(.system(size: 24))
+                            .lineLimit(1)
+                        Text(post.name).foregroundColor(.white)
+                            .font(.system(size: 18))
+                            .lineLimit(1)
+                    }
+                }
+                .frame(minWidth: 0, maxWidth: .infinity)
+                .padding()
+                .padding(.vertical, 16)
+                .offset(x: 0, y: 16)
+                .background(Color.black.opacity(0.50))
+                .cornerRadius(16)
+                .opacity(hideTag ? 0 : 1)
                 Spacer()
             }
-            .background(LinearGradient(gradient: Gradient(colors: [Color.ui.primaryColor,Color.ui.blue]), startPoint: .topLeading, endPoint: .bottomTrailing).opacity(0.9))
-            .cornerRadius(16)
-            .padding()
-            .opacity(hideTag ? 0 : 1)
-        } // VStack
-        .edgesIgnoringSafeArea(.all)
+            .edgesIgnoringSafeArea(.top)
+        } // ZStack
         .onTapGesture(perform: {
             withAnimation(.easeInOut(duration: 0.6)) {
                 hideTag.toggle()
@@ -56,4 +65,3 @@ struct PostScreen: View {
         .onAppear() { onLoad() }
     }
 }
-

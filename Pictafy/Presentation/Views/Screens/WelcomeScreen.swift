@@ -8,16 +8,7 @@
 import SwiftUI
 
 struct WelcomeScreen: View {
-    @ObservedObject var appState = AppState.shared
     @State private var _selection: Int? = nil
-    
-    var pushNavigationBinding : Binding<Bool> {
-        .init { () -> Bool in
-            appState.pageToNavigateTo != nil
-        } set: { (newValue) in
-            if !newValue { appState.pageToNavigateTo = nil }
-        }
-    }
     
     init() {
         // Transparent NavBar
@@ -39,8 +30,6 @@ struct WelcomeScreen: View {
                     NavigationLink(destination: SignInScreen(), tag: 1, selection: $_selection) {}
                     NavigationLink(destination: SignUpScreen(), tag: 2, selection: $_selection) {}
                     NavigationLink(destination: HomeScreen(), tag: 3, selection: $_selection) {}
-                    // Sends user to HomeScreen on push-notification
-                    NavigationLink(destination: HomeScreen(), isActive: pushNavigationBinding) {}
                     
                     Image(systemName: "camera")
                         .foregroundColor(.white)
