@@ -28,3 +28,23 @@ Exploring a new area can often be stressful as you are unsure of what to do or w
 * Push notifications
 * Friends list
 
+# Screen Shots
+### Landing
+![LoginScreen](https://user-images.githubusercontent.com/56656904/146266865-430ad998-668b-4f1a-a84b-77b6dfcb8022.png)
+### Signup
+![SignUp](https://user-images.githubusercontent.com/56656904/146266870-8f44b3d4-7064-405b-8bc5-d7d0472f08a4.png)
+### Add Friend
+![AddFriend](https://user-images.githubusercontent.com/56656904/146266839-0a3233fb-2cc2-488e-bccd-1d3273112adc.png)
+### Friend Request
+![FriendRequest](https://user-images.githubusercontent.com/56656904/146266862-8aea14a6-30b9-4c52-ac0b-36115ffe80d7.png)
+### Friend List
+![FriendsList](https://user-images.githubusercontent.com/56656904/146266864-94109d5e-3c55-4dd7-9568-8d62fe1b0b8f.png)
+### Camera
+![Camera](https://user-images.githubusercontent.com/56656904/146266842-65ef932c-109e-47a8-8501-659e39bd309f.PNG)
+### CreatePost
+![CreatePost](https://user-images.githubusercontent.com/56656904/146266854-fe41a102-fbb7-444a-8a26-971be61cb084.PNG)
+### Map
+![Map](https://user-images.githubusercontent.com/56656904/146266866-60b7e8ba-7f72-47e7-863d-cea0cefd34cc.png)
+### Settings
+![Settings](https://user-images.githubusercontent.com/56656904/146266867-16ef03d6-386c-4202-ab70-dfefb3d2c84e.png)
+
