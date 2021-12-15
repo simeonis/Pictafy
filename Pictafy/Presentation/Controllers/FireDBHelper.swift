@@ -261,25 +261,17 @@ class FireDBHelper: ObservableObject {
         }
     }
     
-    func getImage(url: String) -> UIImage?{
-        
-        var result: UIImage? = nil
-        var error :String? = nil
-        
+    func getImage(url: String, completion: @escaping (UIImage?) -> Void){
         let reference = Storage.storage().reference(withPath: "\(url).jpg")
         reference.getData(maxSize: (1 * 1024 * 1024)) { (data, error) in
             if let _error = error{
                 print(_error)
             } else {
-               
                 if let _data = data{
-                    let myImage:UIImage! = UIImage(data: _data)
-                    result =  myImage
+                    completion(UIImage(data: _data))
                 }
             }
         }
-        
-        return result
     }
     
     func insertPost(postData: PostData){

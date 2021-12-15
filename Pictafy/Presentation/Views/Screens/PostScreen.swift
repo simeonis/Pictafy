@@ -9,18 +9,29 @@ import SwiftUI
 
 struct PostScreen: View {
     @EnvironmentObject var fireDBHelper : FireDBHelper
-    var post: PostData
     @State private var hideTag : Bool = false
+    @State private var postImage : UIImage? = nil
+    @State private var avatarImage : UIImage? = nil
+    var post: PostData
+    
+    func onLoad() {
+        fireDBHelper.getImage(url: post.imageURL) { image in
+            postImage = image
+        }
+        fireDBHelper.getImage(url: post.avatarURL) { image in
+            avatarImage = image
+        }
+    }
     
     var body: some View {
         ZStack(alignment: .bottomLeading) {
-            Image(uiImage: post.getImage(fb: fireDBHelper))
+            Image(uiImage: postImage ?? UIImage())
                 .resizable()
                 .scaledToFill()
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
                 .clipped()
             HStack {
-                ProfileIcon(image: post.getAvatar(fb: fireDBHelper), scale: 0.5)
+                ProfileIcon(image: avatarImage, scale: 0.5)
                     .padding(8)
                 Text(post.username).foregroundColor(.white)
                     .bold()
@@ -39,6 +50,7 @@ struct PostScreen: View {
                 hideTag.toggle()
             }
         })
+        .onAppear() { onLoad() }
     }
 }
 
