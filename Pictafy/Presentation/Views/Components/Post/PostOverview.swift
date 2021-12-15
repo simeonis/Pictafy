@@ -9,15 +9,15 @@ import SwiftUI
 
 struct PostOverview: View {
     @EnvironmentObject var fireDBHelper : FireDBHelper
-    var post: PostData
+    var post: Post
     var scale: CGFloat = 1
     @State private var pressed : Bool = false
+    
     
     var body: some View {
         NavigationLink(destination: PostScreen(post: post), isActive: $pressed) {}
         Button(action: { pressed = true }) {
-            Image(uiImage: post.getImage(fb: fireDBHelper))
-                .resizable()
+            FirebaseImage(path: post.imageURL, modifiers: {$0.resizable()})
                 .scaledToFill()
                 .frame(width: 256 * scale, height: 512 * scale)
                 .clipped()
@@ -25,7 +25,7 @@ struct PostOverview: View {
                 .overlay(
                     VStack {
                         HStack {
-                            ProfileIcon(image: post.getAvatar(fb: fireDBHelper), scale: 0.5 * scale)
+                            ProfileIcon(scale: 0.5 * scale, path: post.avatarURL)
                                 .padding(8)
                             Text(post.username).foregroundColor(.white)
                                 .bold()

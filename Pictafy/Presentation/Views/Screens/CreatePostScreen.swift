@@ -14,8 +14,6 @@ struct CreatePostScreen: View {
     
     var image : UIImage
     
-    //remove this later
-    //let coordinate : CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 43.46921422071481, longitude: -79.69997672872174)
     @State var post_name : String = ""
     @State var description : String = ""
     @State var newTag : String = ""
@@ -23,8 +21,12 @@ struct CreatePostScreen: View {
     @State var tagError : String = ""
     @State var error : String = ""
     
+    @State var _selection : Int? = nil
+    
     var body: some View {
+     
         ZStack{
+            NavigationLink(destination: HomeScreen(), tag: 1, selection: $_selection) {}
             Image(uiImage: image)
             .resizable()
             .aspectRatio(contentMode: .fill)
@@ -137,9 +139,6 @@ struct CreatePostScreen: View {
                     .shadow(color: Color.black.opacity(0.5), radius: 5.0, x: 4, y: 4)
                     Spacer()
                 }//HStack
-                //.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-                //.listRowInsets(EdgeInsets())
-                //.listRowBackground(Color.clear)
         
                 }//VStack
                 .padding(20)
@@ -191,26 +190,27 @@ struct CreatePostScreen: View {
             
             if locationService.currentLocation != nil {
                 let coordinate = locationService.currentLocation!.coordinate
-                
-    
                 let hash = fireDBHelper.getGeoHash(location: coordinate)
                 
-                var postData = PostData()
-                fireDBHelper.getCurrentAccount() { account in
-                    postData = PostData(
+                if(fireDBHelper.account != nil){
+                    
+                    let postData = Post(
                         name: self.post_name,
                         description: self.description,
                         geoHash: hash,
                         latitude: coordinate.latitude,
                         longitude: coordinate.longitude,
                         imageURL: "\(imgDescriptor)",
-                        username: account.username,
-                        avatarURL: account.image
+                        username: fireDBHelper.account!.username,
+                        avatarURL: fireDBHelper.account!.image
                     )
+                    
+                    fireDBHelper.insertPost(postData: postData)
+                    fireDBHelper.uploadImage(image: image, descriptor: imgDescriptor)
+                    
+                    
+                    self._selection = 1
                 }
-                
-                fireDBHelper.insertPost(postData: postData)
-                fireDBHelper.uploadImage(image: image, descriptor: imgDescriptor)
             }
         }
         else{

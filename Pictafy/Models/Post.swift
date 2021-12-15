@@ -11,7 +11,7 @@ import Firebase
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
-struct PostData: Identifiable {
+struct Post: Identifiable {
     @DocumentID var id : String? = UUID().uuidString
     var name: String = ""
     var description: String = ""
@@ -50,7 +50,7 @@ struct PostData: Identifiable {
     }
 }
 
-extension PostData {
+extension Post {
     func getImage(fb : FireDBHelper) -> UIImage {
         return fb.getImage(url: imageURL) ?? UIImage(named: "sample_post")!
     }
@@ -60,7 +60,7 @@ extension PostData {
     }
 }
 
-extension PostData: Encodable{
+extension Post: Encodable{
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(name, forKey: .name)
@@ -74,7 +74,7 @@ extension PostData: Encodable{
    }
 }
 
-extension PostData: Decodable{
+extension Post: Decodable{
     
     //initializer used to parse JSON objects into Swift objects
     init?(dictionary: [String: Any]){

@@ -14,7 +14,7 @@ struct MapScreen: View {
     
     @EnvironmentObject var fireDBHelper : FireDBHelper
     
-    @State var posts = [PostData]()
+    @State var posts = [Post]()
 
     var body: some View {
         Map(coordinateRegion: $locationService.region, annotationItems: posts){ postData in

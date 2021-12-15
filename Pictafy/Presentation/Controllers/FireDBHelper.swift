@@ -13,6 +13,7 @@ import FirebaseStorage
 import UIKit
 import CoreLocation
 import GeoFire
+import SwiftUI
 
 
 class FireDBHelper: ObservableObject {
@@ -20,7 +21,8 @@ class FireDBHelper: ObservableObject {
     @Published var isAuth : Bool = false
     @Published var signUpSuccess : Bool = false
     @Published var signedIn : Bool = false
-    @Published var nearbyPosts = [PostData]()
+    @Published var nearbyPosts = [Post]()
+    @Published var account : Account? = nil
     
     private let COLLECTION_ACCOUNT : String = "Accounts"
     private let COLLECTION_POST : String = "Posts"
@@ -126,6 +128,7 @@ class FireDBHelper: ObservableObject {
                 let document = querySnapshot!.documents.first
                 if (document != nil) {
                     completion(Account(id: document!.documentID, dictionary: document!.data()))
+                    self.account = Account(id: document!.documentID, dictionary: document!.data())
                 }
             }
         }
@@ -158,10 +161,10 @@ class FireDBHelper: ObservableObject {
         }
     }
     
-    func getFriendsPost(completion: @escaping ([PostData]) -> Void) {
+    func getFriendsPost(completion: @escaping ([Post]) -> Void) {
         self.getCurrentAccountFriends() { friendAccounts in
             let group = DispatchGroup()
-            var friendPosts : [PostData] = []
+            var friendPosts : [Post] = []
             
             friendAccounts.forEach { account in
                 account.posts.forEach { post in
@@ -170,7 +173,7 @@ class FireDBHelper: ObservableObject {
                     postRef.getDocument() { (document, err) in
                         if let document = document {
                             if document.data() != nil {
-                                friendPosts.append(PostData(dictionary: document.data()!) ?? PostData())
+                                friendPosts.append(Post(dictionary: document.data()!) ?? Post())
                             }
                         } else {
                             print("Document does not exist")
@@ -233,20 +236,23 @@ class FireDBHelper: ObservableObject {
     func uploadImage(image: UIImage, descriptor: String){
         let storageRef = storage.reference().child("\(descriptor).jpg")
         
-        let newWidth = CGFloat(200)
+//        let newWidth = CGFloat(200)
+//
+//        let scale = newWidth / image.size.width
+//        let newHeight = image.size.height * scale
+//
+//        let resizedImage = image.scaleImage(toSize: CGSize(width: newWidth, height: newHeight))
         
-        let scale = newWidth / image.size.width
-        let newHeight = image.size.height * scale
-        
-        let resizedImage = image.scaleImage(toSize: CGSize(width: newWidth, height: newHeight))
+        let corOrientation = image.fixedOrientation()
 
         // Convert the image into JPEG and compress the quality to reduce its size
-        let data = resizedImage!.jpegData(compressionQuality: 0.2)
+        let data = corOrientation!.jpegData(compressionQuality: 0.2)
         
         print(data!.description)
         
         let metadata = StorageMetadata()
         metadata.contentType = "image/jpg"
+    
         
         if let data = data {
             storageRef.putData(data, metadata: metadata) { (metadata, error) in
@@ -263,13 +269,19 @@ class FireDBHelper: ObservableObject {
     
     func getImage(url: String) -> UIImage?{
         
-        var result: UIImage? = nil
-        var error :String? = nil
         
-        let reference = Storage.storage().reference(withPath: "\(url).jpg")
+        var result: UIImage? = nil
+        
+        //let reference = Storage.storage().reference(withPath: "starboy.jpg")
+        
+        let storage = Storage.storage()
+        let reference = storage.reference().child("starboy.jpg")
+        
+        //print("reference \(reference.fullPath)")
+        
         reference.getData(maxSize: (1 * 1024 * 1024)) { (data, error) in
             if let _error = error{
-                print(_error)
+                print("\(_error)")
             } else {
                
                 if let _data = data{
@@ -282,7 +294,7 @@ class FireDBHelper: ObservableObject {
         return result
     }
     
-    func insertPost(postData: PostData){
+    func insertPost(postData: Post){
         do{
             try self.store.collection("Posts").addDocument(from: postData)
         }catch let error as NSError{
@@ -298,7 +310,7 @@ class FireDBHelper: ObservableObject {
     
     func geoQuery(center : CLLocationCoordinate2D) {
         
-        print("GEO QUERY EXE")
+        print("zGEO QUERY EXE \(center)")
         
         // Find posts within 50km of center
         let radiusInM: Double = 50 * 1000
@@ -314,7 +326,7 @@ class FireDBHelper: ObservableObject {
                 .end(at: [bound.endValue])
         }
 
-        var matchingDocs = [PostData]()
+        var matchingDocs = [Post]()
         let myGroup = DispatchGroup()
         // Collect all the query results together into a single list
         func getDocumentsCompletion(snapshot: QuerySnapshot?, error: Error?) -> () {
@@ -330,6 +342,9 @@ class FireDBHelper: ObservableObject {
                
                 let lat = document.data()["latitude"] as? Double ?? 0
                 let lng = document.data()["longitude"] as? Double ?? 0
+                
+                print("zLAT, LNG\(lat)\(lng)")
+                
                 let coordinates = CLLocation(latitude: lat, longitude: lng)
                 let centerPoint = CLLocation(latitude: center.latitude, longitude: center.longitude)
 
@@ -337,11 +352,11 @@ class FireDBHelper: ObservableObject {
                 // most will match
                 let distance = GFUtils.distance(from: centerPoint, to: coordinates)
                 
-                var post = PostData()
+                var post = Post()
                 if distance <= radiusInM {
                     
                     do{
-                        post = try document.data(as: PostData.self)!
+                        post = try document.data(as: Post.self)!
                         
                         print("Post Name \(post.name)")
                         

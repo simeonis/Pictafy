@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5D00BA5D2766780000EE91D0 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D00BA5C2766780000EE91D0 /* UIImageExtension.swift */; };
 		5D084B992745848D00C0894D /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D084B982745848D00C0894D /* ColorExtension.swift */; };
+		5D1B559C276948A7007B27C4 /* FirebaseImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1B559B276948A7007B27C4 /* FirebaseImage.swift */; };
+		5D1B559E276948B3007B27C4 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1B559D276948B3007B27C4 /* Loader.swift */; };
 		5D40C5F92741BB3500D7EF52 /* CreatePostScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D40C5F82741BB3500D7EF52 /* CreatePostScreen.swift */; };
 		5D5BEA36273D72AD000440DE /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5BEA35273D72AD000440DE /* CameraViewController.swift */; };
 		5D65C78527498461009B4B18 /* CameraInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D65C78427498461009B4B18 /* CameraInterface.swift */; };
@@ -18,7 +20,7 @@
 		5DBEC167273D8E2E0010812C /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBEC166273D8E2E0010812C /* CameraPreview.swift */; };
 		5DE5E4A42740624E00B84C06 /* CameraScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5E4A32740624E00B84C06 /* CameraScreen.swift */; };
 		5DE5E4A62740884B00B84C06 /* MapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5E4A52740884B00B84C06 /* MapScreen.swift */; };
-		5DE5E4A827408E4300B84C06 /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5E4A727408E4300B84C06 /* PostData.swift */; };
+		5DE5E4A827408E4300B84C06 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5E4A727408E4300B84C06 /* Post.swift */; };
 		5DE5E4AA27408FBB00B84C06 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5E4A927408FBB00B84C06 /* LocationService.swift */; };
 		5DE9E1D7274FC95E0032CEC5 /* PlaceholderModifer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE9E1D6274FC95E0032CEC5 /* PlaceholderModifer.swift */; };
 		5DE9E1D9274FE4330032CEC5 /* TagCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE9E1D8274FE4330032CEC5 /* TagCloud.swift */; };
@@ -62,6 +64,8 @@
 		2DEF893F1470DCDDB5B386B7 /* Pods_Pictafy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pictafy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D00BA5C2766780000EE91D0 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		5D084B982745848D00C0894D /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		5D1B559B276948A7007B27C4 /* FirebaseImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseImage.swift; sourceTree = "<group>"; };
+		5D1B559D276948B3007B27C4 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		5D40C5F82741BB3500D7EF52 /* CreatePostScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostScreen.swift; sourceTree = "<group>"; };
 		5D5BEA35273D72AD000440DE /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		5D65C78427498461009B4B18 /* CameraInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraInterface.swift; sourceTree = "<group>"; };
@@ -71,7 +75,7 @@
 		5DBEC166273D8E2E0010812C /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
 		5DE5E4A32740624E00B84C06 /* CameraScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraScreen.swift; sourceTree = "<group>"; };
 		5DE5E4A52740884B00B84C06 /* MapScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreen.swift; sourceTree = "<group>"; };
-		5DE5E4A727408E4300B84C06 /* PostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
+		5DE5E4A727408E4300B84C06 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		5DE5E4A927408FBB00B84C06 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		5DE9E1D6274FC95E0032CEC5 /* PlaceholderModifer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderModifer.swift; sourceTree = "<group>"; };
 		5DE9E1D8274FE4330032CEC5 /* TagCloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCloud.swift; sourceTree = "<group>"; };
@@ -144,6 +148,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5D1B559A27694892007B27C4 /* FirebaseImage */ = {
+			isa = PBXGroup;
+			children = (
+				5D1B559B276948A7007B27C4 /* FirebaseImage.swift */,
+				5D1B559D276948B3007B27C4 /* Loader.swift */,
+			);
+			path = FirebaseImage;
+			sourceTree = "<group>";
+		};
 		5D5BEA34273D7284000440DE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,7 +183,7 @@
 			children = (
 				A206C5ED275A737500BA2366 /* Account.swift */,
 				F01C796527560DE2000D0712 /* Friend.swift */,
-				5DE5E4A727408E4300B84C06 /* PostData.swift */,
+				5DE5E4A727408E4300B84C06 /* Post.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -224,6 +237,7 @@
 		5DF4BACA273CEA9800E06F74 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				5D1B559A27694892007B27C4 /* FirebaseImage */,
 				F0ABE86427657C7300201742 /* Post */,
 				F01C796427560DAB000D0712 /* Cards */,
 				F02D575D274580C400DD6850 /* Buttons */,
@@ -498,6 +512,7 @@
 				F04725A9274323F000984A37 /* ProfileIcon.swift in Sources */,
 				5DBEC162273D85480010812C /* CameraUserEvents.swift in Sources */,
 				F01BFA50275F217300542953 /* ScreenCard.swift in Sources */,
+				5D1B559C276948A7007B27C4 /* FirebaseImage.swift in Sources */,
 				F02D575F2745812300DD6850 /* DarkModeToggleStyle.swift in Sources */,
 				5DE5E4A42740624E00B84C06 /* CameraScreen.swift in Sources */,
 				F04725A52743117900984A37 /* SettingScreen.swift in Sources */,
@@ -508,16 +523,17 @@
 				F0ABE86A27658C2700201742 /* PostScreen.swift in Sources */,
 				F01C796627560DE2000D0712 /* Friend.swift in Sources */,
 				F0EE477B2749BA2100A1C755 /* FriendScreen.swift in Sources */,
-				5DE5E4A827408E4300B84C06 /* PostData.swift in Sources */,
+				5DE5E4A827408E4300B84C06 /* Post.swift in Sources */,
 				5D00BA5D2766780000EE91D0 /* UIImageExtension.swift in Sources */,
 				F0EE477D2749BB1B00A1C755 /* FriendCard.swift in Sources */,
 				F01BFA52275F219C00542953 /* CardFormField.swift in Sources */,
 				F0907B22275EE0780026B6B9 /* AppDelegate.swift in Sources */,
+				5D1B559E276948B3007B27C4 /* Loader.swift in Sources */,
 				F0D3FCBD2767189E000166E1 /* PictafyButton.swift in Sources */,
 				5DE9E1D7274FC95E0032CEC5 /* PlaceholderModifer.swift in Sources */,
 				F05CB5C1272E0F6F00EC951C /* PictafyApp.swift in Sources */,
 				5DE5E4AA27408FBB00B84C06 /* LocationService.swift in Sources */,
-				5DE5E4A827408E4300B84C06 /* PostData.swift in Sources */,
+				5DE5E4A827408E4300B84C06 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PostScreen: View {
     @EnvironmentObject var fireDBHelper : FireDBHelper
-    var post: PostData
+    var post: Post
     @State private var hideTag : Bool = false
     
     var body: some View {
@@ -20,7 +20,7 @@ struct PostScreen: View {
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
                 .clipped()
             HStack {
-                ProfileIcon(image: post.getAvatar(fb: fireDBHelper), scale: 0.5)
+                ProfileIcon(scale: 0.5, path: post.avatarURL)
                     .padding(8)
                 Text(post.username).foregroundColor(.white)
                     .bold()

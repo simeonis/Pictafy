@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct HomeScreen: View {
+    @EnvironmentObject var locationService : LocationService
     @EnvironmentObject var fireDBHelper : FireDBHelper
     @State private var _selection: Int? = nil
-    @State private var nearbyPosts: [PostData] = []
-    @State private var friendPosts: [PostData] = []
+    @State private var nearbyPosts: [Post] = []
+    @State private var friendPosts: [Post] = []
     
     private var posts = [
         Friend(username: "Richard", fullname: "Richard Smith", image: "profile_pic1"),
@@ -36,6 +38,14 @@ struct HomeScreen: View {
         fireDBHelper.getFriendsPost() { posts in
             friendPosts = posts
         }
+        
+        self.locationService.checkPermission()
+        
+        if(locationService.currentLocation != nil){
+            self.fireDBHelper.geoQuery(center: CLLocationCoordinate2D(
+                                                latitude: locationService.currentLocation!.coordinate.latitude,
+                                                longitude: locationService.currentLocation!.coordinate.longitude))
+        }
     }
     
     var body: some View {
@@ -45,10 +55,10 @@ struct HomeScreen: View {
             TabView {
                 // Content
                 VStack {
-                    if (posts.count > 0) {
+                    if (posts.count > 0 ) {
                         ScrollView(showsIndicators: false) {
                             VStack(alignment: .leading, spacing: 0) {
-                                PostRow(title: "Post Near Me", posts: nearbyPosts)
+                                PostRow(title: "Post Near Me", posts: fireDBHelper.nearbyPosts)
                                 PostRow(title: "Friend's Posts", posts: friendPosts)
                             }
                         }

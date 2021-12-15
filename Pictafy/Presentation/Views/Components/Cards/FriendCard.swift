@@ -14,7 +14,7 @@ struct FriendCard : View {
     
     var body : some View {
         HStack {
-            ProfileIcon(scale: 0.5)
+            ProfileIcon(scale: 0.5, path: friend.image)
             VStack(alignment: .leading, spacing: 4) {
                 Text(friend.username).padding(.leading, 16)
                 Text(friend.fullName).padding(.leading, 16)

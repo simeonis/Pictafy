@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PostRow: View {
     var title : String = "Placeholder"
-    var posts : [PostData] = []
+    var posts : [Post] = []
     var color : Color = Color(UIColor.systemBackground)
     
     var body: some View {
