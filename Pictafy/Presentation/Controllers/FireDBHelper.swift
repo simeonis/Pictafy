@@ -199,6 +199,7 @@ class FireDBHelper: ObservableObject {
                 completion(true)
             }
         }
+        
     }
     
     func removeUserAccount(email: String) {

@@ -152,7 +152,7 @@ struct CreatePostScreen: View {
                 }
 
         }//ZStack
-        .navigationBarHidden(true)
+//        .navigationBarHidden(true)
         
     }//Body
     
@@ -192,7 +192,11 @@ struct CreatePostScreen: View {
                 let coordinate = locationService.currentLocation!.coordinate
                 let hash = fireDBHelper.getGeoHash(location: coordinate)
                 
+                print("Location")
+                
                 if(fireDBHelper.account != nil){
+                    
+                    print("Account")
                     
                     let postData = Post(
                         name: self.post_name,
@@ -207,7 +211,6 @@ struct CreatePostScreen: View {
                     
                     fireDBHelper.insertPost(postData: postData)
                     fireDBHelper.uploadImage(image: image, descriptor: imgDescriptor)
-                    
                     
                     self._selection = 1
                 }
