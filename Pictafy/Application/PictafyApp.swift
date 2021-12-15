@@ -48,11 +48,9 @@ struct PictafyApp: App {
             .environmentObject(locationService)
             .preferredColorScheme(isDarkMode ? .dark : .light)
             .onReceive(fireDBHelper.$isAuth){ auth in
-                print("This is Auth \(auth)")
                 self.showHome = auth
             }
             .onReceive(fireDBHelper.$signedIn){ s in
-                print("This is Auth \(s)")
                 self.isSignedIn = s
             }
             

@@ -56,7 +56,6 @@ struct SignInScreen: View {
         
         .navigationBarBackButtonHidden(true)
         .onReceive(fireDBHelper.$signedIn) { success in
-            print("Signin? \(success)")
             if success{
                 shouldShowHome = true
             }

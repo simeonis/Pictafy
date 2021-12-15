@@ -28,6 +28,7 @@ struct HomeScreen: View {
     init() {
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         UINavigationBar.appearance().shadowImage = UIImage()
+        UITabBar.appearance().backgroundColor = UIColor.systemBackground
         UITableViewCell.appearance().backgroundColor = UIColor.clear
     }
     
@@ -87,7 +88,9 @@ struct HomeScreen: View {
             .tabItem {
                 Image(systemName: "map.fill")
             }
-            CameraScreen()
+            NavigationView{
+                CameraScreen()
+            }
             .tag(Tab.camera)
             .tabItem {
                 Image(systemName: "camera.fill")

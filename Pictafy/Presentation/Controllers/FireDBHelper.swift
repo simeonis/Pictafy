@@ -57,18 +57,15 @@ class FireDBHelper: ObservableObject {
     }
     
     func listen(){
-        print("Listen Called")
         Auth.auth().addStateDidChangeListener {[weak self] (auth, user) in
             var state = false;
             
             if(user != nil)
             {
                 state = true
-                print("State true")
             }
             else{
                 state = false
-                print("State false")
             }
             
             self?.isAuth = state
@@ -80,14 +77,11 @@ class FireDBHelper: ObservableObject {
         Auth.auth().signIn(withEmail: email, password: password ){ authResult, error in
             
             if error != nil {
-                print("error in sign in")
                 self.signedIn = false
                 return
             }
             else{
-                print("Sign in OK")
                 self.signedIn = true
-                
                 self.getAccount()
             }
         }
@@ -108,7 +102,6 @@ class FireDBHelper: ObservableObject {
     }
     
     func logout(){
-        print("Logout called")
         do{
            try Auth.auth().signOut()
             self.signedIn = false
@@ -214,14 +207,12 @@ class FireDBHelper: ObservableObject {
     
     func sendFriendRequest(email : String){
         
-        print("zzSending friend req...")
-        
         let accountsRef = store.collection(COLLECTION_ACCOUNT)
         let query = accountsRef.whereField("email", isEqualTo: email)
         
         query.getDocuments() { (querySnapshot, err) in
                if let err = err {
-                   print("zzError getting documents: \(err)")
+                   print("Error getting documents: \(err)")
                } else {
                    for document in querySnapshot!.documents {
                        print("\(document.documentID) => \(document.data())")
@@ -235,9 +226,6 @@ class FireDBHelper: ObservableObject {
                            print("zz friendID \(friendID) MYID \(myID)" )
                            
                            accountsRef.document(friendID ?? "").updateData(["friendRequests": FieldValue.arrayUnion([myID ?? ""])])
-                       }
-                       else{
-                           print("zzInformation Missing to add friend")
                        }
                    }
                }
@@ -326,8 +314,6 @@ class FireDBHelper: ObservableObject {
         // Convert the image into JPEG and compress the quality to reduce its size
         let data = corOrientation!.jpegData(compressionQuality: 0.2)
         
-        print(data!.description)
-        
         let metadata = StorageMetadata()
         metadata.contentType = "image/jpg"
     
@@ -388,8 +374,6 @@ class FireDBHelper: ObservableObject {
     
     func geoQuery(center : CLLocationCoordinate2D) {
         
-        print("zGEO QUERY EXE \(center)")
-        
         // Find posts within 50km of center
         let radiusInM: Double = 50 * 1000
 
@@ -412,16 +396,12 @@ class FireDBHelper: ObservableObject {
                 print("Unable to fetch snapshot data. \(String(describing: error))")
                 return
             }
-            
-            print("Passed Gaurd \(documents.count)")
+
 
             for document in documents {
-                print("document \(document)")
                
                 let lat = document.data()["latitude"] as? Double ?? 0
                 let lng = document.data()["longitude"] as? Double ?? 0
-                
-                print("zLAT, LNG\(lat)\(lng)")
                 
                 let coordinates = CLLocation(latitude: lat, longitude: lng)
                 let centerPoint = CLLocation(latitude: center.latitude, longitude: center.longitude)
@@ -435,8 +415,6 @@ class FireDBHelper: ObservableObject {
                     
                     do{
                         post = try document.data(as: Post.self)!
-                        
-                        print("Post Name \(post.name)")
                         
                         matchingDocs.append(post)
                     }

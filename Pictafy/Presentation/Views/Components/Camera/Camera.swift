@@ -74,13 +74,11 @@ struct Camera: UIViewControllerRepresentable {
         }
             
         public func didFinishProcessingPhoto(image: UIImage) {
-            //TODO
             print("didFinishProcessingPhoto seth")
             parent.imageT.wrappedValue = image
         }
                     
         public func didFinishSavingWithError(image: UIImage, error: NSError?, contextInfo: UnsafeRawPointer) {
-            //TODO
             print("didFinishSavingWithError")
         }
     }

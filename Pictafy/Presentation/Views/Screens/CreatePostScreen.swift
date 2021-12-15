@@ -27,7 +27,7 @@ struct CreatePostScreen: View {
     var body: some View {
      
         ZStack{
-            //NavigationLink(destination: HomeScreen(), tag: 1, selection: $_selection) {}
+            NavigationLink(destination: CameraScreen(), tag: 1, selection: $_selection) {}
             Image(uiImage: image)
             .resizable()
             .aspectRatio(contentMode: .fill)
@@ -185,17 +185,11 @@ struct CreatePostScreen: View {
             
             let imgDescriptor = "images/post/\(UUID.init())\(self.post_name)"
             
-            print(imgDescriptor)
-            
             if locationService.currentLocation != nil {
                 let coordinate = locationService.currentLocation!.coordinate
                 let hash = fireDBHelper.getGeoHash(location: coordinate)
                 
-                print("Location")
-                
                 if(fireDBHelper.account != nil){
-                    
-                    print("Account")
                     
                     let postData = Post(
                         name: self.post_name,
@@ -211,9 +205,10 @@ struct CreatePostScreen: View {
                     fireDBHelper.insertPost(postData: postData)
                     fireDBHelper.uploadImage(image: image, descriptor: imgDescriptor)
                     
-                    tabController.open(.home)
+                
                 }
             }
+            self._selection = 1
         }
         else{
             self.error = "Name and Description can't be null"

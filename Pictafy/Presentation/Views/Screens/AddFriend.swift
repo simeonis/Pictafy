@@ -14,7 +14,6 @@ struct AddFriend: View {
     
     func sendRequest(){
         fireDBHelper.sendFriendRequest(email: email)
-        print("success!")
         showingAlert = true
     }
     

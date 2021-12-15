@@ -28,7 +28,6 @@ final class Loader : ObservableObject {
             }
 
             DispatchQueue.main.async {
-                print("Dispatching...")
                 if(data != nil){
                     self.image = UIImage(data: data!)
                 }

@@ -66,20 +66,20 @@ struct FriendRequestCard: View {
                     }
                 }
                 .background(Color.red)
-                .cornerRadius(8)
-                .shadow(color: Color.gray, radius: 3, x: 0, y: 2)
-            }
-            
-        }
-        .padding()
-        .padding(.leading,20)
-        .overlay(RoundedRectangle(cornerRadius: 10)
-                    .stroke(Color.white)
-                    .foregroundColor(.clear))
-        .background(Color.white
-                        .cornerRadius(10)
-                        .shadow(color: Color.gray, radius: 3, x: 0, y: 2)
-        )
-    }
-}
+                                .cornerRadius(8)
+                                .shadow(color: Color.gray, radius: 3, x: 0, y: 2)
+                            }.padding(.leading,30)
 
+                        }
+                        .frame(width: UIScreen.main.bounds.width - 92,alignment: .leading)        .padding()
+                        .padding(.leading,20)
+
+                        .overlay(RoundedRectangle(cornerRadius: 10)
+                                    .stroke(Color.white)
+                                    .foregroundColor(.clear))
+                        .background(Color.white
+                                        .cornerRadius(10)
+                                        .shadow(color: Color.gray, radius: 3, x: 0, y: 2)
+                        )
+                    }
+                }
