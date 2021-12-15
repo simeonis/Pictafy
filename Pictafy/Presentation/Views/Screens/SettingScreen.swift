@@ -28,7 +28,6 @@ struct SettingScreen: View {
     @State private var isShowingPhotoPicker : Bool = false
     @State private var isShowingPasswordChanger : Bool = false
     @State private var avatarImage : UIImage? = nil
-    @State private var avatarPath : String = ""
     
     // onAppear
     func loadData() {
@@ -40,7 +39,6 @@ struct SettingScreen: View {
             fireDBHelper.getImage(url: "images/avatar/\(account.id!)avatar") { image in
                 avatarImage = image
             }
-
         }
     }
     
@@ -134,7 +132,7 @@ struct SettingScreen: View {
                 } // CardFormField
             }.overlay(
                 Button(action: { isShowingPhotoPicker = true }) {
-                    ProfileIcon(editable: true, path: avatarPath)
+                    ProfileIcon(image: avatarImage, editable: true)
                 }
                 .buttonStyle(ScaleButtonStyle())
                 .position(x: 115, y: 5)

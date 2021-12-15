@@ -29,11 +29,36 @@ struct PictafyApp: App {
     @AppStorage("isDarkMode") private var isDarkMode = false
     private let locationService = LocationService()
     
+    @State var showHome = false
+    @State var isSignedIn = false
+    
     var body: some Scene {
         WindowGroup {
-            WelcomeScreen().environmentObject(fireDBHelper)
+            VStack{
+                if(self.showHome && self.isSignedIn){
+                    HomeScreen()
+                
+                }
+                else{
+                    WelcomeScreen()
+                }
+                
+            }
+            .environmentObject(fireDBHelper)
             .environmentObject(locationService)
             .preferredColorScheme(isDarkMode ? .dark : .light)
+            .onReceive(fireDBHelper.$isAuth){ auth in
+                print("This is Auth \(auth)")
+                self.showHome = auth
+            }
+            .onReceive(fireDBHelper.$signedIn){ s in
+                print("This is Auth \(s)")
+                self.isSignedIn = s
+            }
+            
+          
+
         }
+        
     }
 }

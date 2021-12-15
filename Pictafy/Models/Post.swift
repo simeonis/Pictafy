@@ -50,16 +50,6 @@ struct Post: Identifiable {
     }
 }
 
-extension Post {
-    func getImage(fb : FireDBHelper) -> UIImage {
-        return fb.getImage(url: imageURL) ?? UIImage(named: "sample_post")!
-    }
-    
-    func getAvatar(fb : FireDBHelper) -> UIImage? {
-        return fb.getImage(url: avatarURL)
-    }
-}
-
 extension Post: Encodable{
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)

@@ -10,6 +10,7 @@ import SwiftUI
 
 struct CameraScreen: View {
     
+    
     @StateObject var cameraUserEvents = CameraUserEvents()
     
     @State var image : UIImage? = nil

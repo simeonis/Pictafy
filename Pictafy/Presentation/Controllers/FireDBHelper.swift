@@ -271,10 +271,9 @@ class FireDBHelper: ObservableObject {
 
     func getImage(url: String, completion: @escaping (UIImage?) -> Void){
         let reference = Storage.storage().reference(withPath: "\(url).jpg")
-
         reference.getData(maxSize: (1 * 1024 * 1024)) { (data, error) in
             if let _error = error{
-                print("\(_error)")
+                print(_error)
             } else {
                 if let _data = data{
                     completion(UIImage(data: _data))

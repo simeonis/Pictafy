@@ -16,8 +16,6 @@ struct ProfileIcon: View {
     var border : Bool = false
     var borderThickness : Int = 8
     
-    @ObservedObject private var imageLoader : Loader
-    
     private var profileRadius : CGFloat {
         return 128 * scale
     }
@@ -34,27 +32,6 @@ struct ProfileIcon: View {
         return self.profileRadius * CGFloat(sinf(Float.pi / 4.0))
     }
     
-    init(
-        image : UIImage? = nil,
-        editable : Bool = false,
-        primary : Color = Color.black,
-        secondary : Color = Color.white,
-        scale : CGFloat = 1.0,
-        border : Bool = false,
-        borderThickness : Int = 8,
-        path : String ){
-        self.image = image
-        self.editable = editable
-        self.primary = primary
-        self.secondary = secondary
-        self.scale = scale
-        self.border = border
-        self.borderThickness = borderThickness
-        
-        self.imageLoader = Loader(path)
-    }
-    
-    
     var body : some View {
         ZStack {
             if (border) {
@@ -63,28 +40,27 @@ struct ProfileIcon: View {
                     .foregroundColor(primary)
             }
             // Invalid Profile Image
-     
-            if(imageLoader.image != nil){
-                    Circle()
-                        .frame(width: self.profileRadius, height: self.profileRadius)
-                        .foregroundColor(.white)
-                    
-                Image(uiImage:imageLoader.image!)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: self.profileRadius, height: self.profileRadius)
-                        .foregroundColor(.blue)
-                }
-                else{
-                    Circle()
-                        .frame(width: self.profileRadius, height: self.profileRadius)
-                        .foregroundColor(.white)
-                    Image(systemName: "person.crop.circle.fill")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: self.profileRadius, height: self.profileRadius)
-                        .foregroundColor(.blue)
-                }
+            if (image == nil) {
+                Circle()
+                    .frame(width: self.profileRadius, height: self.profileRadius)
+                    .foregroundColor(.white)
+                Image(systemName: "person.crop.circle.fill")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: self.profileRadius, height: self.profileRadius)
+                    .foregroundColor(.blue)
+            }
+            // Valid Profile Image
+            else {
+                Circle()
+                    .frame(width: self.profileRadius, height: self.profileRadius)
+                    .foregroundColor(.black)
+                Image(uiImage: image!)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: self.profileRadius, height: self.profileRadius)
+                    .foregroundColor(.blue)
+                    .cornerRadius(self.cornerRadius)
             }
             
             if (editable) {
@@ -103,6 +79,5 @@ struct ProfileIcon: View {
                     .padding(.top, self.posY)
             }
         }
-
+    }
 }
-

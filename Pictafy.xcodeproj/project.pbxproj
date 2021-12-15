@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5D00BA5D2766780000EE91D0 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D00BA5C2766780000EE91D0 /* UIImageExtension.swift */; };
 		5D084B992745848D00C0894D /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D084B982745848D00C0894D /* ColorExtension.swift */; };
+		5D0DEACE276A2AEB00E6A124 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0DEACD276A2AEB00E6A124 /* TabController.swift */; };
 		5D1B559C276948A7007B27C4 /* FirebaseImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1B559B276948A7007B27C4 /* FirebaseImage.swift */; };
 		5D1B559E276948B3007B27C4 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1B559D276948B3007B27C4 /* Loader.swift */; };
 		5D40C5F92741BB3500D7EF52 /* CreatePostScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D40C5F82741BB3500D7EF52 /* CreatePostScreen.swift */; };
@@ -64,6 +65,7 @@
 		2DEF893F1470DCDDB5B386B7 /* Pods_Pictafy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pictafy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D00BA5C2766780000EE91D0 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		5D084B982745848D00C0894D /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		5D0DEACD276A2AEB00E6A124 /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		5D1B559B276948A7007B27C4 /* FirebaseImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseImage.swift; sourceTree = "<group>"; };
 		5D1B559D276948B3007B27C4 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		5D40C5F82741BB3500D7EF52 /* CreatePostScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostScreen.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				5D5BEA35273D72AD000440DE /* CameraViewController.swift */,
 				5DBEC163273D86A40010812C /* CameraViewControllerDelegate.swift */,
 				A206C5EB275A6F4E00BA2366 /* FireDBHelper.swift */,
+				5D0DEACD276A2AEB00E6A124 /* TabController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -485,6 +488,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A206C5E3274EB9AE00BA2366 /* Textbox.swift in Sources */,
+				5D0DEACE276A2AEB00E6A124 /* TabController.swift in Sources */,
 				F02D57672745991400DD6850 /* WelcomeScreen.swift in Sources */,
 				A21E451C274DDA1B00462E66 /* SignUpScreen.swift in Sources */,
 				5DF4F4732758015500711760 /* CornerRadius.swift in Sources */,

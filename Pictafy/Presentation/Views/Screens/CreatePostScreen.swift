@@ -11,6 +11,7 @@ import MapKit
 struct CreatePostScreen: View {
     @EnvironmentObject var fireDBHelper : FireDBHelper
     @EnvironmentObject var locationService : LocationService
+    @EnvironmentObject private var tabController: TabController
     
     var image : UIImage
     
@@ -26,7 +27,7 @@ struct CreatePostScreen: View {
     var body: some View {
      
         ZStack{
-            NavigationLink(destination: HomeScreen(), tag: 1, selection: $_selection) {}
+            //NavigationLink(destination: HomeScreen(), tag: 1, selection: $_selection) {}
             Image(uiImage: image)
             .resizable()
             .aspectRatio(contentMode: .fill)
@@ -152,8 +153,6 @@ struct CreatePostScreen: View {
                 }
 
         }//ZStack
-//        .navigationBarHidden(true)
-        
     }//Body
     
     func addTag(tag : String){
@@ -212,7 +211,7 @@ struct CreatePostScreen: View {
                     fireDBHelper.insertPost(postData: postData)
                     fireDBHelper.uploadImage(image: image, descriptor: imgDescriptor)
                     
-                    self._selection = 1
+                    tabController.open(.home)
                 }
             }
         }

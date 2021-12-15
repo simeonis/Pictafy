@@ -38,4 +38,3 @@ struct FriendCard : View {
         .onAppear() { loadData() }
     }
 }
-
