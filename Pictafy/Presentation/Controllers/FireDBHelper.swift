@@ -18,10 +18,12 @@ import SwiftUI
 
 class FireDBHelper: ObservableObject {
     @Published var accountList = [Account]()
+    @Published var friendRequests = [Account]()
     @Published var isAuth : Bool = false
     @Published var signUpSuccess : Bool = false
     @Published var signedIn : Bool = false
     @Published var nearbyPosts = [Post]()
+    @Published var friendPosts = [Post]()
     @Published var account : Account? = nil
     
     private let COLLECTION_ACCOUNT : String = "Accounts"
@@ -76,8 +78,6 @@ class FireDBHelper: ObservableObject {
         
     func signIn(email: String, password: String){
         Auth.auth().signIn(withEmail: email, password: password ){ authResult, error in
-
-            //guard let strongSelf = self else {return}
             
             if error != nil {
                 print("error in sign in")
@@ -87,6 +87,8 @@ class FireDBHelper: ObservableObject {
             else{
                 print("Sign in OK")
                 self.signedIn = true
+                
+                self.getAccount()
             }
         }
     }
@@ -134,14 +136,14 @@ class FireDBHelper: ObservableObject {
         }
     }
     
-    func getAccount(completion: @escaping (Account) -> Void) {
+    func getAccount() {
         let user = Auth.auth().currentUser
         let ref = store.collection(COLLECTION_ACCOUNT).whereField("email", isEqualTo: user?.email ?? "")
         
         ref.getDocuments { (querySnapshot, err) in
             if let err = err {
                 print("Error getting document(s): \(err)")
-                completion(Account())
+              
             } else {
                 let document = querySnapshot!.documents.first
                 if (document != nil) {
@@ -210,8 +212,36 @@ class FireDBHelper: ObservableObject {
         store.collection(COLLECTION_ACCOUNT).document()
     }
     
-    func sendFriendRequest(id : String){
-    
+    func sendFriendRequest(email : String){
+        
+        print("zzSending friend req...")
+        
+        let accountsRef = store.collection(COLLECTION_ACCOUNT)
+        let query = accountsRef.whereField("email", isEqualTo: email)
+        
+        query.getDocuments() { (querySnapshot, err) in
+               if let err = err {
+                   print("zzError getting documents: \(err)")
+               } else {
+                   for document in querySnapshot!.documents {
+                       print("\(document.documentID) => \(document.data())")
+                       let friendAccount = Account(id: document.documentID, dictionary: document.data())
+                       
+                       if(self.account != nil){
+                           
+                           let friendID = friendAccount.id
+                           let myID = self.account!.id
+                           
+                           print("zz friendID \(friendID) MYID \(myID)" )
+                           
+                           accountsRef.document(friendID ?? "").updateData(["friendRequests": FieldValue.arrayUnion([myID ?? ""])])
+                       }
+                       else{
+                           print("zzInformation Missing to add friend")
+                       }
+                   }
+               }
+           }
     }
     
     func getFriendsPost(completion: @escaping ([Post]) -> Void) {
@@ -290,12 +320,6 @@ class FireDBHelper: ObservableObject {
     func uploadImage(image: UIImage, descriptor: String){
         let storageRef = storage.reference().child("\(descriptor).jpg")
         
-//        let newWidth = CGFloat(200)
-//
-//        let scale = newWidth / image.size.width
-//        let newHeight = image.size.height * scale
-//
-//        let resizedImage = image.scaleImage(toSize: CGSize(width: newWidth, height: newHeight))
         
         let corOrientation = image.fixedOrientation()
 
@@ -320,7 +344,6 @@ class FireDBHelper: ObservableObject {
             }
         }
     }
-        
 
     func getImage(url: String, completion: @escaping (UIImage?) -> Void){
         let reference = Storage.storage().reference(withPath: "\(url).jpg")
@@ -357,8 +380,10 @@ class FireDBHelper: ObservableObject {
     func addFriend(userId: String, friendId: String){
         let ref = store.collection(COLLECTION_ACCOUNT).document(userId)
         ref.updateData([
-            "friendRequests": FieldValue.arrayUnion([friendId])
+            "friends": FieldValue.arrayUnion([friendId])
         ])
+        
+        deleteRequest(userId: userId, friendId: friendId)
     }
     
     func geoQuery(center : CLLocationCoordinate2D) {
@@ -435,75 +460,4 @@ class FireDBHelper: ObservableObject {
              self.nearbyPosts = matchingDocs
          }
     }
-
-    
-    
-//    func getAllAccounts(){
-//            self.store.collection(COLLECTION_NAME)
-//                .order(by: "dateCreated", descending: true)
-//                .addSnapshotListener({(querySnapshot, error) in
-//                    guard let snapshot = querySnapshot else{
-//                        print(#function, "Error getting the snapshot of the documents", error)
-//                        return
-//                    }
-//                    
-//                    snapshot.documentChanges.forEach{ (docChange) in
-//                        
-//                        var account = Account()
-//                        
-//                        do{
-//                            account = try docChange.document.data(as: Account.self)!
-//                            
-//                            if docChange.type == .added{
-//                                self.accountList.append(account)
-//                                print(#function, "New document added : ", account)
-//                            }
-//                            
-//                            if docChange.type == .modified{
-//                                let docId = docChange.document.documentID
-//                                
-//                                let matchedIndex = self.accountList.firstIndex(where: {($0.id?.elementsEqual(docId))!})
-//                                if (matchedIndex != nil){
-//                                    self.accountList[matchedIndex!] = account
-//                                }
-//                            }
-//                            
-//                            if docChange.type == .removed{
-//                                let docId = docChange.document.documentID
-//                                
-//                                let matchedIndex = self.accountList.firstIndex(where: {($0.id?.elementsEqual(docId))!})
-//                                if (matchedIndex != nil){
-//                                    self.accountList.remove(at: matchedIndex!)
-//                                }
-//                            }
-//                            
-//                        }catch let error as NSError{
-//                            print(#function, "error while gettting document change", error)
-//                        }
-//                    }
-//                })
-//    }
-//    
-//    func updateAccount(accountTobeUpdated: Account){
-//        self.store.collection(COLLECTION_NAME).document(accountTobeUpdated.id!)
-//            .updateData(["image" : accountTobeUpdated.image]){ error in
-//                if let error = error{
-//                    print(#function, "error while updating doc" , error)
-//                }else{
-//                    print(#function, "Document successfully updated")
-//                }
-//            }
-//    }
-//    
-//    func deleteAccount(accountToDelete : Account){
-//        self.store.collection(COLLECTION_NAME).document(accountToDelete.id!).delete{error in
-//            if let error = error{
-//                print(#function, "error while deleting doc " , error)
-//            }else{
-//                print(#function, "Document successfully deleted")
-//            }
-//        }
-//    }
-    
 }
-
