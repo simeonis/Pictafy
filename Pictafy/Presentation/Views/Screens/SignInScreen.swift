@@ -26,11 +26,9 @@ struct SignInScreen: View {
                 .fontWeight(.bold)
                 .padding(.init(top: 0, leading: 0, bottom: 20, trailing: 0))
                 
-            Text("Email")
-            Textbox(text: $email, placeholder: Text("Enter Email"))
+            Textbox(header:"Email", text: $email, placeholder: Text("Enter Email"))
             
-            Text("Password")
-            ToggleTextbox(action: {showText.toggle()}, text: $password, showText: showText, placeholder: "Enter Password")
+            ToggleTextbox(header:"Password", action: {showText.toggle()}, text: $password, showText: showText, placeholder: "Enter Password")
             
             SignInSignUpButton(action: {
                 self.fireDBHelper.signIn(email: email, password: password)

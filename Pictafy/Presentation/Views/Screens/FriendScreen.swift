@@ -35,6 +35,15 @@ struct FriendScreen: View {
         }
         .onAppear() { loadData() }
         .navigationBarTitle("Your Friends", displayMode: .inline)
+        .toolbar{
+            ToolbarItemGroup(placement: .navigationBarTrailing){
+                NavigationLink(destination: FriendRequests(), label: {
+                    Image(systemName: "person.fill")
+                })
+                NavigationLink(destination: AddFriend(), label: {
+                    Image(systemName: "plus")
+                })}
+        }
     }
 }
 

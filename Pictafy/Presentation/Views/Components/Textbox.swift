@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct Textbox: View {
+    var header: String
     @Binding var text: String
     var placeholder: Text
     var body: some View {
+        Text(header)
         ZStack{
             if text.isEmpty{
                 placeholder

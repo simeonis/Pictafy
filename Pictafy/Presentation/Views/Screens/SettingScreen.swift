@@ -154,8 +154,7 @@ struct SettingScreen: View {
         .sheet(isPresented: $isShowingPasswordChanger) {
             VStack(alignment: .leading, spacing: 32) {
                 VStack(alignment: .leading) {
-                    Text("New Password")
-                    ToggleTextbox(action: {showNewPassword.toggle()}, text: $newPassword, showText: showNewPassword, placeholder: "Enter New Password")
+                    ToggleTextbox(header:"New Password",action: {showNewPassword.toggle()}, text: $newPassword, showText: showNewPassword, placeholder: "Enter New Password")
                     Text(passwordError).foregroundColor(.red)
                 }
                 PictafyButton(text: "Confirm", action: { changePassword() })
