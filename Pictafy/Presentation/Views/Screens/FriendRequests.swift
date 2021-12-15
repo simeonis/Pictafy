@@ -12,8 +12,6 @@ struct FriendRequests: View {
     @EnvironmentObject var fireDBHelper : FireDBHelper
     @State private var friendSelected : Int = 0
     @State private var friendList : [Account] = []
-    
-    
     // onAppear
     func loadData() {
         fireDBHelper.getCurrentFriendRequests() { friendAccounts in
@@ -42,9 +40,3 @@ struct FriendRequests: View {
             .onAppear() { loadData() }
         }
 }
-
-//struct FriendRequests_Previews: PreviewProvider {
-//    static var previews: some View {
-//        FriendRequests()
-//    }
-//}

@@ -14,24 +14,22 @@ struct FriendRequestCard: View {
     @EnvironmentObject var fireDBHelper : FireDBHelper
     @State private var id : String = "9R7h0hAbd2ToZT0WANYA"
     
+    
     func addFriend(){
         
-        fireDBHelper.getAccount(){account in
+        fireDBHelper.getCurrentAccount(){account in
             id = account.id ?? ""
+            
+            fireDBHelper.addFriend(userId: id, friendId: friend.id ?? "")
+    
         }
-        
-        print("ME \(id)")
-        print("Friend: \(String(describing: friend.id))")
-        
-        fireDBHelper.addFriend(userId: id, friendId: friend.id ?? "")
-        
-        
+    
     }
     
     func declineRequest(){
         fireDBHelper.deleteRequest(userId: id, friendId: friend.id ?? "")
+ 
     }
-    
     
     var body: some View {
         HStack{

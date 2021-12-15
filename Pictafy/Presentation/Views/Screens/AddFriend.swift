@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct AddFriend: View {
-    @State var username: String = ""
+    @State var email: String = ""
     @State private var showingAlert = false
     @EnvironmentObject var fireDBHelper : FireDBHelper
     
     func sendRequest(){
+        fireDBHelper.sendFriendRequest(email: email)
         print("success!")
         showingAlert = true
     }
@@ -20,7 +21,7 @@ struct AddFriend: View {
     var body: some View {
         NavigationView{
             VStack{
-                Textbox(header: "Enter Friend's Username", text: $username, placeholder: Text("Enter Username"))
+                Textbox(header: "Enter Friend's Email", text: $email, placeholder: Text("Enter Email"))
                 PictafyButton(text: "Send Request", action: { sendRequest() })
                     .padding(.top,20)
                     .alert(isPresented: $showingAlert) {
