@@ -36,15 +36,15 @@ struct SignUpScreen: View {
                 .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                 .padding(.init(top: 0, leading: 0, bottom: 20, trailing: 0))
         
-            Textbox(text: $fullname, placeholder: Text("Full name"))
+            Textbox(header: "Full name", text: $fullname, placeholder: Text("Full name"))
             
-            Textbox(text: $username, placeholder: Text("Username"))
+            Textbox(header: "Username", text: $username, placeholder: Text("Username"))
             
-            Textbox(text: $email, placeholder: Text("Email"))
+            Textbox(header: "Email", text: $email, placeholder: Text("Email"))
             
-            ToggleTextbox(action: {showText.toggle()}, text: $password, showText: showText, placeholder: "Enter Password")
+            ToggleTextbox(header: "Enter Password", action: {showText.toggle()}, text: $password, showText: showText, placeholder: "Enter Password")
             
-            ToggleTextbox(action: {showText2.toggle()}, text: $repassword, showText: showText2, placeholder: "Re-Enter Password")
+            ToggleTextbox(header: "Re-Enter Password", action: {showText2.toggle()}, text: $repassword, showText: showText2, placeholder: "Re-Enter Password")
             
             SignInSignUpButton(action: createAccount, text: "Sign up")
             
@@ -57,10 +57,11 @@ struct SignUpScreen: View {
                         .foregroundColor(.ui.primaryColor)
                         .fontWeight(.bold)
                 }
-            } .frame(width: UIScreen.main.bounds.width - 60, height: 200,alignment: .bottom )
+            } .frame(width: UIScreen.main.bounds.width - 60, height: 70,alignment: .bottom )
             
         }).padding().padding()
         .navigationBarBackButtonHidden(true)
+        .padding(.bottom,100)
         .onReceive(fireDBHelper.$signUpSuccess) { success in
             if success{
                  _selection = 1

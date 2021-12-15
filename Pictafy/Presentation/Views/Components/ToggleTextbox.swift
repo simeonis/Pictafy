@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ToggleTextbox: View {
+    var header: String
     var action : () -> Void
     @Binding var text : String
     var showText: Bool
@@ -19,9 +20,8 @@ struct ToggleTextbox: View {
         //For hiding/showing the password:
         //Two TextFields; change SecureField opacity and show/hide a Text
         //A known issue for this approach: when password is shown, SecureField has 0.0 opacity, so input cursor is not visible, but users can still keep typing without losing keyboard focus
-        
+        Text(header)
         HStack{
-            
             ZStack {
               SecureField(placeholder, text: $text, onCommit: {
                   onCommit?()
