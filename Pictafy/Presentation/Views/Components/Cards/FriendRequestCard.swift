@@ -3,7 +3,7 @@
 //  Pictafy
 //
 //  Created by Temari Uchiha on 2021-12-14.
-//
+//  Group - 2: Shae Simeoni: zpa9, Rita Singh: 991573398, Seth Climenhaga: 991599894
 
 import SwiftUI
 import FirebaseAuth
@@ -14,21 +14,17 @@ struct FriendRequestCard: View {
     @EnvironmentObject var fireDBHelper : FireDBHelper
     @State private var id : String = "9R7h0hAbd2ToZT0WANYA"
     
-    
     func addFriend(){
         
         fireDBHelper.getCurrentAccount(){account in
             id = account.id ?? ""
             
             fireDBHelper.addFriend(userId: id, friendId: friend.id ?? "")
-    
         }
-    
     }
     
     func declineRequest(){
         fireDBHelper.deleteRequest(userId: id, friendId: friend.id ?? "")
- 
     }
     
     var body: some View {
@@ -66,20 +62,20 @@ struct FriendRequestCard: View {
                     }
                 }
                 .background(Color.red)
-                                .cornerRadius(8)
-                                .shadow(color: Color.gray, radius: 3, x: 0, y: 2)
-                            }.padding(.leading,30)
-
-                        }
-                        .frame(width: UIScreen.main.bounds.width - 92,alignment: .leading)        .padding()
-                        .padding(.leading,20)
-
-                        .overlay(RoundedRectangle(cornerRadius: 10)
-                                    .stroke(Color.white)
-                                    .foregroundColor(.clear))
-                        .background(Color.white
-                                        .cornerRadius(10)
-                                        .shadow(color: Color.gray, radius: 3, x: 0, y: 2)
-                        )
-                    }
-                }
+                .cornerRadius(8)
+                .shadow(color: Color.gray, radius: 3, x: 0, y: 2)
+            }.padding(.leading,30)
+            
+        }
+        .frame(width: UIScreen.main.bounds.width - 92,alignment: .leading)        .padding()
+        .padding(.leading,20)
+        
+        .overlay(RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color.white)
+                    .foregroundColor(.clear))
+        .background(Color.white
+                        .cornerRadius(10)
+                        .shadow(color: Color.gray, radius: 3, x: 0, y: 2)
+        )
+    }
+}

@@ -3,7 +3,7 @@
 //  Pictafy
 //
 //  Created by Shae Simeoni on 2021-10-30.
-//
+//  Group - 2: Shae Simeoni: zpa9, Rita Singh: 991573398, Seth Climenhaga: 991599894
 
 import SwiftUI
 import Firebase
@@ -37,7 +37,6 @@ struct PictafyApp: App {
             VStack{
                 if(self.showHome && self.isSignedIn){
                     HomeScreen()
-                
                 }
                 else{
                     WelcomeScreen()
@@ -53,10 +52,6 @@ struct PictafyApp: App {
             .onReceive(fireDBHelper.$signedIn){ s in
                 self.isSignedIn = s
             }
-            
-          
-
         }
-        
     }
 }

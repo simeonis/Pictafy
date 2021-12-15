@@ -3,13 +3,12 @@
 //  Pictafy
 //
 //  Created by Seth Climenhaga on 2021-11-13.
-//
+//  Group - 2: Shae Simeoni: zpa9, Rita Singh: 991573398, Seth Climenhaga: 991599894
 
 import Foundation
 import SwiftUI
 
 struct CameraScreen: View {
-    
     
     @StateObject var cameraUserEvents = CameraUserEvents()
     

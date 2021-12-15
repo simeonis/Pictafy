@@ -3,7 +3,7 @@
 //  Pictafy
 //
 //  Created by Seth Climenhaga on 2021-11-17.
-//
+//  Group - 2: Shae Simeoni: zpa9, Rita Singh: 991573398, Seth Climenhaga: 991599894
 
 import SwiftUI
 

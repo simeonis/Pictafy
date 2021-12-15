@@ -3,7 +3,7 @@
 //  Pictafy
 //
 //  Created by Shae Simeoni on 2021-11-20.
-//
+//  Group - 2: Shae Simeoni: zpa9, Rita Singh: 991573398, Seth Climenhaga: 991599894
 
 import SwiftUI
 
@@ -30,7 +30,7 @@ struct FriendScreen: View {
                     }
                 }
             } else {
-                Text("You friends list is empty")
+                Text("Your friends list is empty")
             }
         }
         .onAppear() { loadData() }

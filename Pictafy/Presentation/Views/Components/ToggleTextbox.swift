@@ -3,7 +3,7 @@
 //  Pictafy
 //
 //  Created by Temari Uchiha on 2021-11-25.
-//
+//  Group - 2: Shae Simeoni: zpa9, Rita Singh: 991573398, Seth Climenhaga: 991599894
 
 import SwiftUI
 
@@ -18,8 +18,7 @@ struct ToggleTextbox: View {
     var body: some View {
         
         //For hiding/showing the password:
-        //Two TextFields; change SecureField opacity and show/hide a Text
-        //A known issue for this approach: when password is shown, SecureField has 0.0 opacity, so input cursor is not visible, but users can still keep typing without losing keyboard focus
+        //Two TextFields; change SecureField opacity to show/hide text
         Text(header)
         HStack{
             ZStack {
