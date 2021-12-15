@@ -28,3 +28,6 @@ Exploring a new area can often be stressful as you are unsure of what to do or w
 * Push notifications
 * Friends list
 
+#Screen Shots
+
+https://user-images.githubusercontent.com/56656904/146266197-feee06a1-8267-4711-a105-61280177e0f4.PNG
