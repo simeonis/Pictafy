@@ -36,15 +36,10 @@ struct FriendRequests: View {
                         }
                     }
                 } else {
-                    Text("You friends list is empty")
+                    Text("You currently have no friend requests")
                 }
             }
             .onAppear() { loadData() }
         }
 }
 
-//struct FriendRequests_Previews: PreviewProvider {
-//    static var previews: some View {
-//        FriendRequests()
-//    }
-//}

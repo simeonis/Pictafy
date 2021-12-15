@@ -7,6 +7,11 @@
 
 import SwiftUI
 
+struct Alerts: Identifiable {
+    var id: String { name }
+    let name: String
+}
+
 struct SignUpScreen: View {
     @EnvironmentObject var fireDBHelper : FireDBHelper
     @State private var _selection: Int? = nil
@@ -17,6 +22,7 @@ struct SignUpScreen: View {
     @State var email: String = ""
     @State var password: String = ""
     @State var repassword: String = ""
+    @State private var selectedAlert: Alerts?
     
     func createAccount() {
         self.fireDBHelper.createAccount(email: email, password: password) { success in
@@ -46,7 +52,17 @@ struct SignUpScreen: View {
             
             ToggleTextbox(header: "Re-Enter Password", action: {showText2.toggle()}, text: $repassword, showText: showText2, placeholder: "Re-Enter Password")
             
-            SignInSignUpButton(action: createAccount, text: "Sign up")
+            SignInSignUpButton(action: {
+                if username == "" || fullname == "" || email == "" || password == "" || repassword == "" {
+                    selectedAlert = Alerts(name: "Please fill out all fields")
+                    
+                }
+                if password != repassword{
+                    selectedAlert = Alerts(name: "Passwords must match")                }
+                createAccount()
+                
+            }
+               , text: "Sign up")
             
             HStack{
                 Text("Already have an account?")
@@ -60,6 +76,11 @@ struct SignUpScreen: View {
             } .frame(width: UIScreen.main.bounds.width - 60, height: 70,alignment: .bottom )
             
         }).padding().padding()
+
+        .alert(item: $selectedAlert) { show in
+                    Alert(title: Text(show.name), dismissButton: .cancel())
+                }
+        
         .navigationBarBackButtonHidden(true)
         .padding(.bottom,100)
         .onReceive(fireDBHelper.$signUpSuccess) { success in
@@ -67,7 +88,6 @@ struct SignUpScreen: View {
                  _selection = 1
 
             }
-
         }
     }
 }
