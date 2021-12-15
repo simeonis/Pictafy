@@ -128,8 +128,52 @@ class FireDBHelper: ObservableObject {
                 let document = querySnapshot!.documents.first
                 if (document != nil) {
                     completion(Account(id: document!.documentID, dictionary: document!.data()))
+                    //self.account = Account(id: document!.documentID, dictionary: document!.data())
+                }
+            }
+        }
+    }
+    
+    func getAccount(completion: @escaping (Account) -> Void) {
+        let user = Auth.auth().currentUser
+        let ref = store.collection(COLLECTION_ACCOUNT).whereField("email", isEqualTo: user?.email ?? "")
+        
+        ref.getDocuments { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting document(s): \(err)")
+                completion(Account())
+            } else {
+                let document = querySnapshot!.documents.first
+                if (document != nil) {
                     self.account = Account(id: document!.documentID, dictionary: document!.data())
                 }
+            }
+        }
+    }
+    
+    func getCurrentFriendRequests(completion: @escaping ([Account]) -> Void) {
+        self.getCurrentAccount() { account in
+            let group = DispatchGroup()
+            var friendAccounts : [Account] = []
+            // For each friend document ID, convert into Account
+            account.friendRequests.forEach { friendDocID in
+                group.enter() // Started async request (get from Firebase)
+                let friendRef = self.store.collection(self.COLLECTION_ACCOUNT).document(friendDocID)
+                friendRef.getDocument() { (document, error) in
+                    if let document = document {
+                        if (document.data() != nil) {
+                            friendAccounts.append(Account(id: document.documentID, dictionary: document.data()!))
+                        }
+                    } else {
+                        print("Document does not exist")
+                    }
+                    group.leave() // Finished async request
+                }
+            }
+            
+            // Wait for all request to finish
+            group.notify(queue: .main) {
+                completion(friendAccounts)
             }
         }
     }
@@ -159,6 +203,15 @@ class FireDBHelper: ObservableObject {
                 completion(friendAccounts)
             }
         }
+    }
+    
+    func allAccounts(completion: @escaping (Account) -> Void){
+        var accounts : [Account] = []
+        store.collection(COLLECTION_ACCOUNT).document()
+    }
+    
+    func sendFriendRequest(id : String){
+    
     }
     
     func getFriendsPost(completion: @escaping ([Post]) -> Void) {
@@ -294,7 +347,19 @@ class FireDBHelper: ObservableObject {
         return GFUtils.geoHash(forLocation: location)
     }
     
+    func deleteRequest(userId: String, friendId: String){
+        let ref = store.collection(COLLECTION_ACCOUNT).document(userId)
+        ref.updateData([
+            "friendRequests": FieldValue.arrayRemove([friendId])
+        ])
+    }
     
+    func addFriend(userId: String, friendId: String){
+        let ref = store.collection(COLLECTION_ACCOUNT).document(userId)
+        ref.updateData([
+            "friendRequests": FieldValue.arrayUnion([friendId])
+        ])
+    }
     
     func geoQuery(center : CLLocationCoordinate2D) {
         

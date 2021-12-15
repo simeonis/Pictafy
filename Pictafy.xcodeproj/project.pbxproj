@@ -38,6 +38,9 @@
 		A2367CEF273CC40800DC28B3 /* SignInScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2367CEE273CC40800DC28B3 /* SignInScreen.swift */; };
 		A24BB34E275B012B00B65FE8 /* Pictafy.xcworkspace in Resources */ = {isa = PBXBuildFile; fileRef = A24BB34D275B012B00B65FE8 /* Pictafy.xcworkspace */; };
 		A24BB352275B036F00B65FE8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A24BB351275B036F00B65FE8 /* GoogleService-Info.plist */; };
+		A29795F927699FFB002447E0 /* FriendRequestCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29795F827699FFB002447E0 /* FriendRequestCard.swift */; };
+		A29795FB2769A13D002447E0 /* AddFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29795FA2769A13D002447E0 /* AddFriend.swift */; };
+		A29795FD2769A153002447E0 /* FriendRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29795FC2769A153002447E0 /* FriendRequests.swift */; };
 		EA9FE7855539525D63D69D2A /* Pods_Pictafy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DEF893F1470DCDDB5B386B7 /* Pods_Pictafy.framework */; };
 		F01BFA50275F217300542953 /* ScreenCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01BFA4F275F217300542953 /* ScreenCard.swift */; };
 		F01BFA52275F219C00542953 /* CardFormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01BFA51275F219C00542953 /* CardFormField.swift */; };
@@ -95,6 +98,9 @@
 		A2367CEE273CC40800DC28B3 /* SignInScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInScreen.swift; sourceTree = "<group>"; };
 		A24BB34D275B012B00B65FE8 /* Pictafy.xcworkspace */ = {isa = PBXFileReference; lastKnownFileType = wrapper.workspace; path = Pictafy.xcworkspace; sourceTree = "<group>"; };
 		A24BB351275B036F00B65FE8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		A29795F827699FFB002447E0 /* FriendRequestCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequestCard.swift; sourceTree = "<group>"; };
+		A29795FA2769A13D002447E0 /* AddFriend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriend.swift; sourceTree = "<group>"; };
+		A29795FC2769A153002447E0 /* FriendRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequests.swift; sourceTree = "<group>"; };
 		A6045588E42E698213835D96 /* Pods-Pictafy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pictafy.debug.xcconfig"; path = "Target Support Files/Pods-Pictafy/Pods-Pictafy.debug.xcconfig"; sourceTree = "<group>"; };
 		F01BFA4F275F217300542953 /* ScreenCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenCard.swift; sourceTree = "<group>"; };
 		F01BFA51275F219C00542953 /* CardFormField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFormField.swift; sourceTree = "<group>"; };
@@ -278,6 +284,8 @@
 				F02D57662745991400DD6850 /* WelcomeScreen.swift */,
 				F0EE477A2749BA2100A1C755 /* FriendScreen.swift */,
 				F0ABE86927658C2700201742 /* PostScreen.swift */,
+				A29795FA2769A13D002447E0 /* AddFriend.swift */,
+				A29795FC2769A153002447E0 /* FriendRequests.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -288,6 +296,7 @@
 				F0EE477C2749BB1B00A1C755 /* FriendCard.swift */,
 				F01BFA4F275F217300542953 /* ScreenCard.swift */,
 				F01BFA51275F219C00542953 /* CardFormField.swift */,
+				A29795F827699FFB002447E0 /* FriendRequestCard.swift */,
 			);
 			path = Cards;
 			sourceTree = "<group>";
@@ -491,9 +500,11 @@
 				5D0DEACE276A2AEB00E6A124 /* TabController.swift in Sources */,
 				F02D57672745991400DD6850 /* WelcomeScreen.swift in Sources */,
 				A21E451C274DDA1B00462E66 /* SignUpScreen.swift in Sources */,
+				A29795FB2769A13D002447E0 /* AddFriend.swift in Sources */,
 				5DF4F4732758015500711760 /* CornerRadius.swift in Sources */,
 				F02D57672745991400DD6850 /* WelcomeScreen.swift in Sources */,
 				5DE9E1D9274FE4330032CEC5 /* TagCloud.swift in Sources */,
+				A29795FD2769A153002447E0 /* FriendRequests.swift in Sources */,
 				5DFFEC94274ED01C002273F4 /* BlurView.swift in Sources */,
 				5D40C5F92741BB3500D7EF52 /* CreatePostScreen.swift in Sources */,
 				5DBEC167273D8E2E0010812C /* CameraPreview.swift in Sources */,
@@ -536,6 +547,7 @@
 				F0D3FCBD2767189E000166E1 /* PictafyButton.swift in Sources */,
 				5DE9E1D7274FC95E0032CEC5 /* PlaceholderModifer.swift in Sources */,
 				F05CB5C1272E0F6F00EC951C /* PictafyApp.swift in Sources */,
+				A29795F927699FFB002447E0 /* FriendRequestCard.swift in Sources */,
 				5DE5E4AA27408FBB00B84C06 /* LocationService.swift in Sources */,
 				5DE5E4A827408E4300B84C06 /* Post.swift in Sources */,
 			);
