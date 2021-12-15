@@ -35,7 +35,7 @@ Exploring a new area can often be stressful as you are unsure of what to do or w
 ![SignUp](https://user-images.githubusercontent.com/56656904/146266870-8f44b3d4-7064-405b-8bc5-d7d0472f08a4.png)
 ### Login
 ![Login](https://user-images.githubusercontent.com/56656904/146267820-a5f5ec82-d00e-40e5-ac24-78837dbc6cb4.png)
-###Home
+### Home
 ![FriendsList](https://user-images.githubusercontent.com/56656904/146266864-94109d5e-3c55-4dd7-9568-8d62fe1b0b8f.png)
 ### Add Friend
 ![AddFriend](https://user-images.githubusercontent.com/56656904/146266839-0a3233fb-2cc2-488e-bccd-1d3273112adc.png)
