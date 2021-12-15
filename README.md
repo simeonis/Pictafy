@@ -33,12 +33,16 @@ Exploring a new area can often be stressful as you are unsure of what to do or w
 ![LoginScreen](https://user-images.githubusercontent.com/56656904/146266865-430ad998-668b-4f1a-a84b-77b6dfcb8022.png)
 ### Signup
 ![SignUp](https://user-images.githubusercontent.com/56656904/146266870-8f44b3d4-7064-405b-8bc5-d7d0472f08a4.png)
+### Login
+![Login](https://user-images.githubusercontent.com/56656904/146267820-a5f5ec82-d00e-40e5-ac24-78837dbc6cb4.png)
+###Home
+![FriendsList](https://user-images.githubusercontent.com/56656904/146266864-94109d5e-3c55-4dd7-9568-8d62fe1b0b8f.png)
 ### Add Friend
 ![AddFriend](https://user-images.githubusercontent.com/56656904/146266839-0a3233fb-2cc2-488e-bccd-1d3273112adc.png)
 ### Friend Request
 ![FriendRequest](https://user-images.githubusercontent.com/56656904/146266862-8aea14a6-30b9-4c52-ac0b-36115ffe80d7.png)
 ### Friend List
-![FriendsList](https://user-images.githubusercontent.com/56656904/146266864-94109d5e-3c55-4dd7-9568-8d62fe1b0b8f.png)
+![FriendsList1](https://user-images.githubusercontent.com/56656904/146267824-526f5ad6-c83a-46e3-a260-93b16ba7aa71.png)
 ### Camera
 ![Camera](https://user-images.githubusercontent.com/56656904/146266842-65ef932c-109e-47a8-8501-659e39bd309f.PNG)
 ### CreatePost
